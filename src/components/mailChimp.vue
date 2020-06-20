@@ -37,7 +37,7 @@
                   class="py-3 px-4 bg-gray-700 text-gray-100 font-semibold uppercase hover:bg-gray-600"
                   type="submit"
                 >
-                  Submit
+                  >
                 </button>
                 <div v-if="error">{{ error }}</div>
                 <div v-if="success">Yay!</div>

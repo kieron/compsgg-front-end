@@ -1,8 +1,8 @@
 <template>
   <div class="giveaway">
     <navbar />
-    <section class="bg-primary py-10">
-      <div class="px-5 py-1 md:py-8 mx-auto bg-middle container md:shadow-lg rounded-lg overflow-hidden md:flex border-solid">
+    <section class="bg-middle md:bg-primary py-5 px-4 md:px-8">
+      <div class="md:p-8 mx-auto bg-middle container md:shadow-lg rounded-lg overflow-hidden md:flex border-solid">
         <info />
       </div>
     </section>

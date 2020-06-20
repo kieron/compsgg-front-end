@@ -8,6 +8,7 @@ import '@/assets/js/app.js'
 import VueGtag from "vue-gtag";
 
 
+
 if (process.env.NODE_ENV === 'production') {
   Vue.use(VueGtag, {
     config: { id: "UA-84362939-10" }
