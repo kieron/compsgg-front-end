@@ -26,9 +26,9 @@ export default {
   },
 metaInfo () {
   return {
-    title: 'Giveaways & Competitions | Comps.gg',
+    title: 'Competitions & Giveaways | Comps.gg',
     meta: [
-      { name: 'description', content: 'Find & Win giveaways and competitions from all over the web on Comps.gg' }
+      { name: 'description', content: 'Find & Win Competitions & Giveaways from all over the web on Comps.gg' }
     ]
   }
 }

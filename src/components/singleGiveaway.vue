@@ -20,7 +20,7 @@
               v-bind:src="giveaway.twitterProfileImage"
             />
             <div class="font-bold text-gray-600 inline-block align-middle">
-              <a class="inline-block align-middle tracking-widest"
+              <a class="inline-block align-middle tracking-widest header-font"
                 v-if="giveaway.display_name"
                 target="_blank"
                 v-bind:href="giveaway.twitterProfileUrl"
@@ -43,7 +43,7 @@
         <div
           class="py-2 px-5 w-full bg-lighter rounded-lg md:mb-0 flex flex-row items-center md:mt-0 mt-2 flex justify-between flex-wrap"
         >
-          <span class="text-lg font-bold mr-2 text-gray-600 tracking-widest">Share</span>
+          <span class="text-lg font-bold mr-2 text-gray-600 tracking-widest header-font">Share</span>
           <a
             v-bind:href="
                   'https://twitter.com/intent/tweet/?text=Check out this giveaway on Comps.gg: ' +
@@ -216,7 +216,7 @@ export default {
   return {
     title: this.metaTitle + ' Giveaway | Comps.gg',
     meta: [
-      { name: 'description', content: this.metaTitle + ' Giveaway on, Comps.gg. Find Giveaways and Competitions from all over the web.' },
+      { name: 'description', content: this.metaTitle + ' Giveaway on, Comps.gg. Find Competitions & Giveaways from all over the web.' },
     ]
   }
 },

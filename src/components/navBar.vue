@@ -3,7 +3,7 @@
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
       <div class="pl-4 flex items-center">
         <img class="w-10  h-10"  src="/img/logo-small.png" alt="">
-        <router-link :to="'/'" class="toggleColour text-indigo-100 no-underline hover:no-underline font-bold text-2xl lg:text-4xl tracking-widest header-font">Comps.gg</router-link>
+        <router-link :to="'/'" class="toggleColour text-indigo-100 no-underline hover:no-underline font-bold text-2xl lg:text-4xl tracking-wide uppercase header-font">Comps.gg</router-link>
  
       </div>
 

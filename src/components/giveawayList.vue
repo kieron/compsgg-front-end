@@ -18,14 +18,14 @@
                 <div class="p-4 md:p-5">
                   <div class="flex justify-between items-center">
                     <div>
-                      <p class="font-bold text-md md:text-2xl text-indigo-100 header-font tracking-widest">
+                      <p class="font-bold text-md md:text-2xl lg:text-3xl text-indigo-100 header-font tracking-wide">
                         {{ giveaway.name }}
                       </p>
 
                       <div v-if="giveaway.tweet_created_at" class="text-sm text-gray-600 block flex items-center mb-2">
                         <svg class="inline-block align-middle w-5 h-5 mr-1" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
                 <path d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                        <span class="inline-block align-middle">{{ giveaway.tweet_created_at }}</span>
+                         <span class="inline-block align-middle">Added 20/06/20 <!--{{ giveaway.tweet_created_at }}--></span> 
                       </div>
                       <div class="flex items-center mb-3 ">
                         <div class="flex justify-between items-center">
@@ -51,7 +51,7 @@
                     </div>
                     <router-link
                       :to="'/giveaway/' + giveaway.id"
-                      class="ml-5 mt-3 sm:mt-0 py-2 px-5 md:py-2 md:px-6 bg-indigo-500 hover:bg-indigo-200 font-bold hover:text-indigo-800 text-white rounded-lg shadow-md"
+                      class="ml-5 mt-3 sm:mt-0 py-1 px-3 md:py-1 md:px-4 bg-indigo-500 hover:bg-indigo-200 font-bold hover:text-indigo-800 text-white rounded-lg shadow-md"
                       >Open</router-link
                     >
                   </div>
