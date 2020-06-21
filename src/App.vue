@@ -9,10 +9,28 @@
 /** {
   font-family: 'Arimo', sans-serif;
 }*/
-h1,h2,h3,h4,h5,h6, .header-font, button {
-  font-family: 'Staatliches', cursive;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.header-font,
+button {
+  font-family: "Staatliches", cursive;
+}
+.responsive-iframe {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
 }
 
+input:checked + svg {
+  display: block;
+}
 /* body, .gradient {
   /* background: linear-gradient(90deg, #d53369 0%, #daae51 100%); 
   background: linear-gradient(90deg, #4c51bf 0%, #06a4cb 100%);

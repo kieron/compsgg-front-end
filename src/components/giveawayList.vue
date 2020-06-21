@@ -11,20 +11,36 @@
           <div
             v-for="giveaway in giveaways"
             :key="giveaway.id"
-            class="w-full px-2 mb-5  transition transform hover:-translate-y-2 duration-100 ease-out "
+            class="w-full px-2 mb-5 transition transform hover:-translate-y-2 duration-100 ease-out"
           >
             <div
+              v-bind:class="{ 'opacity-25': giveaway.completed }"
               class="bg-middle shadow-sm hover:shadow-md hover:bg-primary transition duration-300 transform rounded-lg overflow-hidden md:flex border-solid border-l-8 border-indigo-500 hover:border-indigo-200"
             >
               <router-link :to="'/giveaway/' + giveaway.id" class="w-full">
                 <div class="px-3 py-2 md:p-3 lg:p-4">
                   <div class="flex justify-between items-center">
                     <div class="w-full">
-                      <p
-                        class="font-medium text-md md:text-lg lg:text-2xl text-indigo-100 header-font tracking-widest"
-                      >
+                      <div class="flex items-center flex-wrap "><p class="font-medium text-lg  lg:text-2xl text-indigo-100 header-font tracking-widest mr-2">
                         {{ giveaway.name }}
                       </p>
+                      <div class="flex items-center" v-if="giveaway.boost">
+                      <svg
+                        class="inline-block align-middle md:w-5 md:h-5 w-4 h-4 mr-1 text-yellow-300"
+                        fill="none"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                        ></path>
+                      </svg>
+                      <p class="text-yellow-300 md:text-sm text-xs uppercase">Boosted Post!</p>
+                      </div>
+                      </div>
                       <div
                         v-if="giveaway.verified_twitter"
                         class="inline text-xs text-gray-600 items-center mr-2"
@@ -118,7 +134,19 @@
                         v-if="giveaway.rt_required"
                         class="inline text-xs text-gray-600 items-center mb-2 mr-2"
                       >
-                        <svg class="inline-block align-middle w-4 h-4 mr-1" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+                        <svg
+                          class="inline-block align-middle w-4 h-4 mr-1"
+                          fill="none"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                          ></path>
+                        </svg>
 
                         <span class="inline-block align-middle"
                           >'ReTweet' Required</span
@@ -128,17 +156,15 @@
                       <div class="flex items-center my-3 hidden lg:block">
                         <div class="flex justify-between items-center">
                           <div class="flex flex-row-reverse justify-end">
-                            <p
-                              class="text-indigo-100 tracking-widest text-sm"
-                            >
+                            <p class="text-indigo-100 tracking-widest text-sm">
                               {{ giveaway.description }}
                             </p>
                           </div>
                         </div>
                       </div>
-                      <hr class="opacity-25 my-2 hidden md:block">
+                      <hr class="opacity-25 my-2 hidden md:block" />
                       <div
-                        class="font-medium text-gray-600 text-md header-font tracking-widest md:mt-0 mt-3"
+                        class="font-medium text-gray-600 text-sm md:text-lg header-font tracking-widest md:mt-0 mt-3"
                       >
                         <img
                           v-if="giveaway.twitterProfileImage"
@@ -210,11 +236,13 @@
 <script>
 var moment = require("moment");
 moment().format();
+
 export default {
   data() {
     return {
       giveaways: [],
       loading: true,
+      markedAsDone: [],
     };
   },
   methods: {
@@ -223,10 +251,23 @@ export default {
         let response = await this.$http.get(
           "giveaways?published=true&_sort=created_at:desc&_limit=50"
         );
+
         this.giveaways = response.data.map((item) => ({
           ...item,
           created_at: moment(item.created_at).format("DD/MM/YY"),
         }));
+
+        let markedAsDone = localStorage.getItem("markedAsDone");
+
+        if (markedAsDone != null) {
+          this.giveaways.forEach(function(item) {
+            item.completed = markedAsDone.includes(item.id) ? true : false;
+          });
+        }
+
+        this.giveaways.sort((a, b) => Number(b.boost) - Number(a.boost));
+
+        console.log(Array.isArray(this.giveaways));
       } catch (err) {
         console.log(err);
       } finally {
