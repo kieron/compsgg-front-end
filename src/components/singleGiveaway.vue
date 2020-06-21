@@ -16,7 +16,7 @@
         >
           {{ giveaway.name }}
         </p>
-        <div class="flex items-end justify-end p-1 md:p-0">
+        <div class="flex items-end justify-end py-1 md:py-0 mb-1 md:mb-0">
           <label class="flex items-center">
             <div
               class="select-none text-lg font-medium text-gray-600 inline align-middle header-font tracking-widest"
