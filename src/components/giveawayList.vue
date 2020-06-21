@@ -248,9 +248,7 @@ export default {
   methods: {
     async getAllGiveAways() {
       try {
-        let response = await this.$http.get(
-          "giveaways?published=true&_sort=created_at:desc&_limit=50"
-        );
+        let response = await this.$http.get("giveaways?published=true&_sort=created_at:desc&_limit=50");
 
         this.giveaways = response.data.map((item) => ({
           ...item,
@@ -267,7 +265,6 @@ export default {
 
         this.giveaways.sort((a, b) => Number(b.boost) - Number(a.boost));
 
-        console.log(Array.isArray(this.giveaways));
       } catch (err) {
         console.log(err);
       } finally {

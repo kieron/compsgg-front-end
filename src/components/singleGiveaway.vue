@@ -19,7 +19,7 @@
         <div class="flex items-end justify-end p-1 md:p-0">
           <label class="flex items-center">
             <div
-              class="select-none text-lg font-bold text-gray-600 inline align-middle header-font tracking-widest"
+              class="select-none text-lg font-medium text-gray-600 inline align-middle header-font tracking-widest"
             >
               Mark as done
             </div>
@@ -118,21 +118,21 @@
           </div>
 
           <div class="flex items-center" v-if="giveaway.boost">
-                      <svg
-                        class="inline-block align-middle md:w-5 md:h-5 w-4 h-4 mr-1 text-yellow-300"
-                        fill="none"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                        ></path>
-                      </svg>
-                      <p class="text-yellow-300 ">Boosted Post!</p>
-                      </div>
+            <svg
+              class="inline-block align-middle md:w-5 md:h-5 w-4 h-4 mr-1 text-yellow-300"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+              ></path>
+            </svg>
+            <p class="text-yellow-300 ">Boosted Post!</p>
+          </div>
         </div>
         <div
           class="py-1 px-2 w-full bg-lighter rounded-lg md:mb-0 flex flex-row items-center md:mt-0 mt-2 flex justify-between flex-wrap border border-indigo-200 border-opacity-25"
@@ -248,10 +248,13 @@
         </div>
         <div v-if="giveaway.like_required || giveaway.rt_required">
           <p class="mb-2">
-            This giveaway requires may you to
+            This giveaway may requires you to
             <span v-if="giveaway.like_required">like</span>
             <span v-if="giveaway.like_required && giveaway.rt_required">/</span>
-            <span v-if="giveaway.rt_required">retweet</span> a tweet, you can use the links below to do that, or open the tweet to do it manually. Be sure to check the description we found below, for any additional information!
+            <span v-if="giveaway.rt_required">retweet</span> a tweet, you can
+            use the links below to do that, or open the tweet to do it manually.
+            Be sure to check the description we found below, for any additional
+            information!
           </p>
           <div class="pt-3 flex items-center flex-wrap">
             <a
@@ -341,14 +344,30 @@
       ╚██████╔╝███████╗███████╗██║  ██║██║ ╚═╝ ██║
        ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ 
        -->
-      <a
-        v-if="giveaway.gleam_url"
-        v-bind:href="giveaway.gleam_url"
-        target="_blank"
-        rel="nofollow"
-        class="e-widget mt-3 sm:mt-0 py-2 px-2 md:py-3 md:px-6 bg-indigo-500 hover:bg-indigo-300 font-bold text-white hover:text-gray-800 rounded-lg shadow-md"
-        >Open on Gleam</a
-      >
+      <div class="items-center" id="gleam-housing">
+        <a
+          v-if="giveaway.gleam_url"
+          v-bind:href="giveaway.gleam_url"
+          target="_blank"
+          rel="nofollow"
+          class="e-widget inline text-center items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-3 px-2 mb-2"
+          id="cjecl"
+          ><svg
+            class="inline w-4 h-4 mr-1"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            ></path>
+          </svg>
+          <span class="inline align-middle items-center">Open Giveaway</span></a
+        >
+      </div>
 
       <!--                                                                                       
       ██████╗ ██╗      █████╗ ██╗   ██╗██████╗     ██████╗  ██████╗ 
@@ -405,7 +424,11 @@
         </a>
       </div>
       <div class="flex justify-end">
-      <a class="self-end bg-lighter px-5 py-2 border border-indigo-200 text-gray-600 text-md border-opacity-25 rounded-md cursor-pointer header-font tracking-widest" @click="$router.go(-1)">Go Back</a>
+        <a
+          class="self-end bg-lighter px-5 py-2 mt-4 border border-indigo-200 text-gray-600 text-md border-opacity-25 rounded-md cursor-pointer header-font tracking-widest"
+          @click="$router.go(-1)"
+          >Go Back</a
+        >
       </div>
       <noscript>
         <strong>Please Update Your Browser</strong>
@@ -420,6 +443,15 @@
     </div>
   </div>
 </template>
+
+<!--
+     ██╗ █████╗ ██╗   ██╗ █████╗ ███████╗ ██████╗██████╗ ██╗██████╗ ████████╗
+     ██║██╔══██╗██║   ██║██╔══██╗██╔════╝██╔════╝██╔══██╗██║██╔══██╗╚══██╔══╝
+     ██║███████║██║   ██║███████║███████╗██║     ██████╔╝██║██████╔╝   ██║   
+██   ██║██╔══██║╚██╗ ██╔╝██╔══██║╚════██║██║     ██╔══██╗██║██╔═══╝    ██║   
+╚█████╔╝██║  ██║ ╚████╔╝ ██║  ██║███████║╚██████╗██║  ██║██║██║        ██║   
+ ╚════╝ ╚═╝  ╚═╝  ╚═══╝  ╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝   
+-->
 
 <script>
 var moment = require("moment");
@@ -458,6 +490,7 @@ export default {
         plugin.setAttribute("src", "https://widget.gleamjs.io/e.js");
         plugin.async = true;
         document.head.appendChild(plugin);
+        gleamChecker();
       }
     },
     markAsDone: function(gId) {
@@ -500,4 +533,31 @@ export default {
     };
   },
 };
+
+function gleamChecker() {
+  setTimeout(function() {
+    let gleamButs = document.getElementsByClassName("w-entry-button");
+    gleamButs.forEach((element) => {
+      element.classList.add(
+        "newGleamHook",
+        "inline",
+        "text-center",
+        "items-center",
+        "bg-indigo-500",
+        "hover:bg-indigo-300",
+        "font-medium",
+        "text-white",
+        "hover:text-gray-800",
+        "rounded-lg",
+        "shadow-md",
+        "sm:mt-0",
+        "py-3",
+        "px-3",
+        "mb-2"
+      );
+      element.classList.remove("w-entry-button");
+      element.innerHTML += "<svg class='inline w-5 h-5 ml-2' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' stroke='currentColor'><path d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'></path></svg>";
+    });
+  }, 200);
+}
 </script>

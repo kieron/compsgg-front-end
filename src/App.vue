@@ -31,6 +31,7 @@ button {
 input:checked + svg {
   display: block;
 }
+
 /* body, .gradient {
   /* background: linear-gradient(90deg, #d53369 0%, #daae51 100%); 
   background: linear-gradient(90deg, #4c51bf 0%, #06a4cb 100%);

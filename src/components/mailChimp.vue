@@ -18,14 +18,14 @@
         class="flex items-center justify-center pb-6 md:py-0 md:w-1/2 md:border-b-8 md:bg-gray-100 border-gray-700"
       >
         <mailchimp-subscribe
-          url="https://seekly.us10.list-manage.com/subscribe/post"
-          user-id="abddf2044d40ac995d9e0db23"
-          list-id="603fb50940"
+          url="https://seekly.us10.list-manage.com/subscribe/post-json" 
+          user-id="215c2ca327be2681682def912"
+          list-id="a90b86d2e3"
           @error="onError"
           @success="onSuccess"
         >
           <template v-slot="{ subscribe, setEmail, error, success, loading }">
-            <form @submit.prevent="subscribe">
+            <div><form @submit.prevent="subscribe">
               <div class="flex flex-col rounded-lg overflow-hidden sm:flex-row">
                 <input
                   placeholder="Enter your email"
@@ -34,16 +34,23 @@
                   @input="setEmail($event.target.value)"
                 />
                 <button
-                  class="py-3 px-4 bg-gray-700 text-gray-100 font-semibold uppercase hover:bg-gray-600"
+                  class="py-3 px-4 bg-gray-700 text-gray-100 font-semibold uppercase md:rounded-r-md hover:bg-gray-600"
+                  id="mailSubmit"
                   type="submit"
-                >
                   >
+                  
+                  Submit
                 </button>
-                <div v-if="error">{{ error }}</div>
-                <div v-if="success">Yay!</div>
-                <div v-if="loading">Loading…</div>
+                
               </div>
+
             </form>
+            <div class="flex py-5 pl-2 header-font tracking-widest text-md">
+                  <div v-if="error">{{ error }}</div>
+                  <div v-if="success">You will receive a confirmation email!</div>
+                  <div v-if="loading">Processing...</div>
+                </div>
+                </div>
           </template>
         </mailchimp-subscribe>
       </div>
@@ -63,7 +70,7 @@ export default {
       // handle error
     },
     onSuccess() {
-      // handle success
+     //
     },
   },
 };
