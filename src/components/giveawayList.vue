@@ -259,7 +259,7 @@ export default {
 
         if (markedAsDone != null) {
           this.giveaways.forEach(function(item) {
-            item.completed = markedAsDone.includes(item.id) ? true : false;
+            item.completed = markedAsDone.includes(item.id);
           });
         }
 
