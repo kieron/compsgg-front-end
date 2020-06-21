@@ -1,5 +1,5 @@
 <template>
-  <nav id="header" class="w-full z-30 top-0 text-white bg-middle mb-5">
+  <nav id="header" class="w-full z-30 top-0 text-white bg-middle">
     <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
       <div class="pl-4 flex items-center">
         <img class="w-10  h-10"  src="/img/logo-small.png" alt="">

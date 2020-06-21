@@ -251,7 +251,7 @@
             This giveaway requires may you to
             <span v-if="giveaway.like_required">like</span>
             <span v-if="giveaway.like_required && giveaway.rt_required">/</span>
-            <span v-if="giveaway.rt_required">retweet</span> a tweet, you can use the links below to do that, or open the tweet to do it manually.
+            <span v-if="giveaway.rt_required">retweet</span> a tweet, you can use the links below to do that, or open the tweet to do it manually. Be sure to check the description we found below, for any additional information!
           </p>
           <div class="pt-3 flex items-center flex-wrap">
             <a
