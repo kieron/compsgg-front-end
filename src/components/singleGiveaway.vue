@@ -467,7 +467,6 @@ export default {
       createdDate: "",
       newItemTitle: "",
       completed: false,
-      completeMessage: "",
     };
   },
   methods: {
@@ -480,8 +479,9 @@ export default {
         this.metaTitle = response.data.name;
         this.createdDate = moment(response.data.created_at).format("DD/MM/YY");
         let markedAsDone = localStorage.getItem("markedAsDone");
-        this.completed = markedAsDone.includes(this.giveaway.id) ? true : false;
-        this.completedMessage = this.completed ? "done" : "not done";
+        if (markedAsDone) {
+          this.completed = markedAsDone.includes(this.giveaway.id) ? true : false;
+        }
       } catch (err) {
         console.log(err);
       } finally {
@@ -494,9 +494,7 @@ export default {
       }
     },
     markAsDone: function(gId) {
-      const markedAsDone =
-        JSON.parse(window.localStorage.getItem("markedAsDone")) || {};
-
+      const markedAsDone = JSON.parse(window.localStorage.getItem("markedAsDone")) || {};
       if (markedAsDone[gId]) {
         delete markedAsDone[gId];
         window.localStorage.setItem(

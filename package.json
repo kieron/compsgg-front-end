@@ -1,7 +1,10 @@
 {
-  "name": "seekly-homepage2",
+  "name": "comps-front-end",
   "version": "0.1.0",
   "private": true,
+  "theme_color": "#131c2e",
+  "background_color": "#131c2e",
+  "display": "standalone",
   "scripts": {
     "serve": "vue-cli-service serve",
     "start": "npm run serve",
@@ -15,7 +18,6 @@
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "moment": "^2.27.0",
-    "register-service-worker": "^1.7.1",
     "tailwindcss": "^1.4",
     "vue": "^2.6.11",
     "vue-gtag": "^1.6.5",
