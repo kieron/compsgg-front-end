@@ -3,7 +3,7 @@
     <div class="py-5 md:py-8">
       <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         <div class="flex flex-col w-full md:w-4/5 justify-center items-start text-center md:text-left">
-          <h1 class="my-4 text-3xl md:text-4xl font-bold leading-tight text-indigo-100 tracking-widest uppercase">
+          <h1 class="my-4 text-3xl md:text-4xl font-medium leading-tight text-indigo-100 tracking-widest uppercase">
             Find the best competitions & giveaways
           </h1>
           <p class="leading-normal text-sm md:text-2xl text-indigo-100">

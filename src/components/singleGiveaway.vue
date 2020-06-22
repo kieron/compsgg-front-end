@@ -224,7 +224,7 @@
       <!--   -->
 
       <div v-if="giveaway.description" class="my-5 text-gray-600">
-        <span class="text-lg font-bold text-indigo-100">Requirements</span>
+        <span class="text-lg font-medium text-indigo-100">Requirements</span>
         <hr class="my-2 opacity-25" />
         <div v-if="giveaway.playr_url" class>
           <p class="mb-2">
@@ -331,7 +331,7 @@
       </div>
 
       <div v-if="giveaway.description" class="my-8 text-gray-600">
-        <span class="text-lg font-bold text-indigo-100">Description</span>
+        <span class="text-lg font-medium text-indigo-100">Description</span>
         <hr class="my-2 opacity-25" />
         {{ giveaway.description }}
       </div>
@@ -437,7 +437,7 @@
       </noscript>
       <!-- <a
         href="#"
-        class="mt-3 sm:mt-0 py-2 px-5 md:py-3 md:px-6 bg-red-500 hover:bg-red-300 font-bold text-white hover:text-gray-700 rounded-lg shadow-md"
+        class="mt-3 sm:mt-0 py-2 px-5 md:py-3 md:px-6 bg-red-500 hover:bg-red-300 font-medium text-white hover:text-gray-700 rounded-lg shadow-md"
         >Report</a
       >-->
     </div>
@@ -486,11 +486,13 @@ export default {
         console.log(err);
       } finally {
         this.loading = false;
-        const plugin = document.createElement("script");
-        plugin.setAttribute("src", "https://widget.gleamjs.io/e.js");
-        plugin.async = true;
-        document.head.appendChild(plugin);
-        gleamChecker();
+        if (this.giveaway.gleam_url) {
+          const plugin = document.createElement("script");
+          plugin.setAttribute("src", "https://widget.gleamjs.io/e.js");
+          plugin.async = true;
+          document.head.appendChild(plugin);
+          gleamChecker();
+        }
       }
     },
     markAsDone: function(gId) {
@@ -556,6 +558,6 @@ function gleamChecker() {
       element.classList.remove("w-entry-button");
       element.innerHTML += "<svg class='inline w-5 h-5 ml-2' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' stroke='currentColor'><path d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'></path></svg>";
     });
-  }, 200);
+  }, 500);
 }
 </script>

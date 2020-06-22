@@ -5,7 +5,7 @@
     >
       <div class="md:flex items-center justify-center md:w-1/2 md:bg-gray-700">
         <div class="py-6 px-8 md:py-0">
-          <h2 class="text-gray-700 text-2xl font-bold md:text-gray-100 tracking-widest">
+          <h2 class="text-gray-700 text-2xl font-medium md:text-gray-100 tracking-widest">
             Sign up for email notifications!
           </h2>
           <p class="mt-2 text-gray-600 md:text-gray-400">
