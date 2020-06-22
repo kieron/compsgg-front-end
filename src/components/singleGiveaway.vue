@@ -248,7 +248,7 @@
         </div>
         <div v-if="giveaway.like_required || giveaway.rt_required">
           <p class="mb-2">
-            This giveaway may requires you to
+            This giveaway may require you to
             <span v-if="giveaway.like_required">like</span>
             <span v-if="giveaway.like_required && giveaway.rt_required">/</span>
             <span v-if="giveaway.rt_required">retweet</span> a tweet, you can

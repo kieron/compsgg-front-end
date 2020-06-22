@@ -1,7 +1,7 @@
 <template>
-  <section id="homeList" class="sm:bg-primary py-1">
+  <section id="homeList" class="sm:bg-primary md:py-1">
     <div
-      class="container mx-auto m-8 bg-lighter p-2 md:p-10 py-5 sm:rounded-lg"
+      class="container mx-auto md:my-8 bg-lighter p-2 md:p-10 py-5 sm:rounded-lg"
     >
       <div class="w-full items-center justify-center px-2 md:p-0" id="app">
         <div v-if="loading" class="mx-auto w-full">
@@ -196,7 +196,17 @@
               </router-link>
             </div>
           </div>
-          <div class="pagination flex mx-auto">
+
+          <!--
+          ██████╗  █████╗  ██████╗ ██╗███╗   ██╗ █████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+          ██╔══██╗██╔══██╗██╔════╝ ██║████╗  ██║██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+          ██████╔╝███████║██║  ███╗██║██╔██╗ ██║███████║   ██║   ██║██║   ██║██╔██╗ ██║
+          ██╔═══╝ ██╔══██║██║   ██║██║██║╚██╗██║██╔══██║   ██║   ██║██║   ██║██║╚██╗██║
+          ██║     ██║  ██║╚██████╔╝██║██║ ╚████║██║  ██║   ██║   ██║╚██████╔╝██║ ╚████║
+          ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+          -->   
+                                                                                   
+          <div class="pb-5 pagination flex mx-auto">
             <ul class="flex mt-10 mx-auto">
               <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-500 rounded-lg">
                 <a class="flex items-center font-bold" href="#">
