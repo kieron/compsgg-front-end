@@ -153,10 +153,10 @@
                         >
                       </div>
 
-                      <div class="flex items-center my-3 hidden lg:block">
+                      <div class="flex items-center my-3">
                         <div class="flex justify-between items-center">
                           <div class="flex flex-row-reverse justify-end">
-                            <p class="text-indigo-100 tracking-widest text-sm">
+                            <p class="text-gray-500 tracking-widest text-xs md:text-sm">
                               {{ giveaway.description }}
                             </p>
                           </div>
