@@ -16,7 +16,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const http = axios.create({
-  baseURL: 'https://api.seekly.io/'
+  baseURL: 'https://api.comps.gg/'
 });
 
 Vue.prototype.$http = http;
