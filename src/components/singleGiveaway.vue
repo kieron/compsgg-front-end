@@ -494,7 +494,7 @@ export default {
     async getGiveawayInfo(id) {
       try {
         let response = await this.$http.get(
-          `https://api.seekly.io/giveaways/${id}`
+          `https://api.comps.gg/giveaways/${id}`
         );
         this.giveaway = response.data;
         this.metaTitle = response.data.name;
