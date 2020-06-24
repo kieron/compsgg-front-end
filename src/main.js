@@ -19,7 +19,7 @@ const http = axios.create({
   baseURL: 'https://api.comps.gg/',
   headers: {
     'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNTkzMDIxODA0LCJleHAiOjE1OTU2MTM4MDR9.DoHHmxOWbK2fQXsRwVRLmQjM8X0UPeH-ObiAZUJK0Cc'
-}
+  }
 });
 
 Vue.prototype.$http = http;
