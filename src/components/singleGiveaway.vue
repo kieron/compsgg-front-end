@@ -13,16 +13,12 @@
       <div class="flex flex-wrap justify-between">
         <p
           class="text-indigo-100 text-3xl md:text-4xl font-medium leading-tight header-font tracking-widest"
-        >
-          {{ giveaway.name }}
-        </p>
+        >{{ giveaway.name }}</p>
         <div class="flex items-end justify-end py-1 md:py-0 mb-1 md:mb-0">
           <label class="flex items-center">
             <div
               class="select-none text-lg font-medium text-gray-600 inline align-middle header-font tracking-widest"
-            >
-              Mark as done
-            </div>
+            >Mark as done</div>
             <div
               class="bg-darker opacity-50 border-2 rounded border-gray-400 w-6 h-6 md:w-8 md:h-8 flex flex-shrink-0 justify-center items-center ml-2 focus-within:border-blue-500 inline align-middle"
             >
@@ -48,11 +44,11 @@
       <hr class="mb-3 md:my-3 opacity-25" />
       <div class="flex flex-wrap md:flex-no-wrap">
         <div
-          class="py-1 px-2  w-full bg-lighter rounded-lg md:mb-0 md:mr-2 flex flex-wrap items-center header-font border border-indigo-200 text-gray-600 text-md border-opacity-25 tracking-widest"
+          class="py-1 px-2 w-full bg-lighter rounded-lg md:mb-0 md:mr-2 flex flex-wrap items-center header-font border border-indigo-200 text-gray-600 text-md border-opacity-25 tracking-widest"
         >
           <img
             v-if="giveaway.twitterProfileImage"
-            class="rounded-full w-8 mr-3 "
+            class="rounded-full w-8 mr-3"
             v-bind:src="giveaway.twitterProfileImage"
           />
           <div class="mr-2 p-1 md:p-0 flex items-center">
@@ -67,20 +63,18 @@
             >
               <path
                 d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              ></path>
+              />
             </svg>
             <a
               class="header-font inline align-middle"
               v-if="giveaway.display_name"
               target="_blank"
               v-bind:href="giveaway.twitterProfileUrl"
-              ><span class="">{{ giveaway.display_name }}</span></a
             >
+              <span class>{{ giveaway.display_name }}</span>
+            </a>
           </div>
-          <div
-            v-if="giveaway.verified_twitter"
-            class="mr-2 p-1 md:p-0 flex items-center"
-          >
+          <div v-if="giveaway.verified_twitter" class="mr-2 p-1 md:p-0 flex items-center">
             <svg
               class="inline w-5 h-5 text-green-600 mr-1 inline align-middle"
               fill="none"
@@ -97,12 +91,9 @@
             <span class="header-font inline align-middle">Verified</span>
           </div>
 
-          <div
-            v-if="createdDate"
-            class="mr-2 p-1 md:p-0 header-font flex items-center"
-          >
+          <div v-if="createdDate" class="mr-2 p-1 md:p-0 header-font flex items-center">
             <svg
-              class="inline w-5 h-5 mr-1 "
+              class="inline w-5 h-5 mr-1"
               fill="none"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -112,9 +103,9 @@
             >
               <path
                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-              ></path>
+              />
             </svg>
-            <span class="">ADDED {{ createdDate }}</span>
+            <span class>ADDED {{ createdDate }}</span>
           </div>
 
           <div class="flex items-center" v-if="giveaway.boost">
@@ -129,9 +120,9 @@
             >
               <path
                 d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-              ></path>
+              />
             </svg>
-            <p class="text-yellow-300 ">Boosted Post!</p>
+            <p class="text-yellow-300">Boosted Post!</p>
           </div>
         </div>
         <div
@@ -139,8 +130,7 @@
         >
           <span
             class="inline-block align-middle tracking-widest header-font text-gray-600"
-            >Share this Competition</span
-          >
+          >Share this Competition</span>
           <a
             v-bind:href="
               'https://twitter.com/intent/tweet/?text=Check out this giveaway on Comps.gg: ' +
@@ -150,7 +140,8 @@
             "
             target="_blank"
             class="text-center p-2 bg-blue-400 bg-opacity-25 hover:bg-blue-500 text-blue-100 hover:text-gray-800 rounded-lg shadow-sm text-xs tracking-wide uppercase"
-            ><svg
+          >
+            <svg
               class="inline-block align-middle w-5 h-5 fill-current"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -166,7 +157,8 @@
             "
             target="_blank"
             class="text-center p-2 bg-blue-700 bg-opacity-25 hover:bg-blue-700 text-blue-100 hover:text-gray-800 rounded-lg shadow-sm text-xs tracking-wide uppercase"
-            ><svg
+          >
+            <svg
               class="inline-block align-middle w-5 h-5 fill-current"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -185,7 +177,8 @@
             "
             target="_blank"
             class="text-center p-2 bg-green-400 bg-opacity-25 hover:bg-green-500 text-green-100 hover:text-gray-800 rounded-lg shadow-sm text-xs tracking-wide uppercase"
-            ><svg
+          >
+            <svg
               class="inline-block align-middle w-5 h-5 fill-current"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
@@ -204,7 +197,8 @@
             "
             target="_blank"
             class="text-center p-2 bg-gray-500 bg-opacity-25 hover:bg-gray-500 text-gray-100 hover:text-gray-800 rounded-lg shadow-sm text-xs tracking-wide uppercase"
-            ><svg
+          >
+            <svg
               class="inline-block align-middle w-5 h-5"
               fill="none"
               stroke-linecap="round"
@@ -215,7 +209,7 @@
             >
               <path
                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-              ></path>
+              />
             </svg>
           </a>
         </div>
@@ -265,7 +259,8 @@
               "
               target="_blank"
               class="text-center flex items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-2 px-2 mr-2 mb-2 md:mb-0"
-              ><svg
+            >
+              <svg
                 class="w-4 h-4 mr-1"
                 fill="none"
                 stroke-linecap="round"
@@ -276,9 +271,9 @@
               >
                 <path
                   d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
-                ></path></svg
-              >Like Tweet</a
-            >
+                />
+              </svg>Like Tweet
+            </a>
 
             <a
               v-if="giveaway.rt_required"
@@ -288,7 +283,8 @@
               "
               target="_blank"
               class="text-center flex items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-2 px-2 mr-2 mb-2 md:mb-0"
-              ><svg
+            >
+              <svg
                 class="w-4 h-4 mr-1"
                 fill="none"
                 stroke-linecap="round"
@@ -299,10 +295,10 @@
               >
                 <path
                   d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                ></path>
+                />
               </svg>
-              <span class="inline align-middle">Retweet Tweet</span></a
-            >
+              <span class="inline align-middle">Retweet Tweet</span>
+            </a>
             <a
               v-bind:href="
                 'https://twitter.com/' +
@@ -312,7 +308,8 @@
               "
               target="_blank"
               class="text-center flex block items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-2 px-2 mr-2 mb-2 md:mb-0"
-              ><svg
+            >
+              <svg
                 class="w-4 h-4 mr-1"
                 fill="none"
                 stroke-linecap="round"
@@ -323,9 +320,10 @@
               >
                 <path
                   d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                ></path></svg
-              ><span class="">Open Tweet</span></a
-            >
+                />
+              </svg>
+              <span class>Open Tweet</span>
+            </a>
           </div>
         </div>
       </div>
@@ -343,7 +341,7 @@
       ██║   ██║██║     ██╔══╝  ██╔══██║██║╚██╔╝██║
       ╚██████╔╝███████╗███████╗██║  ██║██║ ╚═╝ ██║
        ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ 
-       -->
+      -->
       <div class="items-center" id="gleam-housing">
         <a
           v-if="giveaway.gleam_url"
@@ -352,7 +350,8 @@
           rel="nofollow"
           class="e-widget inline text-center items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-3 px-2 mb-2"
           id="cjecl"
-          ><svg
+        >
+          <svg
             class="inline w-4 h-4 mr-1"
             fill="none"
             stroke-linecap="round"
@@ -361,12 +360,10 @@
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-            ></path>
+            <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
-          <span class="inline align-middle items-center">Open Giveaway</span></a
-        >
+          <span class="inline align-middle items-center">Open Giveaway</span>
+        </a>
       </div>
 
       <!--                                                                                       
@@ -409,7 +406,7 @@
             v-bind:src="giveaway.sdqk_url + '/embed'"
           ></iframe>
         </div>
-      </div>                                               
+      </div>
 
       <!--
       ███████╗██╗  ██╗████████╗    ██╗   ██╗██████╗ ██╗     
@@ -438,9 +435,7 @@
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-            ></path>
+            <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg>
         </a>
       </div>
@@ -448,8 +443,7 @@
         <a
           class="self-end bg-lighter px-5 py-2 mt-4 border border-indigo-200 text-gray-600 text-md border-opacity-25 rounded-md cursor-pointer header-font tracking-widest"
           @click="$router.go(-1)"
-          >Go Back</a
-        >
+        >Go Back</a>
       </div>
       <noscript>
         <strong>Please Update Your Browser</strong>
@@ -487,7 +481,7 @@ export default {
       metaTitle: "",
       createdDate: "",
       newItemTitle: "",
-      completed: false,
+      completed: false
     };
   },
   methods: {
@@ -501,7 +495,9 @@ export default {
         this.createdDate = moment(response.data.created_at).format("DD/MM/YY");
         let markedAsDone = localStorage.getItem("markedAsDone");
         if (markedAsDone) {
-          this.completed = markedAsDone.includes(this.giveaway.id) ? true : false;
+          this.completed = markedAsDone.includes(this.giveaway.id)
+            ? true
+            : false;
         }
       } catch (err) {
         console.log(err);
@@ -514,10 +510,21 @@ export default {
           document.head.appendChild(plugin);
           gleamChecker();
         }
+
+        if (this.giveaway.playr_url) {
+          if (!this.giveaway.playr_url.includes("embed")) {
+            if (this.giveaway.playr_url.slice(-1) == "/") {
+              this.giveaway.playr_url += "embed";
+            } else {
+              this.giveaway.playr_url += "/embed";
+            }
+          } 
+        }
       }
     },
     markAsDone: function(gId) {
-      const markedAsDone = JSON.parse(window.localStorage.getItem("markedAsDone")) || {};
+      const markedAsDone =
+        JSON.parse(window.localStorage.getItem("markedAsDone")) || {};
       if (markedAsDone[gId]) {
         delete markedAsDone[gId];
         window.localStorage.setItem(
@@ -527,7 +534,7 @@ export default {
         this.completed = false;
       } else {
         markedAsDone[gId] = {
-          id: gId,
+          id: gId
         };
         window.localStorage.setItem(
           "markedAsDone",
@@ -535,7 +542,7 @@ export default {
         );
         this.completed = true;
       }
-    },
+    }
   },
   created() {
     this.getGiveawayInfo(this.$route.params.id);
@@ -548,17 +555,17 @@ export default {
           name: "description",
           content:
             this.metaTitle +
-            " Giveaway on, Comps.gg. Find Competitions & Giveaways from all over the web.",
-        },
-      ],
+            " Giveaway on, Comps.gg. Find Competitions & Giveaways from all over the web."
+        }
+      ]
     };
-  },
+  }
 };
 
 function gleamChecker() {
   setTimeout(function() {
     let gleamButs = document.getElementsByClassName("w-entry-button");
-    gleamButs.forEach((element) => {
+    gleamButs.forEach(element => {
       element.classList.add(
         "newGleamHook",
         "inline",
@@ -577,7 +584,8 @@ function gleamChecker() {
         "mb-2"
       );
       element.classList.remove("w-entry-button");
-      element.innerHTML += "<svg class='inline w-5 h-5 ml-2' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' stroke='currentColor'><path d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'></path></svg>";
+      element.innerHTML +=
+        "<svg class='inline w-5 h-5 ml-2' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' stroke='currentColor'><path d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'></path></svg>";
     });
   }, 500);
 }

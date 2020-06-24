@@ -18,7 +18,7 @@
         class="flex items-center justify-center pb-6 md:py-0 md:w-1/2 md:border-b-8 md:bg-gray-100 border-gray-700"
       >
         <mailchimp-subscribe
-          url="https://seekly.us10.list-manage.com/subscribe/post-json" 
+          url="https://comps.us10.list-manage.com/subscribe/post-json" 
           user-id="215c2ca327be2681682def912"
           list-id="a90b86d2e3"
           @error="onError"
