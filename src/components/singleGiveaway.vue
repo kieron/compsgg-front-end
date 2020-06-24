@@ -385,7 +385,7 @@
             style="height:100%"
             width="768px"
             height="100%"
-            v-bind:src="giveaway.playr_url + '/embed'"
+            v-bind:src="giveaway.playr_url"
           ></iframe>
         </div>
       </div>
