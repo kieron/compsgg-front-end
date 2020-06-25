@@ -20,7 +20,7 @@
               class="select-none text-lg font-medium text-gray-600 inline align-middle header-font tracking-widest"
             >Mark as done</div>
             <div
-              class="bg-darker opacity-50 border-2 rounded border-gray-400 w-6 h-6 md:w-8 md:h-8 flex flex-shrink-0 justify-center items-center ml-2 focus-within:border-blue-500 inline align-middle"
+              class="bg-darker opacity-50 border-2 rounded border-gray-400 w-6 h-6 md:w-8 md:h-8 flex flex-shrink-0 justify-center items-center ml-2 focus-within:border-blue-500 align-middle"
             >
               <input
                 type="checkbox"
@@ -53,7 +53,7 @@
           />
           <div class="mr-2 p-1 md:p-0 flex items-center">
             <svg
-              class="inline w-5 h-5 mr-1 inline align-middle"
+              class="inline w-5 h-5 mr-1 align-middle"
               fill="none"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -76,7 +76,7 @@
           </div>
           <div v-if="giveaway.verified_twitter" class="mr-2 p-1 md:p-0 flex items-center">
             <svg
-              class="inline w-5 h-5 text-green-600 mr-1 inline align-middle"
+              class="inline w-5 h-5 text-green-600 mr-1 align-middle"
               fill="none"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -126,7 +126,7 @@
           </div>
         </div>
         <div
-          class="py-1 px-2 w-full bg-lighter rounded-lg md:mb-0 flex flex-row items-center md:mt-0 mt-2 flex justify-between flex-wrap border border-indigo-200 border-opacity-25"
+          class="py-1 px-2 w-full bg-lighter rounded-lg md:mb-0 flex flex-row items-center md:mt-0 mt-2 justify-between flex-wrap border border-indigo-200 border-opacity-25"
         >
           <span
             class="inline-block align-middle tracking-widest header-font text-gray-600"
@@ -307,7 +307,7 @@
                   giveaway.tweet_id_str
               "
               target="_blank"
-              class="text-center flex block items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-2 px-2 mr-2 mb-2 md:mb-0"
+              class="text-center flex items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-2 px-2 mr-2 mb-2 md:mb-0"
             >
               <svg
                 class="w-4 h-4 mr-1"

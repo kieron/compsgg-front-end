@@ -10,3 +10,7 @@
     line-height: 30px;
     display: inline-block;
 }
+
+.settings-icon:hover .settings-menu {
+    display: block;
+  }
