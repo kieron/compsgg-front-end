@@ -164,7 +164,7 @@
                     </div>
                     <!-- <router-link
                       :to="'/giveaway/' + giveaway.id"
-                      class="ml-5 mt-3 sm:mt-0 px-1 px-3 md:py-1 md:p-4 bg-indigo-500 transition duration-300 hover:bg-indigo-200 font-bold hover:text-indigo-800 text-indigo-200 hover:text-gray-600 rounded-lg shadow-md"
+                      class="ml-5 mt-3 sm:mt-0 px-1 md:py-1 md:p-4 bg-indigo-500 transition duration-300 hover:bg-indigo-200 font-bold hover:text-indigo-800 text-indigo-200  rounded-lg shadow-md"
                     >
                       <svg
                         class="h-6 w-6 "
