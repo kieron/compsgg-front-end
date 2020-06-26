@@ -38,3 +38,7 @@ input:checked + svg {
 .settings-icon:hover .settings-menu {
     display: block;
   }
+
+  button:disabled {
+    cursor: default;
+  }

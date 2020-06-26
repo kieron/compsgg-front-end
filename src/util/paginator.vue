@@ -1,15 +1,14 @@
 <template>
-  <div>
-    <ul class="flex mt-10 mx-auto">
-      <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 rounded-lg">
-        <button class="btn" :disabled="pageNumber === 0" @click="prevPage">Previous</button>
+  <div class="w-full">
+    <span class="ml-2 flex flex-row  font-medium text-indigo-200 opacity-25">Page {{this.pageNumber + 1}}</span> 
+      <ul class="flex justify-center  mt-10 mx-auto">
+      <li class="flex-grow  mr-1 ">
+        <button :disabled="pageNumber === 0" @click="prevPage" class="w-full px-5 py-2 btn text-center bg-lighter  tracking-widest border border-indigo-200 text-gray-600 text-md border-opacity-25 rounded-lg">Previous</button>
       </li>
-      <li
-        class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-indigo-600 hover:text-gray-100 rounded-lg"
-      >
-        <button :disabled="pageNumber >= pageCount -1" @click="nextPage" class="btn">Next</button>
+      <li class="flex-grow  ml-1">
+        <button :disabled="pageNumber >= pageCount -1" @click="nextPage" class="w-full px-5 py-2 btn text-center bg-lighter  tracking-widest border border-indigo-200 text-gray-600 text-md border-opacity-25 rounded-lg">Next</button>
       </li>
-    </ul>
+    </ul> 
   </div>
 </template>
 <script>
@@ -18,7 +17,7 @@ export default {
   data() {
     return {
       pageNumber: 0,
-      perpage: 5
+      perpage: 8
     };
   },
   created() {
