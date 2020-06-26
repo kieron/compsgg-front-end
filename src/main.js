@@ -4,9 +4,8 @@ import App from './App.vue'
 import router from './router'
 import axios from "axios";
 import '@/assets/css/tailwind.css'
-//import '@/assets/js/app.js'
+// import '@/assets/js/app.js'
 import VueGtag from "vue-gtag";
-
 
 
 if (process.env.NODE_ENV === 'production') {

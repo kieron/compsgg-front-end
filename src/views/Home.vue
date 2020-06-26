@@ -26,7 +26,7 @@ export default {
   },
 metaInfo () {
   return {
-    title: 'Competitions & Giveaways | Comps.gg',
+    title: ' Comps.gg | Competitions & Giveaways',
     meta: [
       { name: 'description', content: 'Find & Win Competitions & Giveaways from all over the web on Comps.gg' }
     ]

@@ -257,7 +257,7 @@ export default {
     async getAllGiveAways() {
       try {
         let response = await this.$http.get(
-          "giveaways?published=true&_sort=created_at:desc"
+          "giveaways?published=true&_sort=created_at:desc&_limit=50"
         );
 
         this.giveaways = response.data.map(item => ({
