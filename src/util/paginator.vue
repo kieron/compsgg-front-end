@@ -18,7 +18,7 @@ export default {
   data() {
     return {
       pageNumber: 0,
-      perpage: 2
+      perpage: 5
     };
   },
   created() {
