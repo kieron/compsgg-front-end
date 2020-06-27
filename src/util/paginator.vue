@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       pageNumber: 0,
-      perpage: 5,
+      perpage: 10,
     };
   },
   created() {
