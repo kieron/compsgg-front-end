@@ -8,7 +8,7 @@
         <button
           :disabled="pageNumber === 0"
           @click="prevPage"
-          class="w-full px-5 py-2 btn text-center bg-lighter  tracking-widest border border-indigo-200 text-gray-600 text-md border-opacity-25 rounded-lg"
+          class="w-full px-5 py-2 btn text-center bg-lighter hover:bg-primary tracking-widest border border-indigo-200 text-gray-600 text-md border-opacity-25 rounded-lg"
         >
           Previous
         </button>
@@ -17,7 +17,7 @@
         <button
           :disabled="pageNumber >= pageCount - 1"
           @click="nextPage"
-          class="w-full px-5 py-2 btn text-center bg-lighter  tracking-widest border border-indigo-200 text-gray-600 text-md border-opacity-25 rounded-lg"
+          class="w-full px-5 py-2 btn text-center bg-lighter hover:bg-primary tracking-widest border border-indigo-200 text-gray-600 text-md border-opacity-25 rounded-lg"
         >
           Next
         </button>
@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       pageNumber: 0,
-      perpage: 2,
+      perpage: 5,
     };
   },
   created() {

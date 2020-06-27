@@ -1,7 +1,7 @@
 <template>
   <section class="bg-gray-100 md:bg-middle flex ">
     <div
-      class="flex mx-auto flex-col max-w-4xl md:h-56 bg-gray-100 md:bg-white rounded-lg md:shadow-lg overflow-hidden md:flex-row my-10"
+      class="flex mx-auto flex-col max-w-4xl md:h-56 bg-gray-100 md:bg-white lg:rounded-lg md:shadow-lg overflow-hidden md:flex-row my-10"
     >
       <div class="md:flex items-center justify-center md:w-1/2 md:bg-gray-700">
         <div class="py-6 px-8 md:py-0">
@@ -34,7 +34,7 @@
                   @input="setEmail($event.target.value)"
                 />
                 <button
-                  class="py-3 px-4 bg-gray-700 text-gray-100 font-semibold uppercase md:rounded-r-md hover:bg-gray-600"
+                  class="py-3 px-4 bg-gray-700 tracking-widest text-gray-100 font-semibold uppercase md:rounded-r-md hover:bg-gray-600"
                   id="mailSubmit"
                   type="submit"
                   >

@@ -115,3 +115,9 @@ export default {
   methods: {},
 };
 </script>
+
+<style scoped>
+.settings-icon:hover .settings-menu {
+    display: block;
+  }
+</style>

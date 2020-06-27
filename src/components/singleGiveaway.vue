@@ -48,7 +48,7 @@
         >
           <img
             v-if="giveaway.twitterProfileImage"
-            class="rounded-full w-8 mr-3"
+            class="rounded-full w-5 h-5 lg:w-8 lg:h-8 mr-1 md:mr-3"
             v-bind:src="giveaway.twitterProfileImage"
           />
           <div class="mr-2 p-1 md:p-0 flex items-center">
@@ -328,7 +328,7 @@
         </div>
       </div>
 
-      <div v-if="giveaway.description" class="my-8 text-gray-600">
+      <div v-if="giveaway.description" class="my-5 text-gray-600">
         <span class="text-lg font-medium text-indigo-100">Description</span>
         <hr class="my-2 opacity-25" />
         {{ giveaway.description }}
@@ -342,7 +342,7 @@
       ╚██████╔╝███████╗███████╗██║  ██║██║ ╚═╝ ██║
        ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ 
       -->
-      <div class="items-center" id="gleam-housing">
+      <div v-if="giveaway.gleam_url" class="items-center mb-6" id="gleam-housing">
         <a
           v-if="giveaway.gleam_url"
           v-bind:href="giveaway.gleam_url"
@@ -351,7 +351,7 @@
           class="e-widget inline text-center items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-3 px-2 mb-2"
           id="cjecl"
         >
-          <svg
+          <!-- <svg
             class="inline w-4 h-4 mr-1"
             fill="none"
             stroke-linecap="round"
@@ -361,8 +361,8 @@
             stroke="currentColor"
           >
             <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-          <span class="inline align-middle items-center">Open Giveaway</span>
+          </svg> -->
+          <!-- <span class="inline align-middle items-center text-center">Open Giveaway</span> -->
         </a>
       </div>
 
@@ -425,7 +425,7 @@
           rel="nofollow"
           class="mx-auto mt-3 w-full text-center sm:mt-0 py-2 px-2 md:py-3 md:px-6 bg-indigo-500 hover:bg-indigo-300 font-bold text-white hover:text-gray-800 rounded-lg shadow-md"
         >
-          Open Giveaway
+          Enter Competition
           <svg
             class="inline w-5 h-5"
             fill="none"
@@ -441,7 +441,7 @@
       </div>
       <div class="flex justify-end">
         <a
-          class="self-end bg-lighter px-5 py-2 mt-4 border border-indigo-200 text-gray-600 text-md border-opacity-25 rounded-md cursor-pointer header-font tracking-widest"
+          class="self-end bg-lighter px-5 py-2 mt-4 border border-indigo-200  hover:bg-primary text-gray-600 text-md border-opacity-25 rounded-md cursor-pointer header-font tracking-widest"
           @click="$router.go(-1)"
         >Go Back</a>
       </div>
@@ -568,25 +568,43 @@ function gleamChecker() {
     gleamButs.forEach(element => {
       element.classList.add(
         "newGleamHook",
-        "inline",
+        "mx-auto",
+        "mt-3",
+        "w-full",
         "text-center",
-        "items-center",
+        "sm:mt-0",
+        "py-2",
+        "px-2",
+        "md:py-3",
+        "md:px-6",
         "bg-indigo-500",
         "hover:bg-indigo-300",
-        "font-medium",
+        "font-bold",
         "text-white",
         "hover:text-gray-800",
         "rounded-lg",
         "shadow-md",
-        "sm:mt-0",
-        "py-3",
-        "px-3",
-        "mb-2"
+        "w-full",
+        "flex",
+        "text-center"
       );
       element.classList.remove("w-entry-button");
-      element.innerHTML +=
+      let childSpan = element.getElementsByClassName('w-entry-button-inner')[0]
+      childSpan.classList.add("mx-auto")
+      childSpan.innerHTML +=
         "<svg class='inline w-5 h-5 ml-2' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' stroke='currentColor'><path d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'></path></svg>";
     });
   }, 500);
 }
 </script>
+
+<style scoped>
+.responsive-iframe {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>
