@@ -3,16 +3,17 @@
     <div class="container mx-auto px-8">
       <div class="w-full flex flex-col md:flex-row py-6">
         <div class="flex-1 mb-6">
-          <img class="w-10 inline h-10"  src="/img/logo-small.png" alt=""><router-link
+          <img class="w-10 inline align-middle ine h-10"  src="/img/logo-small.png" alt="">
+          <router-link
             :to="'/'"
-            class="no-underline header-font hover:no-underline font-bold text-2xl lg:text-4xl tracking-widest"
-            href="#"
+            class="inline align-middle no-underline header-font hover:no-underline font-bold text-2xl lg:text-4xl tracking-widest"
           >
             comps.gg
           </router-link>
+          <p class="italic text-sm text-indigo-200 opacity-50">All your giveaways are belong to us</p>
         </div>
 
-        <div class="flex-1">
+        <!-- <div class="flex-1">
           <p class="uppercase md:mb-6 font-semibold tracking-wide text-sm">Links</p>
           <ul class="list-reset mb-6">
             <li class="mt-2 inline-block mr-2 md:block md:mr-0">
@@ -108,7 +109,7 @@
               >
             </li>
           </ul>
-        </div>
+        </div> -->
       </div>
     </div>
   </footer>
