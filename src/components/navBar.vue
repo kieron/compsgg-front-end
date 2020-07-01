@@ -15,7 +15,7 @@
       <div class="block lg:hidden pr-4">
         <button
           id="nav-toggle"
-          class="flex items-center p-1 text-indigo-200 hover:text-gray-900"
+          class="flex items-center p-1 text-indigo-200 hover:text-gray-100"
         >
           <svg
             class="fill-current h-6 w-6"
