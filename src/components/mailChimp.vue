@@ -29,7 +29,7 @@
               <div class="flex flex-col rounded-lg overflow-hidden sm:flex-row">
                 <input
                   placeholder="Enter your email"
-                  class="py-3 px-4 bg-gray-200 text-gray-800 border-gray-300 border-2 outline-none placeholder-gray-500 focus:bg-gray-100"
+                  class="py-3 px-4 bg-gray-200 text-gray-800 border-gray-300 border-2 outline-none placeholder-gray-700 focus:bg-gray-100"
                   type="email"
                   @input="setEmail($event.target.value)"
                 />

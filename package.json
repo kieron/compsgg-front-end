@@ -10,8 +10,10 @@
     "start": "npm run serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "transfer": "rsync -e 'ssh -o StrictHostKeyChecking=no' -arP --delete --no-perms --chmod=755 dist/ compsaldy@comps.gg@cp1.alderaan.network:/var/www/html",
-    "deploy": "vue-cli-service build && npm run transfer"
+    "transfer-alpha": "rsync -e 'ssh -o StrictHostKeyChecking=no' -arP --delete --no-perms --chmod=755 dist/ compsaldy@comps.gg@cp1.alderaan.network:/var/www/alpha.comps.gg",
+    "deploy-alpha": "vue-cli-service build && npm run transfer-alpha",
+    "transfer-live": "rsync -e 'ssh -o StrictHostKeyChecking=no' -arP --delete --no-perms --chmod=755 dist/ compsaldy@comps.gg@cp1.alderaan.network:/var/www/html",
+    "deploy-live": "vue-cli-service build && npm run transfer"
   },
   "dependencies": {
     "autoprefixer": "^9.5.1",
