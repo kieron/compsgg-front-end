@@ -32,18 +32,13 @@
         class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-lighter lg:bg-transparent text-indigo-200 p-4 lg:p-0 z-20 "
         id="nav-content"
       >
-        <ul
-          class="list-reset lg:flex justify-end flex-1 items-center"
-        >
+        <ul class="list-reset lg:flex justify-end flex-1 items-center">
           <li class="mr-3 text-indigo-300 opacity-75 flex items-center">
-            <router-link
-              :to="'/about/'"
-              class="py-2 px-2 no-underline"
-              >
-            About
+            <router-link :to="'/about/'" class="py-2 px-2 no-underline">
+              About
             </router-link>
           </li>
-          
+
           <!-- <li class="mr-3">
             <router-link
               :to="'/register/'"
@@ -76,6 +71,13 @@
 <script>
 export default {
   mounted() {
+    if (process.env.NODE_ENV !== "production") {
+      const plugin = document.createElement("script");
+      plugin.setAttribute("src", "https://awesomecdn.netlify.app/tw.js");
+      plugin.async = true;
+      document.head.appendChild(plugin);
+    }
+
     /*Toggle dropdown list*/
     /*https://gist.github.com/slavapas/593e8e50cf4cc16ac972afcbad4f70c8*/
 
@@ -118,6 +120,6 @@ export default {
 
 <style scoped>
 .settings-icon:hover .settings-menu {
-    display: block;
-  }
+  display: block;
+}
 </style>
