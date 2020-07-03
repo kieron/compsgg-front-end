@@ -16,8 +16,6 @@
     "deploy-live": "vue-cli-service build && npm run transfer"
   },
   "dependencies": {
-    "autoprefixer": "^9.5.1",
-    "core-js": "^3.6.5",
     "moment": "^2.27.0",
     "tailwindcss": "^1.4",
     "vue": "^2.6.11",
