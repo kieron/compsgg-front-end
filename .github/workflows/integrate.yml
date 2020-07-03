@@ -11,7 +11,7 @@ on:
     - uses: actions/checkout@v2
     - name: rsync deployments
     - uses: actions/setup-node@v1
-        with:
+      with:
           node-version: 12
       - run: npm ci
       - run: npm run build
