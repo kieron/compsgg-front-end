@@ -5,8 +5,7 @@
         <div class="flex-1 mb-6">
           <img class="w-10 inline align-middle ine h-10"  src="/img/logo-small.png" alt="Comps.gg Logo">
           <router-link
-            :to="'/'"
-            class="inline align-middle no-underline header-font hover:no-underline font-bold text-2xl lg:text-4xl tracking-widest"
+            :to="'/'" class="inline align-middle no-underline header-font hover:no-underline font-bold text-2xl lg:text-4xl tracking-widest"
           >
             comps.gg
           </router-link>
