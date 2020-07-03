@@ -13,12 +13,16 @@
       <div class="flex flex-wrap justify-between">
         <p
           class="text-indigo-100 text-3xl md:text-4xl font-medium leading-tight header-font tracking-widest"
-        >{{ giveaway.name }}</p>
+        >
+          {{ giveaway.name }}
+        </p>
         <div class="flex items-end justify-end py-1 md:py-0 mb-1 md:mb-0">
           <label class="flex items-center">
             <div
               class="select-none text-lg font-medium text-gray-600 inline align-middle header-font tracking-widest"
-            >Mark as done</div>
+            >
+              Mark as done
+            </div>
             <div
               class="bg-darker opacity-50 border-2 rounded border-gray-400 w-6 h-6 md:w-8 md:h-8 flex flex-shrink-0 justify-center items-center ml-2 focus-within:border-blue-500 align-middle"
             >
@@ -74,7 +78,10 @@
               <span class>{{ giveaway.display_name }}</span>
             </a>
           </div>
-          <div v-if="giveaway.verified_twitter" class="mr-2 p-1 md:p-0 flex items-center">
+          <div
+            v-if="giveaway.verified_twitter"
+            class="mr-2 p-1 md:p-0 flex items-center"
+          >
             <svg
               class="inline w-5 h-5 text-green-600 mr-1 align-middle"
               fill="none"
@@ -91,7 +98,10 @@
             <span class="header-font inline align-middle">Verified</span>
           </div>
 
-          <div v-if="createdDate" class="mr-2 p-1 md:p-0 header-font flex items-center">
+          <div
+            v-if="createdDate"
+            class="mr-2 p-1 md:p-0 header-font flex items-center"
+          >
             <svg
               class="inline w-5 h-5 mr-1"
               fill="none"
@@ -130,7 +140,8 @@
         >
           <span
             class="inline-block align-middle tracking-widest header-font text-gray-600"
-          >Share this Competition</span>
+            >Share this Competition</span
+          >
           <a
             v-bind:href="
               'https://twitter.com/intent/tweet/?text=Check out this giveaway on Comps.gg: ' +
@@ -271,8 +282,8 @@
               >
                 <path
                   d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
-                />
-              </svg>Like Tweet
+                /></svg
+              >Like Tweet
             </a>
 
             <a
@@ -342,7 +353,11 @@
       ╚██████╔╝███████╗███████╗██║  ██║██║ ╚═╝ ██║
        ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝ 
       -->
-      <div v-if="giveaway.gleam_url" class="items-center mb-6" id="gleam-housing">
+      <div
+        v-if="giveaway.gleam_url"
+        class="items-center mb-6"
+        id="gleam-housing"
+      >
         <a
           v-if="giveaway.gleam_url"
           v-bind:href="giveaway.gleam_url"
@@ -435,7 +450,9 @@
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            <path
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            />
           </svg>
         </a>
       </div>
@@ -443,7 +460,8 @@
         <a
           class="self-end bg-lighter px-5 py-2 mt-4 border border-indigo-200  hover:bg-primary text-gray-600 text-md border-opacity-25 rounded-md cursor-pointer header-font tracking-widest"
           @click="$router.go(-1)"
-        >Go Back</a>
+          >Go Back</a
+        >
       </div>
       <noscript>
         <strong>Please Update Your Browser</strong>
@@ -481,45 +499,46 @@ export default {
       metaTitle: "",
       createdDate: "",
       newItemTitle: "",
-      completed: false
+      completed: false,
     };
   },
   methods: {
     async getGiveawayInfo(id) {
       try {
-        let response = await this.$http.get(
-          `https://api.comps.gg/giveaways/${id}`
-        );
-        this.giveaway = response.data;
-        this.metaTitle = response.data.name;
-        this.createdDate = moment(response.data.created_at).format("DD/MM/YY");
-        let markedAsDone = localStorage.getItem("markedAsDone");
-        if (markedAsDone) {
-          this.completed = markedAsDone.includes(this.giveaway.id)
-            ? true
-            : false;
-        }
+        fetch(`https://api.comps.gg/giveaways/${id}`)
+          .then((response) => response.json())
+          .then((data) => {
+            this.giveaway = data;
+            this.metaTitle = data.name;
+            this.createdDate = moment(data.created_at).format("DD/MM/YY");
+            let markedAsDone = localStorage.getItem("markedAsDone");
+            if (markedAsDone) {
+              this.completed = markedAsDone.includes(this.giveaway.id)
+                ? true
+                : false;
+            }
+            this.loading = false;
+            if (this.giveaway.gleam_url) {
+              const plugin = document.createElement("script");
+              plugin.setAttribute("src", "https://widget.gleamjs.io/e.js");
+              plugin.async = true;
+              document.head.appendChild(plugin);
+              gleamChecker();
+            }
+
+            if (this.giveaway.playr_url) {
+              if (!this.giveaway.playr_url.includes("embed")) {
+                if (this.giveaway.playr_url.slice(-1) == "/") {
+                  this.giveaway.playr_url += "embed";
+                } else {
+                  this.giveaway.playr_url += "/embed";
+                }
+              }
+            }
+          })
+          .catch((error) => console.error(error));
       } catch (err) {
         console.log(err);
-      } finally {
-        this.loading = false;
-        if (this.giveaway.gleam_url) {
-          const plugin = document.createElement("script");
-          plugin.setAttribute("src", "https://widget.gleamjs.io/e.js");
-          plugin.async = true;
-          document.head.appendChild(plugin);
-          gleamChecker();
-        }
-
-        if (this.giveaway.playr_url) {
-          if (!this.giveaway.playr_url.includes("embed")) {
-            if (this.giveaway.playr_url.slice(-1) == "/") {
-              this.giveaway.playr_url += "embed";
-            } else {
-              this.giveaway.playr_url += "/embed";
-            }
-          } 
-        }
       }
     },
     markAsDone: function(gId) {
@@ -534,7 +553,7 @@ export default {
         this.completed = false;
       } else {
         markedAsDone[gId] = {
-          id: gId
+          id: gId,
         };
         window.localStorage.setItem(
           "markedAsDone",
@@ -542,7 +561,7 @@ export default {
         );
         this.completed = true;
       }
-    }
+    },
   },
   created() {
     this.getGiveawayInfo(this.$route.params.id);
@@ -555,17 +574,17 @@ export default {
           name: "description",
           content:
             this.metaTitle +
-            " Giveaway on, Comps.gg. Find Competitions & Giveaways from all over the web."
-        }
-      ]
+            " Giveaway on, Comps.gg. Find Competitions & Giveaways from all over the web.",
+        },
+      ],
     };
-  }
+  },
 };
 
 function gleamChecker() {
   setTimeout(function() {
     let gleamButs = document.getElementsByClassName("w-entry-button");
-    gleamButs.forEach(element => {
+    gleamButs.forEach((element) => {
       element.classList.add(
         "newGleamHook",
         "mx-auto",
@@ -589,8 +608,8 @@ function gleamChecker() {
         "text-center"
       );
       element.classList.remove("w-entry-button");
-      let childSpan = element.getElementsByClassName('w-entry-button-inner')[0]
-      childSpan.classList.add("mx-auto")
+      let childSpan = element.getElementsByClassName("w-entry-button-inner")[0];
+      childSpan.classList.add("mx-auto");
       childSpan.innerHTML +=
         "<svg class='inline w-5 h-5 ml-2' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' stroke='currentColor'><path d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'></path></svg>";
     });

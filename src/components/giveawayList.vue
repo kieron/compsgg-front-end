@@ -48,7 +48,7 @@
                           </p>
                         </div>
                       </div>
-                     
+
                       <div class="flex items-center mb-2">
                         <div class="flex justify-between items-center">
                           <div class="flex flex-row-reverse justify-end">
@@ -61,7 +61,7 @@
                         </div>
                       </div>
                       <hr class="opacity-25 my-1 md:my-2" />
-                       <div class="flex flex-wrap giveawayInfo text-xs">
+                      <div class="flex flex-wrap giveawayInfo text-xs">
                         <div
                           v-if="giveaway.verified_twitter"
                           class="flex flex-no-wrap text-gray-600 items-center mr-2"
@@ -302,28 +302,26 @@ export default {
     },
     async getAllGiveAways() {
       try {
-        let response = await this.$http.get(
-          "giveaways?published=true&_sort=created_at:desc"
-        );
+        await fetch("https://api.comps.gg/giveaways?published=true&_sort=created_at:desc")
+          .then((response) => response.json())
+          .then((data) => {
+            this.giveaways = data.map((item) => ({
+              ...item,
+              created_at: moment(item.created_at).format("DD/MM/YY"),
+            }));
+            let markedAsDone = localStorage.getItem("markedAsDone");
 
-        this.giveaways = response.data.map((item) => ({
-          ...item,
-          created_at: moment(item.created_at).format("DD/MM/YY"),
-        }));
+            if (markedAsDone != null) {
+              this.giveaways.forEach(function(item) {
+                item.completed = markedAsDone.includes(item.id);
+              });
+            }
 
-        let markedAsDone = localStorage.getItem("markedAsDone");
-
-        if (markedAsDone != null) {
-          this.giveaways.forEach(function(item) {
-            item.completed = markedAsDone.includes(item.id);
+            this.giveaways.sort((a, b) => Number(b.boost) - Number(a.boost));
+            this.loading = false;
           });
-        }
-
-        this.giveaways.sort((a, b) => Number(b.boost) - Number(a.boost));
       } catch (err) {
         console.log(err);
-      } finally {
-        this.loading = false;
       }
     },
   },
@@ -334,7 +332,7 @@ export default {
 </script>
 
 <style scoped>
-  button:disabled {
-    cursor: default;
-  }
+button:disabled {
+  cursor: default;
+}
 </style>
