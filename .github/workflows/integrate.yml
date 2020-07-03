@@ -1,19 +1,20 @@
-name: Continuous Deployment
+name: Firebase Continuous Deployment
+
 on:
   push:
     branches: [ master ]
 
-  jobs:
-    deploy:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
         with:
-            node-version: 12
+          node-version: 12
       - run: npm ci
       - run: npm run build
-      - name: rsync deployments
       - uses: burnett01/rsync-deployments@4.1
         with:
           switches: -arP --delete --no-perms --chmod=755
