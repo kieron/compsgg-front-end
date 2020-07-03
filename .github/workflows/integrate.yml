@@ -15,12 +15,12 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm run build
-      - name: deploy to server
+      - name: Deploy to APISCP
         uses: AEnterprise/rsync-deploy@v1.0
         env:
           DEPLOY_KEY: ${{ secrets.SSHKEY }}
           ARGS: "-e 'ssh -o StrictHostKeyChecking=no' -arP --delete --no-perms --chmod=755"
-          SERVER_PORT: 5555
+          SERVER_PORT: 22
           FOLDER: "dist/"
           SERVER_IP: "cp1.alderaan.network"
           USERNAME: "compsaldy@comps.gg"
