@@ -9,12 +9,12 @@ on:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: rsync deployments
     - uses: actions/setup-node@v1
       with:
           node-version: 12
     - run: npm ci
     - run: npm run build
+    - name: rsync deployments
     - uses: burnett01/rsync-deployments@4.1
       with:
         switches: -arP --delete --no-perms --chmod=755
