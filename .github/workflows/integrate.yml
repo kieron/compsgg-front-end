@@ -4,14 +4,23 @@ on:
   push:
     branches: [ master ]
 
-
-jobs:
-  test_pull_request:
+  jobs:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+    - uses: actions/checkout@v2
+    - name: rsync deployments
+    - uses: actions/setup-node@v1
         with:
           node-version: 12
       - run: npm ci
       - run: npm run build
+      uses: burnett01/rsync-deployments@4.1
+      with:
+        switches: -arP --delete --no-perms --chmod=755
+        path: dist/
+        remote_path: /var/www/html/
+        remote_host: cp1.alderaan.network
+        remote_port: 5555
+        remote_user: compsaldy@comps.gg
+        remote_key: ${{ secrets.SSHKEY }}
