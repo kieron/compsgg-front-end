@@ -3,7 +3,7 @@
     <div class="container mx-auto px-8">
       <div class="w-full flex flex-col md:flex-row py-6">
         <div class="flex-1 mb-6">
-          <img class="w-10 inline align-middle ine h-10"  src="/img/logo-small.png" alt="">
+          <img class="w-10 inline align-middle ine h-10"  src="/img/logo-small.png" alt="Comps.gg Logo">
           <router-link
             :to="'/'"
             class="inline align-middle no-underline header-font hover:no-underline font-bold text-2xl lg:text-4xl tracking-widest"
