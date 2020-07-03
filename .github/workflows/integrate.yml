@@ -20,7 +20,8 @@ jobs:
         env:
           DEPLOY_KEY: ${{ secrets.SSHKEY }}
           ARGS: "-e 'ssh -o StrictHostKeyChecking=no' -arP --delete --no-perms --chmod=755"
+          SERVER_PORT: ${{ secrets.SERVER_PORT }}
           FOLDER: "dist/"
-          SERVER_IP: "cp1.alderaan.network"
-          USERNAME: "compsaldy@comps.gg"
-          SERVER_DESTINATION: "/var/www/html/"
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+          USERNAME: ${{ secrets.USERNAME }}
+          SERVER_DESTINATION: ${{ secrets.SERVER_DESTINATION }}
