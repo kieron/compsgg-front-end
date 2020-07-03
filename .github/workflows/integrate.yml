@@ -1,16 +1,27 @@
-name: Node Continuous Integration
+name: Comps.gg Continuous Deployment
 
 on:
-  pull_request:
+  push:
     branches: [ master ]
 
+    
 jobs:
-  test_pull_request:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
         with:
           node-version: 12
       - run: npm ci
       - run: npm run build
+      - name: Deploy to APISCP
+        uses: AEnterprise/rsync-deploy@v1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.SSHKEY }}
+          ARGS: "-e 'ssh -o StrictHostKeyChecking=no' -arP --delete --no-perms --chmod=755"
+          SERVER_PORT: ${{ secrets.SERVER_PORT }}
+          FOLDER: "dist/"
+          SERVER_IP: ${{ secrets.SERVER_IP }}
+          USERNAME: ${{ secrets.USERNAME }}
+          SERVER_DESTINATION: ${{ secrets.SERVER_DESTINATION }}
