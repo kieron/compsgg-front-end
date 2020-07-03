@@ -13,9 +13,9 @@ on:
     - uses: actions/setup-node@v1
       with:
           node-version: 12
-      - run: npm ci
-      - run: npm run build
-      uses: burnett01/rsync-deployments@4.1
+    - run: npm ci
+    - run: npm run build
+    - uses: burnett01/rsync-deployments@4.1
       with:
         switches: -arP --delete --no-perms --chmod=755
         path: dist/
