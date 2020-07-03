@@ -15,12 +15,13 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm run build
-      - uses: burnett01/rsync-deployments@4.1
-        with:
-          switches: -e 'ssh -o StrictHostKeyChecking=no' -arP --delete --no-perms --chmod=755
-          path: dist/
-          remote_path: /var/www/html/
-          remote_host: cp1.alderaan.network
-          remote_port: 5555
-          remote_user: compsaldy@comps.gg
-          remote_key: ${{ secrets.SSHKEY }}
+      - name: deploy to server
+        uses: AEnterprise/rsync-deploy@v1.0
+        env:
+          DEPLOY_KEY: ${{ secrets.SSHKEY }}
+          ARGS: "-e 'ssh -o StrictHostKeyChecking=no' -arP --delete --no-perms --chmod=755"
+          SERVER_PORT: 5555
+          FOLDER: "dist/"
+          SERVER_IP: cp1.alderaan.network
+          USERNAME: compsaldy@comps.gg
+          SERVER_DESTINATION: /var/www/html/
