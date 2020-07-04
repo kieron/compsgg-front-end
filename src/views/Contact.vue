@@ -5,10 +5,10 @@
       <div
         class="md:p-8 mx-auto bg-middle container md:shadow-lg rounded-lg border-solid"
       >
-        <h1 class="text-indigo-100 text-3xl">About Comps.gg</h1>
-        <p class="mb-3">
-          I love to enter competitions in the tech community specifically, and I noticed there is a lot of really cool web applications for doing it, like Gleam, Playr, and Sideqik, so I wanted to bring all of the competitions I enter to one place, and make them super easy to take part in.
-        </p>
+        <h1 class="text-indigo-100 text-3xl">Contact</h1>
+        <p>If you want to talk, feel free to email me here: <a href="mailto:hi@comps.gg" class="mb-3">
+          hi@comps.gg
+        </a></p>
       </div>
     </section>
     <mailChimp />
@@ -29,13 +29,13 @@ export default {
   },
   metaInfo() {
     return {
-      title: "About | Comps.gg",
+      title: "Contact | Comps.gg",
       meta: [
         {
           name: "description",
           content:
             this.metaTitle +
-            "About Comps.gg. Find Competitions & Giveaways from all over the web.",
+            "Contact Comps.gg. Find Competitions & Giveaways from all over the web.",
         },
       ],
     };

@@ -32,21 +32,20 @@
         class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden mt-2 lg:mt-0 bg-lighter lg:bg-transparent text-indigo-200 p-4 lg:p-0 z-20 "
         id="nav-content"
       >
-        <ul class="list-reset lg:flex justify-end flex-1 items-center">
-          <li class="mr-3 text-indigo-300 opacity-75 flex items-center">
+        <ul class="list-reset lg:flex justify-end flex-1 items-center opacity-75 text-indigo-300">
+          <li class="mr-3  flex items-center">
             <router-link :to="'/about/'" class="py-2 px-2 no-underline">
               About
             </router-link>
           </li>
 
-          <!-- <li class="mr-3">
+           <li class="mr-3">
             <router-link
-              :to="'/register/'"
-              class="inline-block py-2 px-4 text-indigo-200 no-underline"
-              href="#"
-              >Register</router-link
+              :to="'/contact/'"
+              class="py-2 px-2 no-underline"
+              >Contact</router-link
             >
-          </li> -->
+          </li> 
 
           <!-- <li class="mr-3">
             <a
