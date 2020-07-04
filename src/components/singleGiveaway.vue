@@ -568,13 +568,22 @@ export default {
   },
   metaInfo() {
     return {
-      title: this.metaTitle + " Giveaway | Comps.gg",
+      title: `${this.metaTitle} Giveaway | Comps.gg`,
       meta: [
         {
           name: "description",
           content:
-            this.metaTitle +
-            " Giveaway on, Comps.gg. Find Competitions & Giveaways from all over the web.",
+            `${this.metaTitle} Giveaway on, Comps.gg. Find Competitions & Giveaways from all over the web.`,
+        },
+        { name: "twitter:title", content: `${this.metaTitle} Giveaway | Comps.gg` },
+        {
+          name: "twitter:description",
+          content: `${this.metaTitle} Giveaway on, Comps.gg. Find Competitions & Giveaways from all over the web.`,
+        },
+        { property: "og:title", content: `${this.metaTitle} Giveaway | Comps.gg` },
+        {
+          property: "og:description",
+          content: `${this.metaTitle} Giveaway on, Comps.gg. Find Competitions & Giveaways from all over the web.`,
         },
       ],
     };
