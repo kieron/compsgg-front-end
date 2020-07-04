@@ -6,8 +6,8 @@
         class="md:p-8 mx-auto bg-middle container md:shadow-lg rounded-lg border-solid"
       >
         <h1 class="text-indigo-100 text-3xl">Contact</h1>
-        <p>If you want to talk, feel free to email me here: <a href="mailto:hi@comps.gg" class="mb-3">
-          hi@comps.gg
+        <p>If you want to talk, feel free to email me here: <a href="mailto:hello@comps.gg" class="mb-3">
+          hello@comps.gg
         </a></p>
       </div>
     </section>
