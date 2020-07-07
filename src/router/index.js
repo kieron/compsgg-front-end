@@ -26,6 +26,11 @@ Vue.use(VueMeta)
     path: '/contact',
     name: 'Contact',
     component: () => import('../views/Contact.vue'),
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('../views/Register.vue'),
   }
 ]
 

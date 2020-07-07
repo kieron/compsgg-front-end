@@ -265,8 +265,7 @@
             <a
               v-if="giveaway.like_required"
               v-bind:href="
-                'https://twitter.com/intent/like?tweet_id=' +
-                  giveaway.tweet_id_str
+                'https://twitter.com/intent/like?tweet_id=' + giveaway.tweet_id
               "
               target="_blank"
               class="text-center flex items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-2 px-2 mr-2 mb-2 md:mb-0"
@@ -290,7 +289,7 @@
               v-if="giveaway.rt_required"
               v-bind:href="
                 'https://twitter.com/intent/retweet?tweet_id=' +
-                  giveaway.tweet_id_str
+                  giveaway.tweet_id
               "
               target="_blank"
               class="text-center flex items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-2 px-2 mr-2 mb-2 md:mb-0"
@@ -315,7 +314,7 @@
                 'https://twitter.com/' +
                   giveaway.display_name +
                   '/status/' +
-                  giveaway.tweet_id_str
+                  giveaway.tweet_id
               "
               target="_blank"
               class="text-center flex items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-2 px-2 mr-2 mb-2 md:mb-0"
@@ -572,15 +571,20 @@ export default {
       meta: [
         {
           name: "description",
-          content:
-            `${this.metaTitle} Giveaway on, Comps.gg. Find Competitions & Giveaways from all over the web.`,
+          content: `${this.metaTitle} Giveaway on, Comps.gg. Find Competitions & Giveaways from all over the web.`,
         },
-        { name: "twitter:title", content: `${this.metaTitle} Giveaway | Comps.gg` },
+        {
+          name: "twitter:title",
+          content: `${this.metaTitle} Giveaway | Comps.gg`,
+        },
         {
           name: "twitter:description",
           content: `${this.metaTitle} Giveaway on, Comps.gg. Find Competitions & Giveaways from all over the web.`,
         },
-        { property: "og:title", content: `${this.metaTitle} Giveaway | Comps.gg` },
+        {
+          property: "og:title",
+          content: `${this.metaTitle} Giveaway | Comps.gg`,
+        },
         {
           property: "og:description",
           content: `${this.metaTitle} Giveaway on, Comps.gg. Find Competitions & Giveaways from all over the web.`,
