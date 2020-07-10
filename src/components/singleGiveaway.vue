@@ -6,25 +6,25 @@
         please try back later
       </p>
     </section>
-    <div v-if="loading" class="mx-auto w-full">
+    <div v-if="loading" class="w-full mx-auto">
       <img class="mx-auto" src="/img/spinner.svg" />
     </div>
     <div v-else>
       <div class="flex flex-wrap justify-between">
         <p
-          class="text-indigo-100 text-3xl md:text-4xl font-medium leading-tight header-font tracking-widest"
+          class="text-3xl font-medium leading-tight tracking-widest text-indigo-100 md:text-4xl header-font"
         >
           {{ giveaway.name }}
         </p>
-        <div class="flex items-end justify-end py-1 md:py-0 mb-1 md:mb-0">
+        <div class="flex items-end justify-end py-1 mb-1 md:py-0 md:mb-0">
           <label class="flex items-center">
             <div
-              class="select-none text-lg font-medium text-gray-600 inline align-middle header-font tracking-widest"
+              class="inline text-lg font-medium tracking-widest text-gray-600 align-middle select-none header-font"
             >
               Mark as done
             </div>
             <div
-              class="bg-darker opacity-50 border-2 rounded border-gray-400 w-6 h-6 md:w-8 md:h-8 flex flex-shrink-0 justify-center items-center ml-2 focus-within:border-blue-500 align-middle"
+              class="flex items-center justify-center flex-shrink-0 w-6 h-6 ml-2 align-middle border-2 border-gray-400 rounded opacity-50 bg-darker md:w-8 md:h-8 focus-within:border-blue-500"
             >
               <input
                 type="checkbox"
@@ -32,10 +32,10 @@
                 id="mainCat.merchantId"
                 @change="markAsDone(giveaway.id)"
                 :checked="completed == true"
-                class="opacity-0 absolute inline"
+                class="absolute inline opacity-0"
               />
               <svg
-                class="fill-current hidden w-4 h-4 text-green-500 pointer-events-none"
+                class="hidden w-4 h-4 text-green-500 pointer-events-none fill-current"
                 viewBox="0 0 20 20"
               >
                 <path d="M0 11l2-2 5 5L18 3l2 2L7 18z" />
@@ -45,17 +45,17 @@
         </div>
       </div>
 
-      <hr class="mb-3 md:my-3 opacity-25" />
+      <hr class="mb-3 opacity-25 md:my-3" />
       <div class="flex flex-wrap md:flex-no-wrap">
         <div
-          class="py-1 px-2 w-full bg-lighter rounded-lg md:mb-0 md:mr-2 flex flex-wrap items-center header-font border border-indigo-200 text-gray-600 text-md border-opacity-25 tracking-widest"
+          class="flex flex-wrap items-center w-full px-2 py-1 tracking-widest text-gray-600 border border-indigo-200 border-opacity-25 rounded-lg bg-lighter md:mb-0 md:mr-2 header-font text-md"
         >
           <img
             v-if="giveaway.twitterProfileImage"
-            class="rounded-full w-5 h-5 lg:w-8 lg:h-8 mr-1 md:mr-3"
+            class="w-5 h-5 mr-1 rounded-full lg:w-8 lg:h-8 md:mr-3"
             v-bind:src="giveaway.twitterProfileImage"
           />
-          <div class="mr-2 p-1 md:p-0 flex items-center">
+          <div class="flex items-center p-1 mr-2 md:p-0">
             <svg
               class="inline w-5 h-5 mr-1 align-middle"
               fill="none"
@@ -70,7 +70,7 @@
               />
             </svg>
             <a
-              class="header-font inline align-middle"
+              class="inline align-middle header-font"
               v-if="giveaway.display_name"
               target="_blank"
               v-bind:href="giveaway.twitterProfileUrl"
@@ -80,10 +80,10 @@
           </div>
           <div
             v-if="giveaway.verified_twitter"
-            class="mr-2 p-1 md:p-0 flex items-center"
+            class="flex items-center p-1 mr-2 md:p-0"
           >
             <svg
-              class="inline w-5 h-5 text-green-600 mr-1 align-middle"
+              class="inline w-5 h-5 mr-1 text-green-600 align-middle"
               fill="none"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -95,12 +95,12 @@
                 d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
               />
             </svg>
-            <span class="header-font inline align-middle">Verified</span>
+            <span class="inline align-middle header-font">Verified</span>
           </div>
 
           <div
             v-if="createdDate"
-            class="mr-2 p-1 md:p-0 header-font flex items-center"
+            class="flex items-center p-1 mr-2 md:p-0 header-font"
           >
             <svg
               class="inline w-5 h-5 mr-1"
@@ -120,7 +120,7 @@
 
           <div class="flex items-center" v-if="giveaway.boost">
             <svg
-              class="inline-block align-middle md:w-5 md:h-5 w-4 h-4 mr-1 text-yellow-300"
+              class="inline-block w-4 h-4 mr-1 text-yellow-300 align-middle md:w-5 md:h-5"
               fill="none"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -136,10 +136,10 @@
           </div>
         </div>
         <div
-          class="py-1 px-2 w-full bg-lighter rounded-lg md:mb-0 flex flex-row items-center md:mt-0 mt-2 justify-between flex-wrap border border-indigo-200 border-opacity-25"
+          class="flex flex-row flex-wrap items-center justify-between w-full px-2 py-1 mt-2 border border-indigo-200 border-opacity-25 rounded-lg bg-lighter md:mb-0 md:mt-0"
         >
           <span
-            class="inline-block align-middle tracking-widest header-font text-gray-600"
+            class="inline-block tracking-widest text-gray-600 align-middle header-font"
             >Share this Competition</span
           >
           <a
@@ -150,10 +150,10 @@
                 currentUrl
             "
             target="_blank"
-            class="text-center p-2 bg-blue-400 bg-opacity-25 hover:bg-blue-500 text-blue-100 hover:text-gray-800 rounded-lg shadow-sm text-xs tracking-wide uppercase"
+            class="p-2 text-xs tracking-wide text-center text-blue-100 uppercase bg-blue-400 bg-opacity-25 rounded-lg shadow-sm hover:bg-blue-500 hover:text-gray-800"
           >
             <svg
-              class="inline-block align-middle w-5 h-5 fill-current"
+              class="inline-block w-5 h-5 align-middle fill-current"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -167,10 +167,10 @@
               'https://facebook.com/sharer/sharer.php?u=' + currentUrl
             "
             target="_blank"
-            class="text-center p-2 bg-blue-700 bg-opacity-25 hover:bg-blue-700 text-blue-100 hover:text-gray-800 rounded-lg shadow-sm text-xs tracking-wide uppercase"
+            class="p-2 text-xs tracking-wide text-center text-blue-100 uppercase bg-blue-700 bg-opacity-25 rounded-lg shadow-sm hover:bg-blue-700 hover:text-gray-800"
           >
             <svg
-              class="inline-block align-middle w-5 h-5 fill-current"
+              class="inline-block w-5 h-5 align-middle fill-current"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -187,10 +187,10 @@
                 currentUrl
             "
             target="_blank"
-            class="text-center p-2 bg-green-400 bg-opacity-25 hover:bg-green-500 text-green-100 hover:text-gray-800 rounded-lg shadow-sm text-xs tracking-wide uppercase"
+            class="p-2 text-xs tracking-wide text-center text-green-100 uppercase bg-green-400 bg-opacity-25 rounded-lg shadow-sm hover:bg-green-500 hover:text-gray-800"
           >
             <svg
-              class="inline-block align-middle w-5 h-5 fill-current"
+              class="inline-block w-5 h-5 align-middle fill-current"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -207,10 +207,10 @@
                 currentUrl
             "
             target="_blank"
-            class="text-center p-2 bg-gray-500 bg-opacity-25 hover:bg-gray-500 text-gray-100 hover:text-gray-800 rounded-lg shadow-sm text-xs tracking-wide uppercase"
+            class="p-2 text-xs tracking-wide text-center text-gray-100 uppercase bg-gray-500 bg-opacity-25 rounded-lg shadow-sm hover:bg-gray-500 hover:text-gray-800"
           >
             <svg
-              class="inline-block align-middle w-5 h-5"
+              class="inline-block w-5 h-5 align-middle"
               fill="none"
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -261,14 +261,14 @@
             tweet to do it manually. Be sure to check the description we found
             below, for any additional information!
           </p>
-          <div class="pt-3 flex items-center flex-wrap">
+          <div class="flex flex-wrap items-center pt-3">
             <a
               v-if="giveaway.like_required"
               v-bind:href="
                 'https://twitter.com/intent/like?tweet_id=' + giveaway.tweet_id
               "
               target="_blank"
-              class="text-center flex items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-2 px-2 mr-2 mb-2 md:mb-0"
+              class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
             >
               <svg
                 class="w-4 h-4 mr-1"
@@ -292,7 +292,7 @@
                   giveaway.tweet_id
               "
               target="_blank"
-              class="text-center flex items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-2 px-2 mr-2 mb-2 md:mb-0"
+              class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
             >
               <svg
                 class="w-4 h-4 mr-1"
@@ -316,7 +316,7 @@
                 'https://twitter.com/intent/follow?user_id=' + giveaway.user_id
               "
               target="_blank"
-              class="text-center flex items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-2 px-2 mr-2 mb-2 md:mb-0"
+              class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
             >
               <svg
                 class="w-4 h-4 mr-1"
@@ -337,7 +337,7 @@
             <a
               v-bind:href="giveaway.tweet_url"
               target="_blank"
-              class="text-center flex items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-2 px-2 mr-2 mb-2 md:mb-0"
+              class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
             >
               <svg
                 class="w-4 h-4 mr-1"
@@ -382,7 +382,7 @@
           v-bind:href="giveaway.gleam_url"
           target="_blank"
           rel="nofollow"
-          class="e-widget inline text-center items-center bg-indigo-500 hover:bg-indigo-300 font-medium text-white hover:text-gray-800 rounded-lg shadow-md sm:mt-0 py-3 px-2 mb-2"
+          class="items-center inline px-2 py-3 mb-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md e-widget hover:bg-indigo-300 hover:text-gray-800 sm:mt-0"
           id="cjecl"
         >
           <!-- <svg
@@ -396,7 +396,7 @@
           >
             <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
           </svg> -->
-          <!-- <span class="inline align-middle items-center text-center">Open Giveaway</span> -->
+          <!-- <span class="items-center inline text-center align-middle">Open Giveaway</span> -->
         </a>
       </div>
 
@@ -410,7 +410,7 @@
       -->
 
       <div v-if="giveaway.playr_url" class="flex">
-        <div class="w-full overflow-hidden relative" style="min-height:768px">
+        <div class="relative w-full overflow-hidden" style="min-height:768px">
           <iframe
             class="responsive-iframe"
             style="height:100%"
@@ -431,7 +431,7 @@
       -->
 
       <div v-if="giveaway.sdqk_url" class="flex">
-        <div class="w-full overflow-hidden relative" style="min-height:768px">
+        <div class="relative w-full overflow-hidden" style="min-height:768px">
           <iframe
             class="responsive-iframe"
             style="height:100%"
@@ -457,7 +457,7 @@
           v-bind:href="giveaway.entry_url"
           target="_blank"
           rel="nofollow"
-          class="mx-auto mt-3 w-full text-center sm:mt-0 py-2 px-2 md:py-3 md:px-6 bg-indigo-500 hover:bg-indigo-300 font-bold text-white hover:text-gray-800 rounded-lg shadow-md"
+          class="w-full px-2 py-2 mx-auto mt-3 font-bold text-center text-white bg-indigo-500 rounded-lg shadow-md sm:mt-0 md:py-3 md:px-6 hover:bg-indigo-300 hover:text-gray-800"
         >
           Enter Competition
           <svg
@@ -477,7 +477,7 @@
       </div>
       <div class="flex justify-end">
         <a
-          class="self-end bg-lighter px-5 py-2 mt-4 border border-indigo-200  hover:bg-primary text-gray-600 text-md border-opacity-25 rounded-md cursor-pointer header-font tracking-widest"
+          class="self-end px-5 py-2 mt-4 tracking-widest text-gray-600 border border-indigo-200 border-opacity-25 rounded-md cursor-pointer bg-lighter hover:bg-primary text-md header-font"
           @click="$router.go(-1)"
           >Go Back</a
         >
@@ -489,7 +489,7 @@
       </noscript>
       <!-- <a
         href="#"
-        class="mt-3 sm:mt-0 py-2 px-5 md:py-3 md:px-6 bg-red-500 hover:bg-red-300 font-medium text-white hover:text-gray-700 rounded-lg shadow-md"
+        class="px-5 py-2 mt-3 font-medium text-white bg-red-500 rounded-lg shadow-md sm:mt-0 md:py-3 md:px-6 hover:bg-red-300 hover:text-gray-700"
         >Report</a
       >-->
     </div>
@@ -653,7 +653,7 @@ function gleamChecker() {
       childSpan.innerHTML +=
         "<svg class='inline w-5 h-5 ml-2' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' stroke='currentColor'><path d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'></path></svg>";
     });
-  }, 500);
+  }, 750);
 }
 </script>
 

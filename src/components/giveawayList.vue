@@ -1,35 +1,35 @@
 <template>
   <section id="homeList" class="sm:bg-primary md:py-1">
     <div
-      class="container mx-auto md:my-8 bg-lighter p-2 md:p-7 lg:p-10 py-5 sm:rounded-lg"
+      class="container p-2 py-5 mx-auto md:my-8 bg-lighter md:p-7 lg:p-10 sm:rounded-lg"
     >
-      <div class="w-full items-center justify-center px-2 md:p-0" id="app">
-        <div v-if="loading" class="mx-auto w-full">
+      <div class="items-center justify-center w-full px-2 md:p-0" id="app">
+        <div v-if="loading" class="w-full mx-auto">
           <img class="mx-auto" src="/img/spinner.svg" />
         </div>
         <div v-else>
           <div
             v-for="giveaway in paginatedData"
             :key="giveaway.id"
-            class="w-full px-2 mb-5 transition transform hover:-translate-y-2 duration-100 ease-out"
+            class="w-full px-2 mb-5 transition duration-100 ease-out transform hover:-translate-y-2"
           >
             <div
               v-bind:class="{ 'opacity-25': giveaway.completed }"
-              class="bg-middle shadow-sm hover:shadow-md hover:bg-primary transition duration-300 transform rounded-lg overflow-hidden md:flex border-solid border-l-8 border-indigo-500 hover:border-indigo-200"
+              class="overflow-hidden transition duration-300 transform border-l-8 border-indigo-500 border-solid rounded-lg shadow-sm bg-middle hover:shadow-md hover:bg-primary md:flex hover:border-indigo-200"
             >
               <router-link :to="'/giveaway/' + giveaway.id" class="w-full">
                 <div class="px-3 py-2 md:p-3 lg:p-4">
-                  <div class="flex justify-between items-center">
+                  <div class="flex items-center justify-between">
                     <div class="w-full">
-                      <div class="flex items-center flex-wrap">
+                      <div class="flex flex-wrap items-center">
                         <p
-                          class="font-medium text-lg lg:text-2xl text-indigo-200 header-font tracking-widest mr-2"
+                          class="mr-2 text-lg font-medium tracking-widest text-indigo-200 lg:text-2xl header-font"
                         >
                           {{ giveaway.name }}
                         </p>
                         <div class="flex items-center" v-if="giveaway.boost">
                           <svg
-                            class="inline-block align-middle md:w-5 md:h-5 w-4 h-4 mr-1 text-yellow-300"
+                            class="inline-block w-4 h-4 mr-1 text-yellow-300 align-middle md:w-5 md:h-5"
                             fill="none"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -42,7 +42,7 @@
                             />
                           </svg>
                           <p
-                            class="text-yellow-300 md:text-sm text-xs uppercase"
+                            class="text-xs text-yellow-300 uppercase md:text-sm"
                           >
                             Boosted Post!
                           </p>
@@ -50,24 +50,24 @@
                       </div>
 
                       <div class="flex items-center mb-2">
-                        <div class="flex justify-between items-center">
+                        <div class="flex items-center justify-between">
                           <div class="flex flex-row-reverse justify-end">
                             <p
-                              class="text-gray-500 tracking-widest text-xs md:text-sm"
+                              class="text-xs tracking-widest text-gray-500 md:text-sm"
                             >
                               {{ giveaway.description }}
                             </p>
                           </div>
                         </div>
                       </div>
-                      <hr class="opacity-25 my-1 md:my-2" />
-                      <div class="flex flex-wrap giveawayInfo text-xs">
+                      <hr class="my-1 opacity-25 md:my-2" />
+                      <div class="flex flex-wrap text-xs giveawayInfo">
                         <div
                           v-if="giveaway.verified_twitter"
-                          class="flex flex-no-wrap text-gray-600 items-center mr-2"
+                          class="flex flex-no-wrap items-center mr-2 text-gray-600"
                         >
                           <svg
-                            class="inline align-middle w-4 h-4 mr-1 text-green-600"
+                            class="inline w-4 h-4 mr-1 text-green-600 align-middle"
                             fill="none"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -81,16 +81,16 @@
                           </svg>
                           <span
                             title="This competition host is verified on Twitter"
-                            class="align-middle whitespace-no-wrap"
+                            class="whitespace-no-wrap align-middle"
                             >Verified</span
                           >
                         </div>
                         <div
                           v-if="giveaway.created_at"
-                          class="flex flex-no-wrap text-gray-600 items-center mr-2"
+                          class="flex flex-no-wrap items-center mr-2 text-gray-600"
                         >
                           <svg
-                            class="inline align-middle w-4 h-4 mr-1"
+                            class="inline w-4 h-4 mr-1 align-middle"
                             fill="none"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -102,7 +102,7 @@
                               d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                             />
                           </svg>
-                          <span class="align-middle whitespace-no-wrap"
+                          <span class="whitespace-no-wrap align-middle"
                             >Added {{ giveaway.created_at }}</span
                           >
                         </div>
@@ -112,10 +112,10 @@
                               giveaway.playr_url ||
                               giveaway.sdqk_url
                           "
-                          class="flex flex-no-wrap text-gray-600 items-center mr-2"
+                          class="flex flex-no-wrap items-center mr-2 text-gray-600"
                         >
                           <svg
-                            class="inline align-middle w-4 h-4 mr-1"
+                            class="inline w-4 h-4 mr-1 align-middle"
                             fill="none"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -130,29 +130,29 @@
                           <span
                             v-if="giveaway.gleam_url"
                             title="Giveaway hosted by gleam.io platform."
-                            class="align-middle whitespace-no-wrap"
+                            class="whitespace-no-wrap align-middle"
                             >Gleam Competition</span
                           >
                           <span
                             v-if="giveaway.playr_url"
                             title="Giveaway hosted by playr.gg platform."
-                            class="align-middle whitespace-no-wrap"
+                            class="whitespace-no-wrap align-middle"
                             >Playr Competition</span
                           >
                           <span
                             title="Giveaway hosted by sdqk.me platform."
                             v-if="giveaway.sdqk_url"
-                            class="align-middle whitespace-no-wrap"
+                            class="whitespace-no-wrap align-middle"
                             >Sdqk Competition</span
                           >
                         </div>
 
                         <div
                           v-if="giveaway.like_required"
-                          class="flex flex-no-wrap text-gray-600 items-center mr-2"
+                          class="flex flex-no-wrap items-center mr-2 text-gray-600"
                         >
                           <svg
-                            class="inline align-middle w-4 h-4 mr-1"
+                            class="inline w-4 h-4 mr-1 align-middle"
                             fill="none"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -167,17 +167,17 @@
 
                           <span
                             title="Giveaway may require you to 'like' a tweet."
-                            class="align-middle whitespace-no-wrap"
+                            class="whitespace-no-wrap align-middle"
                             >Like Required</span
                           >
                         </div>
 
                         <div
                           v-if="giveaway.rt_required"
-                          class="text-gray-600 items-center mr-2"
+                          class="items-center mr-2 text-gray-600"
                         >
                           <svg
-                            class="inline align-middle w-4 h-4 mr-1"
+                            class="inline w-4 h-4 mr-1 align-middle"
                             fill="none"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -192,17 +192,42 @@
 
                           <span
                             title="Giveaway may require you to 'retweet' a tweet."
-                            class="align-middle whitespace-no-wrap"
+                            class="whitespace-no-wrap align-middle"
                             >Retweet Required</span
+                          >
+                        </div>
+
+                        <div
+                          v-if="giveaway.follow_required"
+                          class="items-center mr-2 text-gray-600"
+                        >
+                          <svg
+                            class="inline w-4 h-4 mr-1 align-middle"
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                            ></path>
+                          </svg>
+
+                          <span
+                            title="Giveaway may require you to 'follow' a user."
+                            class="whitespace-no-wrap align-middle"
+                            >Follow Required</span
                           >
                         </div>
                       </div>
                       <!--<div
-                        class="font-medium text-gray-600 text-sm md:text-lg header-font tracking-widest md:mt-0 mt-3"
+                        class="mt-3 text-sm font-medium tracking-widest text-gray-600 md:text-lg header-font md:mt-0"
                       >
                         <img
                           v-if="giveaway.twitterProfileImage"
-                          class="rounded-full w-8 inline-block mr-1"
+                          class="inline-block w-8 mr-1 rounded-full"
                           v-bind:src="giveaway.twitterProfileImage"
                         />
                         {{ giveaway.display_name }}
@@ -210,10 +235,10 @@
                     </div>
                     <!-- <router-link
                       :to="'/giveaway/' + giveaway.id"
-                      class="ml-5 mt-3 sm:mt-0 px-1 md:py-1 md:p-4 bg-indigo-500 transition duration-300 hover:bg-indigo-200 font-bold hover:text-indigo-800 text-indigo-200  rounded-lg shadow-md"
+                      class="px-1 mt-3 ml-5 font-bold text-indigo-200 transition duration-300 bg-indigo-500 rounded-lg shadow-md sm:mt-0 md:py-1 md:p-4 hover:bg-indigo-200 hover:text-indigo-800"
                     >
                       <svg
-                        class="h-6 w-6 "
+                        class="w-6 h-6 "
                         fill="none"
                         stroke-linecap="round"
                         stroke-linejoin="round"
@@ -240,31 +265,31 @@
           ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
           -->
 
-          <div class="pb-5 pagination flex mx-auto">
+          <div class="flex pb-5 mx-auto pagination">
             <paginator :data="giveaways" @loadedData="getPaginatedData" />
-            <!-- <ul class="flex mt-10 mx-auto">
-              <li class="mx-1 px-3 py-2 bg-gray-200 text-gray-500 rounded-lg">
+            <!-- <ul class="flex mx-auto mt-10">
+              <li class="px-3 py-2 mx-1 text-gray-500 bg-gray-200 rounded-lg">
                 <a class="flex items-center font-bold" href="#">
                   <span class="mx-1">previous</span>
                 </a>
               </li>
               <li
-                class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-indigo-600 hover:text-gray-100 rounded-lg"
+                class="px-3 py-2 mx-1 text-gray-700 bg-gray-200 rounded-lg hover:bg-indigo-600 hover:text-gray-100"
               >
                 <a class="font-bold" href="#">1</a>
               </li>
               <li
-                class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-indigo-600 hover:text-gray-100 rounded-lg"
+                class="px-3 py-2 mx-1 text-gray-700 bg-gray-200 rounded-lg hover:bg-indigo-600 hover:text-gray-100"
               >
                 <a class="font-bold" href="#">2</a>
               </li>
               <li
-                class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-indigo-600 hover:text-gray-100 rounded-lg"
+                class="px-3 py-2 mx-1 text-gray-700 bg-gray-200 rounded-lg hover:bg-indigo-600 hover:text-gray-100"
               >
                 <a class="font-bold" href="#">3</a>
               </li>
               <li
-                class="mx-1 px-3 py-2 bg-gray-200 text-gray-700 hover:bg-indigo-600 hover:text-gray-100 rounded-lg"
+                class="px-3 py-2 mx-1 text-gray-700 bg-gray-200 rounded-lg hover:bg-indigo-600 hover:text-gray-100"
               >
                 <a class="flex items-center font-bold" href="#">
                   <span class="mx-1">Next</span>
@@ -302,7 +327,9 @@ export default {
     },
     async getAllGiveAways() {
       try {
-        await fetch("https://api.comps.gg/giveaways?published=true&_sort=created_at:desc")
+        await fetch(
+          "https://api.comps.gg/giveaways?published=true&_sort=created_at:desc"
+        )
           .then((response) => response.json())
           .then((data) => {
             this.giveaways = data.map((item) => ({
