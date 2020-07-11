@@ -7,22 +7,37 @@
   font-style: normal;
   font-weight: 400;
   src: local('Staatliches Regular'), local('Staatliches-Regular'),
-       url('../fonts/staatliches-v3-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('../fonts/staatliches-v3-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-}; 
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.header-font,
-button {
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-family: "Staatliches", cursive;
+    url('../fonts/staatliches-v3-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/staatliches-v3-latin-regular.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-input:checked + svg {
+@font-face {
+  font-family: 'Didact Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Didact Gothic Regular'), local('DidactGothic-Regular'),
+    url('../fonts/didact-gothic-v13-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/didact-gothic-v13-latin-regular.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+*,
+.header-font {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Staatliches", cursive;
+  letter-spacing: 0.1em;
+}
+
+p,
+a {
+  font-family: 'Didact Gothic', sans-serif;
+}
+
+
+
+input:checked+svg {
   display: block;
 }

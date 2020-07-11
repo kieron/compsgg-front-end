@@ -11,11 +11,11 @@
     </div>
     <div v-else>
       <div class="flex flex-wrap justify-between">
-        <p
+        <span
           class="text-3xl font-medium leading-tight tracking-widest text-indigo-100 md:text-4xl header-font"
         >
           {{ giveaway.name }}
-        </p>
+        </span>
         <div class="flex items-end justify-end py-1 mb-1 md:py-0 md:mb-0">
           <label class="flex items-center">
             <div
@@ -115,7 +115,9 @@
                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
               />
             </svg>
-            <span class>ADDED {{ createdDate }}</span>
+            <span class="tracking-widest text-gray-600 align-middle header-font"
+              >Added {{ createdDate }}</span
+            >
           </div>
 
           <div class="flex items-center" v-if="giveaway.boost">
@@ -261,7 +263,7 @@
             tweet to do it manually. Be sure to check the description we found
             below, for any additional information!
           </p>
-          <div class="flex flex-wrap items-center pt-3">
+          <div class="flex flex-wrap items-center pt-3 tracking-widest">
             <a
               v-if="giveaway.like_required"
               v-bind:href="
@@ -281,8 +283,9 @@
               >
                 <path
                   d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
-                /></svg
-              >Like Tweet
+                />
+              </svg>
+              <span class="inline align-middle">Like Tweet</span>
             </a>
 
             <a
@@ -361,7 +364,7 @@
       <div v-if="giveaway.description" class="my-5 text-gray-600">
         <span class="text-lg font-medium text-indigo-100">Description</span>
         <hr class="my-2 opacity-25" />
-        {{ giveaway.description }}
+        <p>{{ giveaway.description }}</p>
       </div>
 
       <!-- 
