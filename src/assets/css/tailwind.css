@@ -24,19 +24,15 @@
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-*,
+* {
+  font-family: 'Didact Gothic', sans-serif;
+}
+
 .header-font {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-family: "Staatliches", cursive;
   letter-spacing: 0.1em;
 }
-
-p,
-a {
-  font-family: 'Didact Gothic', sans-serif;
-}
-
-
 
 input:checked+svg {
   display: block;
