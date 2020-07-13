@@ -415,11 +415,12 @@
       <div v-if="giveaway.playr_url" class="flex">
         <div class="relative w-full overflow-hidden" style="min-height:868px">
           <iframe
+            id="playrFrame"
             class="responsive-iframe"
             style="height:100%"
             width="768px"
             height="100%"
-            v-bind:src="giveaway.playr_url"
+            :src="giveaway.playr_url"
           ></iframe>
         </div>
       </div>
@@ -639,6 +640,7 @@ function gleamChecker() {
         "px-2",
         "md:py-3",
         "md:px-6",
+        "header-font",
         "bg-indigo-500",
         "hover:bg-indigo-300",
         "font-bold",
