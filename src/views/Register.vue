@@ -7,8 +7,8 @@
       >
         <h1 class="pb-5 text-3xl text-indigo-100">Register</h1>
         <div class="w-full">
-          <div
-            v-on:click="discord"
+          <a
+            href="https://api.comps.gg/connect/discord"
             class="flex items-center justify-start w-64 px-4 py-3 text-sm font-bold text-gray-100 rounded shadow cursor-pointer discord-bg hover:text-white"
           >
             <svg
@@ -22,7 +22,7 @@
             </svg>
             <span class="block w-1 h-6 border-l border-white-800"></span>
             <span class="pl-3">Sign up with Discord</span>
-          </div>
+          </a>
 
           <div
             class="flex items-center justify-start w-64 px-4 py-3 mt-2 text-sm font-bold text-gray-100 rounded shadow cursor-pointer twitter-bg hover:text-white"
