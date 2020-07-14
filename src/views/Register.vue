@@ -24,7 +24,8 @@
             <span class="pl-3">Sign up with Discord</span>
           </a>
 
-          <div
+          <a
+            href="https://api.comps.gg/connect/twitter"
             class="flex items-center justify-start w-64 px-4 py-3 mt-2 text-sm font-bold text-gray-100 rounded shadow cursor-pointer twitter-bg hover:text-white"
           >
             <svg
@@ -38,9 +39,10 @@
             </svg>
             <span class="block w-1 h-6 mr-1 border-l border-white-800"></span>
             <span class="pl-3">Sign up with Twitter</span>
-          </div>
+          </a>
 
-          <div
+          <a
+            href="https://api.comps.gg/connect/twitch"
             class="flex items-center justify-start w-64 px-4 py-3 mt-2 text-sm font-bold text-gray-100 rounded shadow cursor-pointer twitch-bg hover:text-white"
           >
             <svg
@@ -54,7 +56,7 @@
             </svg>
             <span class="block w-1 h-6 mr-1 border-l border-white-800"></span>
             <span class="pl-3">Sign up with Twitch</span>
-          </div>
+          </a>
         </div>
       </div>
     </section>
