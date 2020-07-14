@@ -120,6 +120,26 @@
             >
           </div>
 
+          <div
+            v-if="endDate"
+            class="flex items-center p-1 mr-2 md:p-0 header-font"
+          >
+            <svg
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              class="inline w-5 h-5 mr-1"
+            >
+              <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <span class="tracking-widest text-gray-600 align-middle header-font"
+              >Ends {{ endDate }}</span
+            >
+          </div>
+
           <div class="flex items-center" v-if="giveaway.boost">
             <svg
               class="inline-block w-4 h-4 mr-1 text-yellow-300 align-middle md:w-5 md:h-5"
@@ -521,6 +541,7 @@ export default {
       currentUrl: window.location.href,
       metaTitle: "",
       createdDate: "",
+      endDate: "",
       newItemTitle: "",
       completed: false,
       tweetIdFix: "",
@@ -535,6 +556,8 @@ export default {
             this.giveaway = data;
             this.metaTitle = data.name;
             this.createdDate = moment(data.created_at).format("DD/MM/YY");
+            if (data.end_date)
+              this.endDate = moment(data.end_date).format("DD/MM/YY HH:MM");
             let markedAsDone = localStorage.getItem("markedAsDone");
             if (markedAsDone) {
               this.completed = markedAsDone.includes(this.giveaway.id)

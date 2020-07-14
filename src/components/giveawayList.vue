@@ -107,6 +107,28 @@
                           >
                         </div>
                         <div
+                          v-if="giveaway.ends_at"
+                          class="flex flex-no-wrap items-center mr-2 text-gray-600"
+                        >
+                          <svg
+                            fill="none"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            class="inline w-4 h-4 mr-1 align-middle"
+                          >
+                            <path
+                              d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                          </svg>
+
+                          <span class="whitespace-no-wrap align-middle"
+                            >Ends {{ giveaway.ends_at }}</span
+                          >
+                        </div>
+                        <div
                           v-if="
                             giveaway.gleam_url ||
                               giveaway.playr_url ||
@@ -335,6 +357,9 @@ export default {
             this.giveaways = data.map((item) => ({
               ...item,
               created_at: moment(item.created_at).format("DD/MM/YY"),
+              ends_at: item.end_date
+                ? moment(item.end_date).format("DD/MM/YY HH:MM")
+                : "",
             }));
             let markedAsDone = localStorage.getItem("markedAsDone");
 
