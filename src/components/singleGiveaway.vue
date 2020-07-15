@@ -248,8 +248,6 @@
         </div>
       </div>
 
-      <!--   -->
-
       <div v-if="giveaway.description" class="my-5 text-gray-600">
         <span class="text-lg font-medium text-indigo-100">Requirements</span>
         <hr class="my-2 opacity-25" />
