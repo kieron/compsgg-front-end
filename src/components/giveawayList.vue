@@ -9,6 +9,75 @@
         </div>
         <div v-else>
           <div
+            class="p-5 mx-2 mb-5 overflow-hidden transition duration-300 transform rounded-lg shadow-sm bg-middle md:flex hover:border-indigo-200"
+            id="filter"
+            style="display:none"
+          >
+            <div class="w-full px-3 mb-6 md:w-1/3 md:mb-0">
+              <label
+                class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                for="grid-state"
+              >
+                Platform
+              </label>
+              <div class="relative">
+                <select
+                  class="block w-full px-4 py-3 pr-8 leading-tight text-indigo-200 border border-indigo-200 border-opacity-50 rounded opacity-50 appearance-none bg-middle focus:outline-none focus:bg-lighter focus:border-gray-500"
+                  id="grid-state"
+                >
+                  <option>All</option>
+                  <option>Gleam</option>
+                  <option>Playr</option>
+                  <option>Sideqik</option>
+                </select>
+                <div
+                  class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none"
+                >
+                  <svg
+                    class="w-4 h-4 fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="w-full px-3 mb-6 md:w-1/3 md:mb-0">
+              <label
+                class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                for="grid-state"
+              >
+                Verified
+              </label>
+              <div class="relative">
+                <select
+                  class="block w-full px-4 py-3 pr-8 leading-tight text-indigo-200 border border-indigo-200 border-opacity-50 rounded opacity-50 appearance-none bg-middle focus:outline-none focus:bg-lighter focus:border-gray-500"
+                  id="grid-state"
+                >
+                  <option>Both</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+                <div
+                  class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none"
+                >
+                  <svg
+                    class="w-4 h-4 fill-current"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
             v-for="giveaway in paginatedData"
             :key="giveaway.id"
             class="w-full px-2 mb-5 transition duration-100 ease-out transform hover:-translate-y-2"
@@ -331,6 +400,7 @@ var moment = require("moment");
 moment().format();
 
 export default {
+  mounted() {},
   components: {
     paginator,
   },
@@ -345,7 +415,6 @@ export default {
   methods: {
     getPaginatedData(value) {
       this.paginatedData = value;
-      // console.log({ hcwhqgd: value });
     },
     async getAllGiveAways() {
       try {
@@ -370,6 +439,7 @@ export default {
             }
 
             this.giveaways.sort((a, b) => Number(b.boost) - Number(a.boost));
+
             this.loading = false;
           });
       } catch (err) {
