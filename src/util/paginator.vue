@@ -34,8 +34,16 @@ export default {
       perpage: 10,
     };
   },
-  created() {
-    this.$emit("loadedData", this.paginatedData());
+//   created() {
+//     this.$emit("loadedData", this.paginatedData());
+//   },
+  watch:{
+      data:{
+          handler(){
+              this.$emit("loadedData", this.paginatedData());
+          },
+          immediate: true
+      }
   },
   methods: {
     nextPage() {

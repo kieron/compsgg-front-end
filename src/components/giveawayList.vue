@@ -11,7 +11,6 @@
           <div
             class="p-5 mx-2 mb-5 overflow-hidden transition duration-300 transform rounded-lg shadow-sm bg-middle md:flex hover:border-indigo-200"
             id="filter"
-            style="display:none"
           >
             <div class="w-full px-3 mb-6 md:w-1/3 md:mb-0">
               <label
@@ -24,11 +23,12 @@
                 <select
                   class="block w-full px-4 py-3 pr-8 leading-tight text-indigo-200 border border-indigo-200 border-opacity-50 rounded opacity-50 appearance-none bg-middle focus:outline-none focus:bg-lighter focus:border-gray-500"
                   id="grid-state"
+                  v-model="filter.platform"
                 >
-                  <option>All</option>
-                  <option>Gleam</option>
-                  <option>Playr</option>
-                  <option>Sideqik</option>
+                  <option value="none">All</option>
+                  <option value="gleam_url">Gleam</option>
+                  <option value="playr_url" >Playr</option>
+                  <option value="sdqk_url">Sideqik</option>
                 </select>
                 <div
                   class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none"
@@ -56,10 +56,11 @@
                 <select
                   class="block w-full px-4 py-3 pr-8 leading-tight text-indigo-200 border border-indigo-200 border-opacity-50 rounded opacity-50 appearance-none bg-middle focus:outline-none focus:bg-lighter focus:border-gray-500"
                   id="grid-state"
+                  v-model="filter.verified_twitter"
                 >
-                  <option>Both</option>
-                  <option>Yes</option>
-                  <option>No</option>
+                  <option value="none">Both</option>
+                  <option value="yes">Yes</option>
+                  <option value="no">No</option>
                 </select>
                 <div
                   class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none"
@@ -357,7 +358,7 @@
           -->
 
           <div class="flex pb-5 mx-auto pagination">
-            <paginator :data="giveaways" @loadedData="getPaginatedData" />
+            <paginator :data="filteredGiveaways" @loadedData="getPaginatedData" />
             <!-- <ul class="flex mx-auto mt-10">
               <li class="px-3 py-2 mx-1 text-gray-500 bg-gray-200 rounded-lg">
                 <a class="flex items-center font-bold" href="#">
@@ -406,11 +407,41 @@ export default {
   },
   data() {
     return {
+        filter:{
+            verified_twitter: 'none',
+            platform:'none'
+        },
       giveaways: [],
       loading: true,
       markedAsDone: [],
       paginatedData: [],
     };
+  },
+  computed:{
+      deString(value){
+        return {
+            'none': 'none', 
+            'yes': true, 
+            'no': false
+        }[value]
+      },
+      filteredGiveaways(){
+            let { platform, verified_twitter } = this.filter
+            let verified = this.deString(verified_twitter)
+
+            let filters = []
+
+            if(verified !== 'none' ) filters.push({ key: 'verified_twitter', value: verified})
+            if(platform !== 'none') filters.push({ key: platform, value: null, op: 'ne' })
+
+            return this.giveaways.filter( gw => {
+                return filters.every( ({key, value, op}) => {
+                    return (op && op === 'ne') 
+                        ? gw[key] !== value 
+                        : gw[key] === value
+                })
+            })
+      }
   },
   methods: {
     getPaginatedData(value) {
