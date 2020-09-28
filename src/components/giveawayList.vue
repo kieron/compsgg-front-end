@@ -418,13 +418,7 @@ export default {
     };
   },
   computed:{
-      deString(value){
-        return {
-            'none': 'none', 
-            'yes': true, 
-            'no': false
-        }[value]
-      },
+      
       filteredGiveaways(){
             let { platform, verified_twitter } = this.filter
             let verified = this.deString(verified_twitter)
@@ -446,6 +440,13 @@ export default {
   methods: {
     getPaginatedData(value) {
       this.paginatedData = value;
+    },
+    deString(value){
+        return {
+            'none': 'none', 
+            'yes': true, 
+            'no': false
+        }[value]
     },
     async getAllGiveAways() {
       try {
