@@ -33,6 +33,13 @@
             </li>
             <li class="inline-block mt-2 mr-2 md:block md:mr-0">
               <router-link
+                :to="'/contact/'"
+                class="no-underline hover:underline hover:text-orange-500"
+                >Contact</router-link
+              >
+            </li>
+            <li class="inline-block mt-2 mr-2 md:block md:mr-0">
+              <router-link
                 :to="'/tos/'"
                 class="no-underline hover:underline hover:text-orange-500"
                 >TOS</router-link
@@ -43,13 +50,6 @@
                 :to="'/pp/'"
                 class="no-underline hover:underline hover:text-orange-500"
                 >Privacy Policy</router-link
-              >
-            </li>
-            <li class="inline-block mt-2 mr-2 md:block md:mr-0">
-              <router-link
-                :to="'/contact/'"
-                class="no-underline hover:underline hover:text-orange-500"
-                >Contact</router-link
               >
             </li>
           </ul>
