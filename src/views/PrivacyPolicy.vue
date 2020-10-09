@@ -35,7 +35,7 @@ export default {
           name: "description",
           content:
             this.metaTitle +
-            "About Comps.gg. Find Competitions & Giveaways from all over the web.",
+            "Comps.gg Privacy Policy. Find Competitions & Giveaways from all over the web.",
         },
       ],
     };
