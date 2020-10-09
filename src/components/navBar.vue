@@ -46,6 +46,10 @@
               >Contact</router-link
             >
           </li>
+    
+          <li class="mr-3">
+            <span style="cursor:pointer;" @click="$emit('logout')" v-if="isLoggedIn">Logout</span>
+          </li>
 
           <!-- <li class="mr-3">
             <a
@@ -69,6 +73,9 @@
 
 <script>
 export default {
+    props:{
+        isLoggedIn: Boolean
+    },
   mounted() {
     if (process.env.NODE_ENV !== "production") {
       const plugin = document.createElement("script");
