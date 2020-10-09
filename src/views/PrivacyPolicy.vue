@@ -7,11 +7,7 @@
       >
         <h1 class="text-3xl text-indigo-100">Privacy Policy</h1>
         <p class="mb-3">
-          I love to enter competitions in the tech community specifically, and I
-          noticed there is a lot of really cool web applications for doing it,
-          like Gleam, Playr, and Sideqik, so I wanted to bring all of the
-          competitions I enter to one place, and make them super easy to take
-          part in.
+          Coming Soon
         </p>
       </div>
     </section>
