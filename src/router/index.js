@@ -23,6 +23,16 @@ Vue.use(VueMeta)
     component: () => import('../views/About.vue'),
   },
   {
+    path: '/tos',
+    name: 'TOS',
+    component: () => import('../views/Tos.vue'),
+  },
+  {
+    path: '/pp',
+    name: 'Privacy Policy',
+    component: () => import('../views/PrivacyPolicy.vue'),
+  },
+  {
     path: '/contact',
     name: 'Contact',
     component: () => import('../views/Contact.vue'),
@@ -32,10 +42,15 @@ Vue.use(VueMeta)
     name: 'Register',
     component: () => import('../views/Register.vue'),
   },
-  {
+    {
     path: '/connect/:provider/callback',
     name: 'LoginRedirect',
     component: () => import('../views/LoginRedirect.vue'),
+  },
+    {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue'),
   }
 ]
 
