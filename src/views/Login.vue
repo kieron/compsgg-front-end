@@ -5,11 +5,12 @@
       <div
         class="container mx-auto border-solid rounded-lg md:p-8 bg-middle md:shadow-lg"
       >
-        <h1 class="pb-5 text-3xl text-indigo-100">Login</h1>
-        <div class="w-full">
+        <h1 class="text-3xl text-indigo-100">Login</h1>
+        <p>Login to Comps.gg to retrieve your competition entry history!</p>
+        <div class="flex flex-col pt-5">
           <a
             href="https://api.comps.gg/connect/discord"
-            class="flex items-center justify-start w-64 px-4 py-3 text-sm font-bold text-gray-100 rounded shadow cursor-pointer discord-bg hover:text-white"
+            class="flex w-full px-4 py-3 text-sm font-bold text-gray-100 rounded shadow cursor-pointer md:w-64 discord-bg hover:text-white"
           >
             <svg
               class="w-6 h-6 mr-3 fill-current"
@@ -26,7 +27,7 @@
 
           <a
             href="https://api.comps.gg/connect/twitter"
-            class="flex items-center justify-start w-64 px-4 py-3 mt-2 text-sm font-bold text-gray-100 rounded shadow cursor-pointer twitter-bg hover:text-white"
+            class="flex w-full px-4 py-3 mt-2 text-sm font-bold text-gray-100 rounded shadow cursor-pointer md:w-64 twitter-bg hover:text-white"
           >
             <svg
               viewBox="0 0 24 24"
@@ -43,7 +44,7 @@
 
           <a
             href="https://api.comps.gg/connect/twitch"
-            class="flex items-center justify-start w-64 px-4 py-3 mt-2 text-sm font-bold text-gray-100 rounded shadow cursor-pointer twitch-bg hover:text-white"
+            class="flex w-full px-4 py-3 mt-2 text-sm font-bold text-gray-100 rounded shadow cursor-pointer md:w-64 twitch-bg hover:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

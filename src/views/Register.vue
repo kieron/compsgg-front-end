@@ -5,11 +5,14 @@
       <div
         class="container mx-auto border-solid rounded-lg md:p-8 bg-middle md:shadow-lg"
       >
-        <h1 class="pb-5 text-3xl text-indigo-100">Register</h1>
-        <div class="w-full">
+        <h1 class="text-3xl text-indigo-100">Register</h1>
+        <p>
+          Register on Comps.gg to start saving your competition entry history!
+        </p>
+        <div class="flex flex-col pt-5">
           <a
             href="https://api.comps.gg/connect/discord"
-            class="flex items-center justify-start w-64 px-4 py-3 text-sm font-bold text-gray-100 rounded shadow cursor-pointer discord-bg hover:text-white"
+            class="flex w-full px-4 py-3 text-sm font-bold text-gray-100 rounded shadow cursor-pointer md:w-64 discord-bg hover:text-white"
           >
             <svg
               class="w-6 h-6 mr-3 fill-current"
@@ -26,7 +29,7 @@
 
           <a
             href="https://api.comps.gg/connect/twitter"
-            class="flex items-center justify-start w-64 px-4 py-3 mt-2 text-sm font-bold text-gray-100 rounded shadow cursor-pointer twitter-bg hover:text-white"
+            class="flex w-full px-4 py-3 mt-2 text-sm font-bold text-gray-100 rounded shadow cursor-pointer md:w-64 twitter-bg hover:text-white"
           >
             <svg
               viewBox="0 0 24 24"
@@ -43,7 +46,7 @@
 
           <a
             href="https://api.comps.gg/connect/twitch"
-            class="flex items-center justify-start w-64 px-4 py-3 mt-2 text-sm font-bold text-gray-100 rounded shadow cursor-pointer twitch-bg hover:text-white"
+            class="flex w-full px-4 py-3 mt-2 text-sm font-bold text-gray-100 rounded shadow cursor-pointer md:w-64 twitch-bg hover:text-white"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -58,6 +61,16 @@
             <span class="pl-3">Sign up with Twitch</span>
           </a>
         </div>
+        <h2 class="mt-6 text-2xl text-indigo-100">
+          Huh? Why should I register?
+        </h2>
+        <p class="mb-1">
+          Rest assured, you can continue to use Comps.gg as anonymously as you'd
+          like too. However, if you do choose to register, when you mark a
+          competition as complete, we can save that information to your account,
+          so you can continue from any device at all, making it easier than ever
+          to get entering competitions.
+        </p>
       </div>
     </section>
     <mailChimp />
