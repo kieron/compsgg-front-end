@@ -42,7 +42,12 @@ Vue.use(VueMeta)
     name: 'Register',
     component: () => import('../views/Register.vue'),
   },
-  {
+    {
+    path: '/connect/:provider/callback',
+    name: 'LoginRedirect',
+    component: () => import('../views/LoginRedirect.vue'),
+  },
+    {
     path: '/login',
     name: 'Login',
     component: () => import('../views/Login.vue'),
