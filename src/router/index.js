@@ -23,6 +23,16 @@ Vue.use(VueMeta)
     component: () => import('../views/About.vue'),
   },
   {
+    path: '/tos',
+    name: 'TOS',
+    component: () => import('../views/Tos.vue'),
+  },
+  {
+    path: '/pp',
+    name: 'Privacy Policy',
+    component: () => import('../views/PrivacyPolicy.vue'),
+  },
+  {
     path: '/contact',
     name: 'Contact',
     component: () => import('../views/Contact.vue'),

@@ -27,7 +27,7 @@
                 >
                   <option value="none">All</option>
                   <option value="gleam_url">Gleam</option>
-                  <option value="playr_url" >Playr</option>
+                  <option value="playr_url">Playr</option>
                   <option value="sdqk_url">Sideqik</option>
                 </select>
                 <div
@@ -358,7 +358,10 @@
           -->
 
           <div class="flex pb-5 mx-auto pagination">
-            <paginator :data="filteredGiveaways" @loadedData="getPaginatedData" />
+            <paginator
+              :data="filteredGiveaways"
+              @loadedData="getPaginatedData"
+            />
             <!-- <ul class="flex mx-auto mt-10">
               <li class="px-3 py-2 mx-1 text-gray-500 bg-gray-200 rounded-lg">
                 <a class="flex items-center font-bold" href="#">
@@ -407,46 +410,45 @@ export default {
   },
   data() {
     return {
-        filter:{
-            verified_twitter: 'none',
-            platform:'none'
-        },
+      filter: {
+        verified_twitter: "none",
+        platform: "none",
+      },
       giveaways: [],
       loading: true,
       markedAsDone: [],
       paginatedData: [],
     };
   },
-  computed:{
-      
-      filteredGiveaways(){
-            let { platform, verified_twitter } = this.filter
-            let verified = this.deString(verified_twitter)
+  computed: {
+    filteredGiveaways() {
+      let { platform, verified_twitter } = this.filter;
+      let verified = this.deString(verified_twitter);
 
-            let filters = []
+      let filters = [];
 
-            if(verified !== 'none' ) filters.push({ key: 'verified_twitter', value: verified})
-            if(platform !== 'none') filters.push({ key: platform, value: null, op: 'ne' })
+      if (verified !== "none")
+        filters.push({ key: "verified_twitter", value: verified });
+      if (platform !== "none")
+        filters.push({ key: platform, value: null, op: "ne" });
 
-            return this.giveaways.filter( gw => {
-                return filters.every( ({key, value, op}) => {
-                    return (op && op === 'ne') 
-                        ? gw[key] !== value 
-                        : gw[key] === value
-                })
-            })
-      }
+      return this.giveaways.filter((gw) => {
+        return filters.every(({ key, value, op }) => {
+          return op && op === "ne" ? gw[key] !== value : gw[key] === value;
+        });
+      });
+    },
   },
   methods: {
     getPaginatedData(value) {
       this.paginatedData = value;
     },
-    deString(value){
-        return {
-            'none': 'none', 
-            'yes': true, 
-            'no': false
-        }[value]
+    deString(value) {
+      return {
+        none: "none",
+        yes: true,
+        no: false,
+      }[value];
     },
     async getAllGiveAways() {
       try {
