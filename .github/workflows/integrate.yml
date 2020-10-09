@@ -2,9 +2,8 @@ name: Comps.gg Continuous Deployment
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
-    
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -14,7 +13,6 @@ jobs:
         with:
           node-version: 12
       - run: npm ci
-      - run: npm i
       - run: npm run build
       - name: Deploy to APISCP
         uses: AEnterprise/rsync-deploy@v1.0

@@ -16,20 +16,20 @@
     "deploy-live": "vue-cli-service build && npm run transfer"
   },
   "dependencies": {
-    "moment": "^2.27.0",
-    "tailwindcss": "^1.4",
-    "vue": "^2.6.11",
-    "vue-gtag": "^1.6.5",
+    "moment": "^2.29.1",
+    "tailwindcss": "^1.8.12",
+    "vue": "^2.6.12",
+    "vue-gtag": "^1.9.1",
     "vue-mailchimp-subscribe": "^1.1.0",
     "vue-meta": "^2.4.0",
-    "vue-router": "^3.2.0"
+    "vue-router": "^3.4.6"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.4.0",
-    "@vue/cli-plugin-eslint": "~4.4.0",
-    "@vue/cli-plugin-pwa": "~4.4.0",
-    "@vue/cli-plugin-router": "~4.4.0",
-    "@vue/cli-service": "~4.4.0",
+    "@vue/cli-plugin-babel": "^4.4.6",
+    "@vue/cli-plugin-eslint": "^4.4.6",
+    "@vue/cli-plugin-pwa": "^4.4.6",
+    "@vue/cli-plugin-router": "^4.4.6",
+    "@vue/cli-service": "^4.4.6",
     "babel-eslint": "^10.1.0",
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
@@ -40,6 +40,6 @@
     "postcss-cli": "^6.1.2",
     "sass": "^1.27.0",
     "sass-loader": "^10.0.3",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.12"
   }
 }
