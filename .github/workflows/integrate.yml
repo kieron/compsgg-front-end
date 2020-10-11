@@ -12,8 +12,7 @@ jobs:
       - uses: actions/setup-node@master
         with:
           node-version: 12
-      - run: rm package-lock.json
-      - run: npm ci
+      - run: npm install
       - run: npm run build
       - name: Deploy to APISCP
         uses: AEnterprise/rsync-deploy@v1.0
