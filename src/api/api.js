@@ -1,7 +1,7 @@
 const API = process.env.VUE_APP_API_BASE_URL
 
-const authenticate = async ({ provider, search }) => new Promise(resolve => {
-    fetch(`${API}/auth/${provider}/callback${search}`)
+const authenticate = async ({ provider, queryString }) => new Promise(resolve => {
+    fetch(`${API}/auth/${provider}/callback${queryString}`)
         .then(res => res.status === 200 ? res :
             resolve({
                 error: true,

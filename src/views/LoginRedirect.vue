@@ -2,36 +2,26 @@
 	<div></div>
 </template>
 <script>
-import api from '../api/api'
-import _consts from '../consts'
+import { mapActions, mapMutations } from 'vuex'
 export default {
 	name: 'LoginRedirect',
 	created() {
-		this.authenticateUser()
+
+		// Saving social authentication informations
+		let data = {
+			queryString: location.search,
+			provider: this.$route.params.provider
+		}
+		this.setSocial({ ...data, authenticatedAt: Date.now() })
+
+		// Authentication user with the authentication informations
+		this.authenticate(data).then(() => {
+			this.$router.replace({ name: 'Home' })
+		})
 	},
 	methods: {
-		async authenticateUser() {
-
-			// Authenticating login
-			let { error, message, data } = await api.authenticate({
-				provider: this.$route.params.provider,
-				search: location.search
-			})
-
-			// Returning if error
-			if (error) { return console.log('Error', message); }
-
-			/**
-             * @TODO Store the data locally
-             * Have to use vuex or similiar something
-             */
-
-			// Saving token to localstorage
-			localStorage.setItem(_consts.TOKEN, data.jwt)
-			localStorage.setItem(_consts.LOGGED_IN, true)
-
-			this.$router.replace({ name: 'Home' })
-		}
+		...mapMutations('auth', ['setSocial']),
+		...mapActions('auth', ['authenticate']),
 	},
 }
 
