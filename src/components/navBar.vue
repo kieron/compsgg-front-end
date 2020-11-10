@@ -48,19 +48,18 @@
           </li>
 
           <!-- <li class="mr-3" v-if="loggedIn">
-						<span
-							class="px-2 py-2"
-							style="cursor: pointer"
-							@click="handleLogout"
-							>Logout</span
-						>
-					</li>
-					<li class="mr-3" v-else>
-						<router-link to="/login" class="px-2 py-2 no-underline"
-							>Login</router-link
-						>
-					</li> -->
-
+            <span
+              class="px-2 py-2"
+              style="cursor: pointer"
+              @click="handleLogout"
+              >Logout</span
+            >
+          </li> -->
+          <!-- <li class="mr-3" v-else>
+            <router-link to="/login" class="px-2 py-2 no-underline"
+              >Login</router-link
+            >
+          </li> -->
           <!-- <li class="mr-3">
             <a
               class="px-4 py-2 no-underline inline-blocktext-indigo-200 hover:text-gray-800 hover:text-underline"
