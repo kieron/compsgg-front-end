@@ -23,6 +23,7 @@
             >
               Mark as done
             </div>
+
             <div
               class="flex items-center justify-center flex-shrink-0 w-6 h-6 ml-2 align-middle border-2 border-gray-400 rounded opacity-50 bg-darker md:w-8 md:h-8 focus-within:border-blue-500"
             >
@@ -499,6 +500,7 @@
       </div>
       <div class="flex justify-end">
         <a
+          id="go-back-button"
           class="self-end w-full px-5 py-2 mt-4 tracking-widest text-center text-gray-600 border border-indigo-200 border-opacity-25 rounded-md cursor-pointer bg-lighter hover:bg-primary text-md header-font"
           @click="$router.go(-1)"
           >Go Back</a
@@ -586,6 +588,8 @@ export default {
               let str = this.giveaway.tweet_url.split("/");
               this.giveaway.tweet_id = str[str.length - 1];
             }
+
+            backButtonFix();
           })
           .catch((error) => console.error(error));
       } catch (err) {
@@ -680,6 +684,14 @@ function gleamChecker() {
         "<svg class='inline w-5 h-5 ml-2' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' stroke='currentColor'><path d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'></path></svg>";
     });
   }, 1100);
+}
+
+function backButtonFix() {
+  setTimeout(function() {
+    if (window.history.length == 1) {
+      document.getElementById("go-back-button").classList.add("hidden");
+    }
+  }, 300);
 }
 </script>
 
