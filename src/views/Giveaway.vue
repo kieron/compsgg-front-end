@@ -7,7 +7,6 @@
 				<info />
 			</div>
 		</section>
-		<mailChimp />
 	</div>
 </template>
 
