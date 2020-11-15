@@ -407,18 +407,6 @@
           class="items-center inline px-2 py-3 mb-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md e-widget hover:bg-indigo-300 hover:text-gray-800 sm:mt-0"
           id="cjecl"
         >
-          <!-- <svg
-            class="inline w-4 h-4 mr-1"
-            fill="none"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg> -->
-          <!-- <span class="items-center inline text-center align-middle">Open Giveaway</span> -->
         </a>
       </div>
 
@@ -588,18 +576,15 @@ export default {
               let str = this.giveaway.tweet_url.split("/");
               this.giveaway.tweet_id = str[str.length - 1];
             }
-
-			console.log(this.$router)
-            backButtonFix();
           })
           .catch((error) => console.error(error));
       } catch (err) {
         console.log(err);
       }
-	},
-	handleBack () {
-		if(history.length <= 2 ) this.$router.push("/")
-		else this.$router.back()
+    },
+    handleBack() {
+      if (history.length <= 2) this.$router.push("/");
+      else this.$router.back();
     },
     markAsDone: function(gId) {
       const markedAsDone =
@@ -689,15 +674,6 @@ function gleamChecker() {
         "<svg class='inline w-5 h-5 ml-2' fill='none' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' viewBox='0 0 24 24' stroke='currentColor'><path d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14'></path></svg>";
     });
   }, 1100);
-}
-
-function backButtonFix() {
-	setTimeout(function() {
-		//console.log(history)
-		if (window.history.length == 1) {
-			document.getElementById("go-back-button").classList.add("hidden");
-		}
-	}, 300);
 }
 </script>
 

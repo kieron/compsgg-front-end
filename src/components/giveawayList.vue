@@ -1,7 +1,7 @@
 <template>
   <section id="homeList" class="sm:bg-primary md:py-1">
     <div
-      class="container giveway-container p-2 py-5 mx-auto md:my-8 bg-lighter md:p-7 lg:p-10 md:rounded-lg"
+      class="container p-2 py-5 mx-auto giveway-container md:my-8 bg-lighter md:p-7 lg:p-10 md:rounded-lg"
     >
       <div class="items-center justify-center w-full px-2 md:p-0" id="app">
         <div v-if="loading" class="w-full mx-auto">
@@ -362,35 +362,6 @@
               :data="filteredGiveaways"
               @loadedData="getPaginatedData"
             />
-            <!-- <ul class="flex mx-auto mt-10">
-              <li class="px-3 py-2 mx-1 text-gray-500 bg-gray-200 rounded-lg">
-                <a class="flex items-center font-bold" href="#">
-                  <span class="mx-1">previous</span>
-                </a>
-              </li>
-              <li
-                class="px-3 py-2 mx-1 text-gray-700 bg-gray-200 rounded-lg hover:bg-indigo-600 hover:text-gray-100"
-              >
-                <a class="font-bold" href="#">1</a>
-              </li>
-              <li
-                class="px-3 py-2 mx-1 text-gray-700 bg-gray-200 rounded-lg hover:bg-indigo-600 hover:text-gray-100"
-              >
-                <a class="font-bold" href="#">2</a>
-              </li>
-              <li
-                class="px-3 py-2 mx-1 text-gray-700 bg-gray-200 rounded-lg hover:bg-indigo-600 hover:text-gray-100"
-              >
-                <a class="font-bold" href="#">3</a>
-              </li>
-              <li
-                class="px-3 py-2 mx-1 text-gray-700 bg-gray-200 rounded-lg hover:bg-indigo-600 hover:text-gray-100"
-              >
-                <a class="flex items-center font-bold" href="#">
-                  <span class="mx-1">Next</span>
-                </a>
-              </li>
-            </ul> -->
           </div>
         </div>
       </div>
