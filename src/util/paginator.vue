@@ -26,7 +26,7 @@
   </div>
 </template>
 <script>
-import { setQuery } from '../helpers'
+import { setQuery, deleteQuery } from '../helpers'
 export default {
   props: ["data"],
   data() {
@@ -40,24 +40,23 @@ export default {
           handler(){
 			let { page } = this.$route.query
 			if(page) this.pageNumber = +page
-			else setQuery({ page: 1 })
 			this.$emit("loadedData", this.paginatedData());
           },
           immediate: true
 		},
 		'$route.query':{
 			handler(v){
-				if(v.page && +v.page !== this.pageNumber){
-					this.pageNumber = +v.page
-					this.changePage({ skipQuery: true })
-				}
+				if(v.page && +v.page !== this.pageNumber) this.pageNumber = +v.page
+				else if(!v.page) this.pageNumber = 1
+				this.changePage({ skipQuery: true })
 			},
-			deep:true
+			deep: true
 		}
   },
   methods: {
 	changePage(opt = {}){
-		!opt.skipQuery && setQuery({ page: this.pageNumber })
+		if(this.pageNumber === 1) deleteQuery()
+		else if(!opt.skipQuery) setQuery({ page: this.pageNumber })
 		this.$emit("loadedData", this.paginatedData());
 		document.querySelector('.giveway-container')
 			.scrollIntoView({behavior: 'smooth'})
@@ -67,8 +66,10 @@ export default {
       this.changePage()
     },
     prevPage() {
-      this.pageNumber--;
-      this.changePage()
+		if(this.pageNumber > 1){
+			this.pageNumber--;
+			this.changePage()
+		}
     },
     paginatedData() {
       const start = (this.pageNumber - 1) * this.perpage,

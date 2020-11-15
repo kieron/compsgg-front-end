@@ -7,3 +7,11 @@ export function setQuery(params) {
 		history.pushState({ path: newurl }, '', newurl);
 	}
 }
+
+export function deleteQuery(){
+	if (history.pushState) {
+		let { protocol, host, pathname } = window.location
+		let newurl = protocol + "//" + host + pathname;
+		history.pushState({ path: newurl }, '', newurl);
+	}
+}
