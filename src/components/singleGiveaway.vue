@@ -502,7 +502,7 @@
         <a
           id="go-back-button"
           class="self-end w-full px-5 py-2 mt-4 tracking-widest text-center text-gray-600 border border-indigo-200 border-opacity-25 rounded-md cursor-pointer bg-lighter hover:bg-primary text-md header-font"
-          @click="$router.go(-1)"
+          @click="handleBack"
           >Go Back</a
         >
       </div>
@@ -589,12 +589,17 @@ export default {
               this.giveaway.tweet_id = str[str.length - 1];
             }
 
+			console.log(this.$router)
             backButtonFix();
           })
           .catch((error) => console.error(error));
       } catch (err) {
         console.log(err);
       }
+	},
+	handleBack () {
+		if(history.length <= 2 ) this.$router.push("/")
+		else this.$router.back()
     },
     markAsDone: function(gId) {
       const markedAsDone =
@@ -687,11 +692,12 @@ function gleamChecker() {
 }
 
 function backButtonFix() {
-  setTimeout(function() {
-    if (window.history.length == 1) {
-      document.getElementById("go-back-button").classList.add("hidden");
-    }
-  }, 300);
+	setTimeout(function() {
+		//console.log(history)
+		if (window.history.length == 1) {
+			document.getElementById("go-back-button").classList.add("hidden");
+		}
+	}, 300);
 }
 </script>
 
