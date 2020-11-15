@@ -1,7 +1,7 @@
 <template>
   <div class="w-full">
     <span class="ml-2 flex flex-row  font-medium text-indigo-200 opacity-25"
-      >Page {{ this.pageNumber + 1 }}</span
+      >Page {{ this.pageNumber }}</span
     >
     <ul class="flex justify-center  mt-10 mx-auto">
       <li class="flex-grow mr-1">
@@ -26,39 +26,54 @@
   </div>
 </template>
 <script>
+import { setQuery, deleteQuery } from '../helpers'
 export default {
   props: ["data"],
   data() {
     return {
-      pageNumber: 0,
+      pageNumber: 1,
       perpage: 10,
     };
   },
-//   created() {
-//     this.$emit("loadedData", this.paginatedData());
-//   },
   watch:{
       data:{
           handler(){
-              this.$emit("loadedData", this.paginatedData());
+			let { page } = this.$route.query
+			if(page) this.pageNumber = +page
+			this.$emit("loadedData", this.paginatedData());
           },
           immediate: true
-      }
+		},
+		'$route.query':{
+			handler(v){
+				if(v.page && +v.page !== this.pageNumber) this.pageNumber = +v.page
+				else if(!v.page) this.pageNumber = 1
+				this.changePage({ skipQuery: true })
+			},
+			deep: true
+		}
   },
   methods: {
+	changePage(opt = {}){
+		if(this.pageNumber === 1) deleteQuery()
+		else if(!opt.skipQuery) setQuery({ page: this.pageNumber })
+		this.$emit("loadedData", this.paginatedData());
+		document.querySelector('.giveway-container')
+			.scrollIntoView({behavior: 'smooth'})
+	},
     nextPage() {
       this.pageNumber++;
-      this.$emit("loadedData", this.paginatedData());
-      document.body.scrollTop = document.documentElement.scrollTop = 300;
+      this.changePage()
     },
     prevPage() {
-      this.pageNumber--;
-      this.$emit("loadedData", this.paginatedData());
-      document.body.scrollTop = document.documentElement.scrollTop = 300;
+		if(this.pageNumber > 1){
+			this.pageNumber--;
+			this.changePage()
+		}
     },
     paginatedData() {
-      const start = this.pageNumber * this.perpage,
-        end = start + this.perpage;
+      const start = (this.pageNumber - 1) * this.perpage,
+		end = start + this.perpage;
       return this.data.slice(start, end);
     },
   },

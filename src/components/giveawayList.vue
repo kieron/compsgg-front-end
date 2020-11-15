@@ -1,7 +1,7 @@
 <template>
   <section id="homeList" class="sm:bg-primary md:py-1">
     <div
-      class="container p-2 py-5 mx-auto md:my-8 bg-lighter md:p-7 lg:p-10 md:rounded-lg"
+      class="container giveway-container p-2 py-5 mx-auto md:my-8 bg-lighter md:p-7 lg:p-10 md:rounded-lg"
     >
       <div class="items-center justify-center w-full px-2 md:p-0" id="app">
         <div v-if="loading" class="w-full mx-auto">
