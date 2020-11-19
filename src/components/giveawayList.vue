@@ -18,7 +18,7 @@
             }"
           >
             <span
-              class="flex-grow my-2 text-lg font-bold tracking-wide text-gray-600 uppercase"
+              class="flex-grow my-2 font-semibold tracking-widest text-gray-500 uppercase text-md"
             >
               Filter
             </span>
@@ -27,7 +27,7 @@
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              class="w-6 h-6 my-2 text-gray-600"
+              class="w-5 h-5 my-2 text-gray-600"
             >
               <path
                 stroke-linecap="round"
