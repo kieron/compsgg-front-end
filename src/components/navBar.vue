@@ -78,7 +78,7 @@
         </button> -->
       </div>
     </div>
-    <!-- <hr class="py-0 my-0 border-gray-100 opacity-25" /> -->
+    <hr v-if="notHomepage" class="py-0 my-0 border-gray-100 opacity-25" />
   </nav>
 </template>
 
@@ -92,6 +92,13 @@ export default {
   },
   computed: {
     ...mapGetters("auth", ["loggedIn"]),
+    notHomepage() {
+      if (this.$route.path == "/") {
+        return false;
+      } else {
+        return true;
+      }
+    },
   },
   methods: {
     ...mapMutations("auth", ["setAuthState", "resetAuthState"]),
