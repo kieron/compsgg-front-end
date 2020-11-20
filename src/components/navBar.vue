@@ -30,7 +30,7 @@
       </div>
 
       <div
-        class="z-20 flex-grow hidden w-full p-4 text-indigo-200 swing-in-top-fwd lg:flex lg:items-center lg:w-auto lg:mt-0 bg-lighter lg:bg-transparent lg:p-0"
+        class="z-20 flex-grow hidden w-full p-4 mt-2 text-indigo-200 swing-in-top-fwd lg:flex lg:items-center lg:w-auto lg:mt-0 bg-lighter lg:bg-transparent lg:p-0"
         id="nav-content"
       >
         <ul
