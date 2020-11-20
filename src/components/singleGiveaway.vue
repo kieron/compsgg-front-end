@@ -158,6 +158,16 @@
             <p class="text-yellow-300">Boosted Post!</p>
           </div>
         </div>
+
+        <!-- 
+        ███████╗██╗  ██╗ █████╗ ██████╗ ███████╗
+        ██╔════╝██║  ██║██╔══██╗██╔══██╗██╔════╝
+        ███████╗███████║███████║██████╔╝█████╗  
+        ╚════██║██╔══██║██╔══██║██╔══██╗██╔══╝  
+        ███████║██║  ██║██║  ██║██║  ██║███████╗
+        ╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝
+        -->
+
         <div
           class="flex flex-row flex-wrap items-center justify-between w-full px-2 py-1 mt-2 border border-indigo-200 border-opacity-25 rounded-lg bg-lighter md:mb-0 md:mt-0"
         >
@@ -249,6 +259,14 @@
         </div>
       </div>
 
+      <!-- 
+      ██████╗ ███████╗███████╗ ██████╗██████╗ ██╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
+      ██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██║██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
+      ██║  ██║█████╗  ███████╗██║     ██████╔╝██║██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
+      ██║  ██║██╔══╝  ╚════██║██║     ██╔══██╗██║██╔═══╝    ██║   ██║██║   ██║██║╚██╗██║
+      ██████╔╝███████╗███████║╚██████╗██║  ██║██║██║        ██║   ██║╚██████╔╝██║ ╚████║
+      ╚═════╝ ╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
+      -->
       <div v-if="giveaway.description" class="my-5 text-gray-600">
         <span class="text-lg font-medium text-indigo-100">Requirements</span>
         <hr class="my-2 opacity-25" />
@@ -283,6 +301,15 @@
             below, for any additional information!
           </p>
           <div class="flex flex-wrap items-center pt-3 tracking-widest">
+            <!-- 
+            ██╗     ██╗██╗  ██╗███████╗
+            ██║     ██║██║ ██╔╝██╔════╝
+            ██║     ██║█████╔╝ █████╗  
+            ██║     ██║██╔═██╗ ██╔══╝  
+            ███████╗██║██║  ██╗███████╗
+            ╚══════╝╚═╝╚═╝  ╚═╝╚══════╝
+            -->
+
             <a
               v-if="giveaway.like_required"
               v-bind:href="
@@ -306,6 +333,15 @@
               </svg>
               <span class="inline align-middle header-font">Like Tweet</span>
             </a>
+
+            <!-- 
+            ██████╗ ███████╗████████╗██╗    ██╗███████╗███████╗████████╗
+            ██╔══██╗██╔════╝╚══██╔══╝██║    ██║██╔════╝██╔════╝╚══██╔══╝
+            ██████╔╝█████╗     ██║   ██║ █╗ ██║█████╗  █████╗     ██║   
+            ██╔══██╗██╔══╝     ██║   ██║███╗██║██╔══╝  ██╔══╝     ██║   
+            ██║  ██║███████╗   ██║   ╚███╔███╔╝███████╗███████╗   ██║   
+            ╚═╝  ╚═╝╚══════╝   ╚═╝    ╚══╝╚══╝ ╚══════╝╚══════╝   ╚═╝   
+            -->
 
             <a
               v-if="giveaway.rt_required"
@@ -332,6 +368,14 @@
               <span class="inline align-middle header-font">Retweet Tweet</span>
             </a>
 
+            <!-- 
+            ███████╗ ██████╗ ██╗     ██╗      ██████╗ ██╗    ██╗
+            ██╔════╝██╔═══██╗██║     ██║     ██╔═══██╗██║    ██║
+            █████╗  ██║   ██║██║     ██║     ██║   ██║██║ █╗ ██║
+            ██╔══╝  ██║   ██║██║     ██║     ██║   ██║██║███╗██║
+            ██║     ╚██████╔╝███████╗███████╗╚██████╔╝╚███╔███╔╝
+            ╚═╝      ╚═════╝ ╚══════╝╚══════╝ ╚═════╝  ╚══╝╚══╝ 
+                                                                 -->
             <a
               v-if="giveaway.follow_required"
               v-bind:href="
@@ -355,6 +399,15 @@
               </svg>
               <span class="inline align-middle header-font">Follow User</span>
             </a>
+
+            <!--                                                                                                                                    
+            ██████╗  ██████╗ ███████╗███╗   ██╗    ████████╗██╗    ██╗███████╗███████╗████████╗
+            ██╔═══██╗██╔══██╗██╔════╝████╗  ██║    ╚══██╔══╝██║    ██║██╔════╝██╔════╝╚══██╔══╝
+            ██║   ██║██████╔╝█████╗  ██╔██╗ ██║       ██║   ██║ █╗ ██║█████╗  █████╗     ██║   
+            ██║   ██║██╔═══╝ ██╔══╝  ██║╚██╗██║       ██║   ██║███╗██║██╔══╝  ██╔══╝     ██║   
+            ╚██████╔╝██║     ███████╗██║ ╚████║       ██║   ╚███╔███╔╝███████╗███████╗   ██║   
+              ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝       ╚═╝    ╚══╝╚══╝ ╚══════╝╚══════╝   ╚═╝   
+            -->
 
             <a
               v-bind:href="giveaway.tweet_url"
@@ -493,17 +546,18 @@
           @click="handleBack"
           >Go Back</a
         >
+        <a
+          v-bind:href="reportData"
+          class="flex px-5 py-2 mt-4 ml-2 font-medium text-white bg-red-500 rounded-lg shadow-md hover:bg-red-300 hover:text-gray-700"
+          title="Want to let us know something about this competition?"
+          >Report</a
+        >
       </div>
       <noscript>
         <strong>Please Update Your Browser</strong>
         <!-- <strong>We're sorry but Comps.gg doesn't work properly without JavaScript enabled.
         Please enable it to continue.</strong>-->
       </noscript>
-      <!-- <a
-        href="#"
-        class="px-5 py-2 mt-3 font-medium text-white bg-red-500 rounded-lg shadow-md sm:mt-0 md:py-3 md:px-6 hover:bg-red-300 hover:text-gray-700"
-        >Report</a
-      >-->
     </div>
   </div>
 </template>
@@ -533,6 +587,7 @@ export default {
       newItemTitle: "",
       completed: false,
       tweetIdFix: "",
+      reportData: "",
     };
   },
   methods: {
@@ -552,6 +607,7 @@ export default {
                 ? true
                 : false;
             }
+            this.reportData = `mailto:hello@comps.gg?subject=Comps.gg%20Competition%20Report%3A%20${data.id}&body=%0D%0AURL%3A%20${this.currentUrl}`;
             this.loading = false;
             if (this.giveaway.gleam_url) {
               const plugin = document.createElement("script");

@@ -347,20 +347,9 @@
                           >
                         </div>
                       </div>
-                      <!--<div
-                        class="mt-3 text-sm font-medium tracking-widest text-gray-600 md:text-lg header-font md:mt-0"
-                      >
-                        <img
-                          v-if="giveaway.twitterProfileImage"
-                          class="inline-block w-8 mr-1 rounded-full"
-                          v-bind:src="giveaway.twitterProfileImage"
-                        />
-                        {{ giveaway.display_name }}
-                      </div> -->
                     </div>
-                    <!-- <router-link
-                      :to="'/giveaway/' + giveaway.id"
-                      class="px-1 mt-3 ml-5 font-bold text-indigo-200 transition duration-300 bg-indigo-500 rounded-lg shadow-md sm:mt-0 md:py-1 md:p-4 hover:bg-indigo-200 hover:text-indigo-800"
+                    <div
+                      class="px-1 mt-3 ml-5 font-bold text-indigo-300 transition duration-300 rounded-lg sm:mt-0 md:py-1 md:p-4 hover:text-indigo-100"
                     >
                       <svg
                         class="w-6 h-6 "
@@ -373,8 +362,9 @@
                       >
                         <path
                           d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z"
-                        ></path></svg
-                    ></router-link>-->
+                        ></path>
+                      </svg>
+                    </div>
                   </div>
                 </div>
               </router-link>
