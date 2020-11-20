@@ -37,13 +37,12 @@
           class="items-center justify-end flex-1 text-indigo-300 opacity-75 list-reset lg:flex"
         >
           <li class="flex items-center mr-3">
-            <router-link to="/about" class="px-2 py-2 no-underline">
+            <router-link to="/about" class="px-2 pb-2 no-underline lg:py-2">
               About
             </router-link>
           </li>
-
           <li class="mr-3">
-            <router-link to="/contact" class="px-2 py-2 no-underline"
+            <router-link to="/contact" class="px-2 pb-2 no-underline lg:py-2"
               >Contact</router-link
             >
           </li>
