@@ -1,7 +1,8 @@
 <template>
   <nav id="header" class="top-0 z-30 w-full text-white bg-middle">
     <div
-      class="container flex flex-wrap items-center justify-between w-full py-2 mx-auto mt-0"
+      class="container flex flex-wrap items-center justify-between w-full pt-2 pb-2 mx-auto mt-0"
+      id="navParent"
     >
       <div class="flex items-center pl-4">
         <img class="w-10 h-10" src="/img/logo-small.png" alt="" />
@@ -29,7 +30,7 @@
       </div>
 
       <div
-        class="z-20 flex-grow hidden w-full p-4 mt-2 text-indigo-200 lg:flex lg:items-center lg:w-auto lg:mt-0 bg-lighter lg:bg-transparent lg:p-0"
+        class="z-20 flex-grow hidden w-full p-4 text-indigo-200 swing-in-top-fwd lg:flex lg:items-center lg:w-auto lg:mt-0 bg-lighter lg:bg-transparent lg:p-0"
         id="nav-content"
       >
         <ul
@@ -76,7 +77,7 @@
         </button> -->
       </div>
     </div>
-    <hr class="py-0 my-0 border-gray-100 opacity-25" />
+    <!-- <hr class="py-0 my-0 border-gray-100 opacity-25" /> -->
   </nav>
 </template>
 
@@ -107,6 +108,7 @@ export default {
 
     var navMenuDiv = document.getElementById("nav-content");
     var navMenu = document.getElementById("nav-toggle");
+    var navParent = document.getElementById("navParent");
 
     document.onclick = check;
     function check(e) {
@@ -119,8 +121,10 @@ export default {
           // click on the link
           if (navMenuDiv.classList.contains("hidden")) {
             navMenuDiv.classList.remove("hidden");
+            navParent.classList.remove("pb-2");
           } else {
             navMenuDiv.classList.add("hidden");
+            navParent.classList.add("pb-2");
           }
         } else {
           // click both outside link and outside menu, hide menu
@@ -144,5 +148,47 @@ export default {
 <style scoped>
 .settings-icon:hover .settings-menu {
   display: block;
+}
+button:disabled {
+  cursor: default;
+}
+
+.swing-in-top-fwd {
+  -webkit-animation: swing-in-top-fwd 0.5s
+    cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+  animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+}
+
+@-webkit-keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+    transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 1;
+  }
+}
+@keyframes swing-in-top-fwd {
+  0% {
+    -webkit-transform: rotateX(-100deg);
+    transform: rotateX(-100deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotateX(0deg);
+    transform: rotateX(0deg);
+    -webkit-transform-origin: top;
+    transform-origin: top;
+    opacity: 1;
+  }
 }
 </style>

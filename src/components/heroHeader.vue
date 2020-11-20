@@ -1,23 +1,29 @@
 <template>
   <section>
     <div class="py-5 md:py-6">
-      <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-        <div class="flex flex-col w-full md:w-4/5 justify-center items-start text-center md:text-left">
-          <h1 class="my-4 text-3xl md:text-4xl font-medium leading-tight text-indigo-100 tracking-widest uppercase">
+      <div
+        class="container flex flex-col flex-wrap items-center px-3 mx-auto md:flex-row"
+      >
+        <div
+          class="flex flex-col items-start justify-center w-full text-center md:w-4/5 md:text-left"
+        >
+          <h1
+            class="my-1 text-2xl leading-tight tracking-widest text-indigo-100 uppercase md:my-4 md:text-4xl"
+          >
             Find the best competitions & giveaways
           </h1>
-          <p class="leading-normal text-sm md:text-2xl text-indigo-100">
+          <p class="text-sm leading-normal text-indigo-100 md:text-2xl">
             Stop wasting time searching through spam websites & suspicious
-            links, use comps.gg to find the best legitimate competitions & giveaways from all
-            over the web.
+            links, use comps.gg to find the best legitimate competitions &
+            giveaways from all over the web.
           </p>
-          <p class="mt-3 uppercase tracking-loose w-full text-indigo-100 md:hidden">Open a competition below to get started.</p>
-          <!-- <button id="goToBody" class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg">
+          <!-- <p class="w-full mt-3 text-indigo-100 uppercase tracking-loose md:hidden">Open a competition below to get started.</p> -->
+          <!-- <button id="goToBody" class="px-8 py-4 mx-auto my-6 font-bold text-gray-800 bg-white rounded-full shadow-lg lg:mx-0 hover:underline">
             Start
             Winning
           </button> -->
         </div>
-        <!-- <div class="w-full md:w-3/5 py-6 text-center"></div> -->
+        <!-- <div class="w-full py-6 text-center md:w-3/5"></div> -->
       </div>
     </div>
     <!-- <div class="relative -mt-12 lg:-mt-24">
