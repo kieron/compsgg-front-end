@@ -17,10 +17,8 @@
         <button
           id="nav-toggle"
           class="flex items-center p-1 text-indigo-200 hover:text-gray-100"
-          @click="navOpen = !navOpen"
-          v-bind:class="{
-            'rotate-center': navOpen,
-          }"
+          v-on:click="animate"
+          @click="navToggle = !navToggle"
         >
           <svg
             class="w-6 h-6 fill-current"
@@ -89,7 +87,7 @@ import { mapGetters, mapMutations } from "vuex";
 export default {
   data() {
     return {
-      navOpen: false,
+      navToggle: false,
     };
   },
   computed: {
@@ -102,8 +100,19 @@ export default {
       this.resetAuthState({ exclude: ["socials", "loggedOut"] });
       this.$router.push("/login");
     },
+    animate: function() {
+      if (document.getElementById("nav-content").classList.contains("hidden")) {
+        document.getElementById("nav-toggle").classList.add("rotate-center");
+        setTimeout(function() {
+          document
+            .getElementById("nav-toggle")
+            .classList.remove("rotate-center");
+        }, 500);
+      }
+    },
   },
   mounted() {
+    //breakpoint sizing
     if (process.env.NODE_ENV !== "production") {
       const plugin = document.createElement("script");
       plugin.setAttribute("src", "https://awesomecdn.netlify.app/tw.js");
@@ -121,27 +130,27 @@ export default {
     document.onclick = check;
     function check(e) {
       var target = (e && e.target) || (event && event.srcElement);
-      // target.classList.add("rotate-center");
       //Nav Menu
       if (!checkParent(target, navMenuDiv)) {
         // click NOT on the menu
         if (checkParent(target, navMenu)) {
           // click on the link
           if (navMenuDiv.classList.contains("hidden")) {
+            this.navToggle = true;
             navMenuDiv.classList.remove("hidden");
             navParent.classList.remove("pb-2");
           } else {
             navMenuDiv.classList.add("hidden");
             navParent.classList.add("pb-2");
+            this.navToggle = false;
           }
         } else {
           // click both outside link and outside menu, hide menu
+          this.navToggle = false;
           navMenuDiv.classList.add("hidden");
+          navParent.classList.add("pb-2");
         }
       }
-      // setTimeout(function() {
-      //   target.classList.remove("rotate-center");
-      // }, 3000);
     }
     function checkParent(t, elm) {
       while (t.parentNode) {
@@ -199,45 +208,6 @@ button:disabled {
   100% {
     -webkit-transform: rotate(360deg);
     transform: rotate(360deg);
-  }
-}
-
-.swing-in-top-fwd {
-  -webkit-animation: swing-in-top-fwd 0.5s
-    cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-  animation: swing-in-top-fwd 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
-}
-
-@-webkit-keyframes swing-in-top-fwd {
-  0% {
-    -webkit-transform: rotateX(-100deg);
-    transform: rotateX(-100deg);
-    -webkit-transform-origin: top;
-    transform-origin: top;
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    -webkit-transform-origin: top;
-    transform-origin: top;
-    opacity: 1;
-  }
-}
-@keyframes swing-in-top-fwd {
-  0% {
-    -webkit-transform: rotateX(-100deg);
-    transform: rotateX(-100deg);
-    -webkit-transform-origin: top;
-    transform-origin: top;
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotateX(0deg);
-    transform: rotateX(0deg);
-    -webkit-transform-origin: top;
-    transform-origin: top;
-    opacity: 1;
   }
 }
 </style>
