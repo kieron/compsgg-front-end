@@ -548,7 +548,7 @@
         >
         <a
           v-bind:href="reportData"
-          class="flex px-5 py-2 mt-4 ml-2 font-medium text-white bg-red-500 rounded-lg shadow-md hover:bg-red-300 hover:text-gray-700"
+          class="flex px-5 py-2 mt-4 ml-2 font-medium text-gray-600 border border-indigo-200 border-opacity-25 rounded-md bg-lighter hover:bg-primary"
           title="Want to let us know something about this competition?"
           >Report</a
         >
