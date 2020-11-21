@@ -11,6 +11,7 @@
           <div
             class="flex px-5 py-1 mx-2 overflow-hidden transition duration-1000 transform border-indigo-200 rounded-t-lg shadow-sm cursor-pointer bg-middle md:flex"
             id="filterToggle"
+            v-on:click="animateFilter"
             @click="showToggle = !showToggle"
             v-bind:class="{
               'rounded-b-lg': !showToggle,
@@ -28,6 +29,7 @@
               viewBox="0 0 24 24"
               stroke="currentColor"
               class="w-5 h-5 my-2 text-gray-600"
+              id="filterIcon"
             >
               <path
                 stroke-linecap="round"
@@ -475,7 +477,16 @@ export default {
         console.log(err);
       }
     },
+    animateFilter: function() {
+      document.getElementById("filterIcon").classList.add("jello-horizontal");
+      setTimeout(function() {
+        document
+          .getElementById("filterIcon")
+          .classList.remove("jello-horizontal");
+      }, 500);
+    },
   },
+
   created() {
     this.getAllGiveAways();
   },
