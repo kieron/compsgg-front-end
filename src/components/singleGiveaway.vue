@@ -259,7 +259,8 @@
         </div>
       </div>
 
-      <!-- 
+      <div class="flex-row mb-6">
+        <!-- 
       ██████╗ ███████╗███████╗ ██████╗██████╗ ██╗██████╗ ████████╗██╗ ██████╗ ███╗   ██╗
       ██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗██║██╔══██╗╚══██╔══╝██║██╔═══██╗████╗  ██║
       ██║  ██║█████╗  ███████╗██║     ██████╔╝██║██████╔╝   ██║   ██║██║   ██║██╔██╗ ██║
@@ -267,41 +268,65 @@
       ██████╔╝███████╗███████║╚██████╗██║  ██║██║██║        ██║   ██║╚██████╔╝██║ ╚████║
       ╚═════╝ ╚══════╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝        ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
       -->
-      <div v-if="giveaway.description" class="my-5 text-gray-600">
-        <span class="text-lg font-medium text-indigo-100">Requirements</span>
-        <hr class="my-2 opacity-25" />
-        <div v-if="giveaway.playr_url" class>
-          <p class="mb-2">
-            This giveaway is being hosted on the Playr platform, if your browser
-            allows it, you can fill it in right here on Comps.gg below, or if
-            not, you should see a button that will take you to the competition!
-          </p>
+
+        <div v-if="giveaway.description" class="flex my-5 text-gray-600">
+          <div>
+            <span class="text-lg font-medium text-indigo-100">Description</span>
+            <hr class="my-2 opacity-25" />
+            <p>{{ giveaway.description }}</p>
+          </div>
         </div>
-        <div v-if="giveaway.gleam_url" class>
-          <p class="mb-2">
-            This giveaway is being hosted on the Gleam platform, if your browser
-            allows it, you can fill it in right here on Comps.gg below, or if
-            not, you should see a button that will take you to the competition!
-          </p>
-        </div>
-        <div v-if="giveaway.entry_url" class="flex">
-          <p class="mb-2">
-            This giveaway is being hosted externally, you should see a button
-            that will take you to the competition!
-          </p>
-        </div>
-        <div v-if="giveaway.like_required || giveaway.rt_required">
-          <p class="mb-2">
-            This giveaway may require you to
-            <span v-if="giveaway.like_required">like</span>
-            <span v-if="giveaway.like_required && giveaway.rt_required">/</span>
-            <span v-if="giveaway.rt_required">retweet</span> a tweet, or even
-            follow a user, you can use the links below to do that, or open the
-            tweet to do it manually. Be sure to check the description we found
-            below, for any additional information!
-          </p>
-          <div class="flex flex-wrap items-center pt-3 tracking-widest">
-            <!-- 
+      </div>
+
+      <!--
+        ██████╗ ███████╗ ██████╗ ██╗   ██╗██╗██████╗ ███████╗███╗   ███╗███████╗███╗   ██╗████████╗███████╗
+        ██╔══██╗██╔════╝██╔═══██╗██║   ██║██║██╔══██╗██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝██╔════╝
+        ██████╔╝█████╗  ██║   ██║██║   ██║██║██████╔╝█████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║   ███████╗
+        ██╔══██╗██╔══╝  ██║▄▄ ██║██║   ██║██║██╔══██╗██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║   ╚════██║
+        ██║  ██║███████╗╚██████╔╝╚██████╔╝██║██║  ██║███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║   ███████║
+        ╚═╝  ╚═╝╚══════╝ ╚══▀▀═╝  ╚═════╝ ╚═╝╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝
+        -->
+
+      <div v-if="giveaway.description" class="flex my-5 text-gray-600 md:pr-3">
+        <div>
+          <span class="text-lg font-medium text-indigo-100">Requirements</span>
+          <hr class="my-2 opacity-25" />
+          <div v-if="giveaway.playr_url" class>
+            <p class="mb-2">
+              This giveaway is being hosted on the Playr platform, if your
+              browser allows it, you can fill it in right here on Comps.gg
+              below, or if not, you should see a button that will take you to
+              the competition!
+            </p>
+          </div>
+          <div v-if="giveaway.gleam_url" class>
+            <p class="mb-2">
+              This giveaway is being hosted on the Gleam platform, if your
+              browser allows it, you can fill it in right here on Comps.gg
+              below, or if not, you should see a button that will take you to
+              the competition!
+            </p>
+          </div>
+          <div v-if="giveaway.entry_url" class="flex">
+            <p class="mb-2">
+              This giveaway is being hosted externally, you should see a button
+              that will take you to the competition!
+            </p>
+          </div>
+          <div v-if="giveaway.like_required || giveaway.rt_required">
+            <p class="mb-2">
+              This giveaway may require you to
+              <span v-if="giveaway.like_required">like</span>
+              <span v-if="giveaway.like_required && giveaway.rt_required"
+                >/</span
+              >
+              <span v-if="giveaway.rt_required">retweet</span> a tweet, or even
+              follow a user, you can use the links below to do that, or open the
+              tweet to do it manually. Be sure to check the description we found
+              below, for any additional information!
+            </p>
+            <div class="flex flex-wrap pt-3 tracking-widest">
+              <!-- 
             ██╗     ██╗██╗  ██╗███████╗
             ██║     ██║██║ ██╔╝██╔════╝
             ██║     ██║█████╔╝ █████╗  
@@ -310,31 +335,32 @@
             ╚══════╝╚═╝╚═╝  ╚═╝╚══════╝
             -->
 
-            <a
-              v-if="giveaway.like_required"
-              v-bind:href="
-                'https://twitter.com/intent/like?tweet_id=' + giveaway.tweet_id
-              "
-              target="_blank"
-              class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
-            >
-              <svg
-                class="w-4 h-4 mr-1"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <a
+                v-if="giveaway.like_required"
+                v-bind:href="
+                  'https://twitter.com/intent/like?tweet_id=' +
+                    giveaway.tweet_id
+                "
+                target="_blank"
+                class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
               >
-                <path
-                  d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
-                />
-              </svg>
-              <span class="inline align-middle header-font">Like Tweet</span>
-            </a>
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
+                  />
+                </svg>
+                <span class="inline align-middle header-font">Like Tweet</span>
+              </a>
 
-            <!-- 
+              <!-- 
             ██████╗ ███████╗████████╗██╗    ██╗███████╗███████╗████████╗
             ██╔══██╗██╔════╝╚══██╔══╝██║    ██║██╔════╝██╔════╝╚══██╔══╝
             ██████╔╝█████╗     ██║   ██║ █╗ ██║█████╗  █████╗     ██║   
@@ -343,64 +369,67 @@
             ╚═╝  ╚═╝╚══════╝   ╚═╝    ╚══╝╚══╝ ╚══════╝╚══════╝   ╚═╝   
             -->
 
-            <a
-              v-if="giveaway.rt_required"
-              v-bind:href="
-                'https://twitter.com/intent/retweet?tweet_id=' +
-                  giveaway.tweet_id
-              "
-              target="_blank"
-              class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
-            >
-              <svg
-                class="w-4 h-4 mr-1"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <a
+                v-if="giveaway.rt_required"
+                v-bind:href="
+                  'https://twitter.com/intent/retweet?tweet_id=' +
+                    giveaway.tweet_id
+                "
+                target="_blank"
+                class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
               >
-                <path
-                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                />
-              </svg>
-              <span class="inline align-middle header-font">Retweet Tweet</span>
-            </a>
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                  />
+                </svg>
+                <span class="inline align-middle header-font"
+                  >Retweet Tweet</span
+                >
+              </a>
 
-            <!-- 
+              <!-- 
             ███████╗ ██████╗ ██╗     ██╗      ██████╗ ██╗    ██╗
             ██╔════╝██╔═══██╗██║     ██║     ██╔═══██╗██║    ██║
             █████╗  ██║   ██║██║     ██║     ██║   ██║██║ █╗ ██║
             ██╔══╝  ██║   ██║██║     ██║     ██║   ██║██║███╗██║
             ██║     ╚██████╔╝███████╗███████╗╚██████╔╝╚███╔███╔╝
             ╚═╝      ╚═════╝ ╚══════╝╚══════╝ ╚═════╝  ╚══╝╚══╝ 
-                                                                 -->
-            <a
-              v-if="giveaway.follow_required"
-              v-bind:href="
-                'https://twitter.com/intent/follow?user_id=' + giveaway.user_id
-              "
-              target="_blank"
-              class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
-            >
-              <svg
-                class="w-4 h-4 mr-1"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+            -->
+              <a
+                v-if="giveaway.follow_required"
+                v-bind:href="
+                  'https://twitter.com/intent/follow?user_id=' +
+                    giveaway.user_id
+                "
+                target="_blank"
+                class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
               >
-                <path
-                  d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
-                ></path>
-              </svg>
-              <span class="inline align-middle header-font">Follow User</span>
-            </a>
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                  ></path>
+                </svg>
+                <span class="inline align-middle header-font">Follow User</span>
+              </a>
 
-            <!--                                                                                                                                    
+              <!--                                                                                                                                    
             ██████╗  ██████╗ ███████╗███╗   ██╗    ████████╗██╗    ██╗███████╗███████╗████████╗
             ██╔═══██╗██╔══██╗██╔════╝████╗  ██║    ╚══██╔══╝██║    ██║██╔════╝██╔════╝╚══██╔══╝
             ██║   ██║██████╔╝█████╗  ██╔██╗ ██║       ██║   ██║ █╗ ██║█████╗  █████╗     ██║   
@@ -409,34 +438,29 @@
               ╚═════╝ ╚═╝     ╚══════╝╚═╝  ╚═══╝       ╚═╝    ╚══╝╚══╝ ╚══════╝╚══════╝   ╚═╝   
             -->
 
-            <a
-              v-bind:href="giveaway.tweet_url"
-              target="_blank"
-              class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
-            >
-              <svg
-                class="w-4 h-4 mr-1"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+              <a
+                v-bind:href="giveaway.tweet_url"
+                target="_blank"
+                class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
               >
-                <path
-                  d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                />
-              </svg>
-              <span class="header-font">Open Tweet</span>
-            </a>
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+                <span class="header-font">Open Tweet</span>
+              </a>
+            </div>
           </div>
         </div>
-      </div>
-
-      <div v-if="giveaway.description" class="my-5 text-gray-600">
-        <span class="text-lg font-medium text-indigo-100">Description</span>
-        <hr class="my-2 opacity-25" />
-        <p>{{ giveaway.description }}</p>
       </div>
 
       <!-- 
@@ -741,48 +765,6 @@ function gleamChecker() {
   right: 0;
   width: 100%;
   height: 100%;
-}
-
-.slide-in-top {
-  -webkit-animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-  animation: slide-in-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
-}
-
-/* ----------------------------------------------
- * Generated by Animista on 2020-11-20 20:53:34
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation slide-in-top
- * ----------------------------------------
- */
-@-webkit-keyframes slide-in-top {
-  0% {
-    -webkit-transform: translateY(-1000px);
-    transform: translateY(-1000px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-@keyframes slide-in-top {
-  0% {
-    -webkit-transform: translateY(-1000px);
-    transform: translateY(-1000px);
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: translateY(0);
-    transform: translateY(0);
-    opacity: 1;
-  }
 }
 
 .slide-in-right {
