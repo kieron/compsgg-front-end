@@ -109,11 +109,11 @@ export default {
     },
     animate: function() {
       if (document.getElementById("nav-content").classList.contains("hidden")) {
-        document.getElementById("nav-toggle").classList.add("rotate-center");
+        document.getElementById("nav-toggle").classList.add("jello-horizontal");
         setTimeout(function() {
           document
             .getElementById("nav-toggle")
-            .classList.remove("rotate-center");
+            .classList.remove("jello-horizontal");
         }, 500);
       }
     },
