@@ -450,7 +450,7 @@ export default {
     async getAllGiveAways() {
       try {
         await fetch(
-          "https://api.comps.gg/giveaways?published=true&_sort=created_at:desc"
+          "https://api.comps.gg/giveaways?published=true&_sort=created_at:desc&_limit=-1"
         )
           .then((response) => response.json())
           .then((data) => {
