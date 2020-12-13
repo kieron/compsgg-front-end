@@ -5,7 +5,13 @@
         class="container mx-auto border-solid rounded-lg md:p-8 bg-middle md:shadow-lg"
       >
         <h1 class="text-3xl text-indigo-100">Privacy Policy</h1>
-        <span id="ezoic-privacy-policy-embed"></span>
+        <p class="mb-3">
+          We use Ezoic to provide personalization and analytic services on this
+          website, as such Ezoic's privacy policy is in effect and can be
+          reviewed
+          <a target="_blank" href="https://g.ezoic.net/privacy/comps.gg">here</a
+          >.
+        </p>
       </div>
     </section>
   </div>
