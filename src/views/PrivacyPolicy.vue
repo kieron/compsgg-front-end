@@ -5,9 +5,7 @@
         class="container mx-auto border-solid rounded-lg md:p-8 bg-middle md:shadow-lg"
       >
         <h1 class="text-3xl text-indigo-100">Privacy Policy</h1>
-        <p class="mb-3">
-          Coming Soon
-        </p>
+        <span id="ezoic-privacy-policy-embed"></span>
       </div>
     </section>
   </div>
