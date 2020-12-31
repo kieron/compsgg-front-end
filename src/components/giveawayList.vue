@@ -129,7 +129,9 @@
             <div
               class="overflow-hidden transition duration-300 transform bg-indigo-900 border-l-8 border-indigo-200 border-solid rounded-lg shadow-sm hover:shadow-md hover:bg-primary md:flex hover:border-indigo-200"
             >
-              <a href="mailto:hello@comps.gg">
+              <a
+                href="mailto:hello@comps.gg?subject=A%20great%20new%20opportunity"
+              >
                 <div class="px-3 py-3 md:p-3 lg:p-4">
                   <div class="flex items-center justify-between">
                     <div>
