@@ -131,10 +131,11 @@
             >
               <a
                 href="mailto:hello@comps.gg?subject=A%20great%20new%20opportunity"
+                class="w-full"
               >
                 <div class="px-3 py-3 md:p-3 lg:p-4">
                   <div class="flex items-center justify-between">
-                    <div>
+                    <div class="w-full">
                       <div class="flex flex-wrap items-center">
                         <p
                           class="mr-2 text-lg font-medium tracking-widest text-indigo-100 lg:text-2xl header-font"
