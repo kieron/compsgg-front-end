@@ -113,6 +113,45 @@
               </div>
             </div>
           </div>
+
+          <div
+            class="w-full px-2 mt-5 mb-5 transition duration-100 ease-out transform hover:-translate-y-2"
+          >
+            <a
+              class="overflow-hidden transition duration-300 transform bg-indigo-900 border-l-8 border-indigo-100 border-solid rounded-lg shadow-sm hover:shadow-md hover:bg-primary md:flex hover:border-indigo-200"
+              href="mailto:hello@comps.gg"
+            >
+              <div class="px-3 py-2 md:p-3 lg:p-4">
+                <div class="flex items-center justify-between">
+                  <div class="w-full">
+                    <div class="flex flex-wrap items-center">
+                      <p
+                        class="mr-2 text-lg font-medium tracking-widest text-indigo-100 lg:text-2xl header-font"
+                      >
+                        Your Message Here!
+                      </p>
+                    </div>
+
+                    <div class="flex items-center mb-2">
+                      <div class="flex items-center justify-between">
+                        <div class="flex flex-row-reverse justify-end">
+                          <p
+                            class="text-xs tracking-widest text-indigo-100 md:text-sm"
+                          >
+                            Want to advertise on Comps.gg? Let's talk.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="flex flex-wrap text-xs giveawayInfo"></div>
+                  </div>
+                  <div
+                    class="px-1 mt-3 ml-5 font-bold text-indigo-300 transition duration-300 rounded-lg sm:mt-0 md:py-1 md:p-4 hover:text-indigo-100"
+                  ></div>
+                </div>
+              </div>
+            </a>
+          </div>
           <div
             v-for="giveaway in paginatedData"
             :key="giveaway.id"
