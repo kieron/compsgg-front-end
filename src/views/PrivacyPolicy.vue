@@ -6,11 +6,7 @@
       >
         <h1 class="text-3xl text-indigo-100">Privacy Policy</h1>
         <p class="mb-3">
-          Here at Comps.gg we use Ezoic to provide personalization and analytic
-          services on this website, as such Ezoic's privacy policy is in effect
-          and can be reviewed
-          <a target="_blank" href="https://g.ezoic.net/privacy/comps.gg">here</a
-          >.
+          Coming Soon.
         </p>
       </div>
     </section>
