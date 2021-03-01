@@ -71,7 +71,7 @@
               />
             </svg>
             <a
-              class="inline align-middle "
+              class="inline align-middle"
               v-if="giveaway.display_name"
               target="_blank"
               v-bind:href="giveaway.twitterProfileUrl"
@@ -178,9 +178,9 @@
           <a
             v-bind:href="
               'https://twitter.com/intent/tweet/?text=Check out this giveaway on Comps.gg: ' +
-                giveaway.name +
-                ', &amp;url=' +
-                currentUrl
+              giveaway.name +
+              ', &amp;url=' +
+              currentUrl
             "
             target="_blank"
             class="p-2 text-xs tracking-wide text-center text-blue-100 uppercase bg-blue-400 bg-opacity-25 rounded-lg shadow-sm hover:bg-blue-500 hover:text-gray-800"
@@ -215,9 +215,9 @@
           <a
             v-bind:href="
               'whatsapp://send?text=Check out this giveaway on Comps.gg: ' +
-                giveaway.name +
-                ' ' +
-                currentUrl
+              giveaway.name +
+              ' ' +
+              currentUrl
             "
             target="_blank"
             class="p-2 text-xs tracking-wide text-center text-green-100 uppercase bg-green-400 bg-opacity-25 rounded-lg shadow-sm hover:bg-green-500 hover:text-gray-800"
@@ -235,9 +235,9 @@
           <a
             v-bind:href="
               'mailto:?subject=Check out this giveaway on Comps.gg' +
-                giveaway.name +
-                '=o%20tracking.&amp;body=' +
-                currentUrl
+              giveaway.name +
+              '=o%20tracking.&amp;body=' +
+              currentUrl
             "
             target="_blank"
             class="p-2 text-xs tracking-wide text-center text-gray-100 uppercase bg-gray-500 bg-opacity-25 rounded-lg shadow-sm hover:bg-gray-500 hover:text-gray-800"
@@ -339,7 +339,7 @@
                 v-if="giveaway.like_required"
                 v-bind:href="
                   'https://twitter.com/intent/like?tweet_id=' +
-                    giveaway.tweet_id
+                  giveaway.tweet_id
                 "
                 target="_blank"
                 class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
@@ -373,7 +373,7 @@
                 v-if="giveaway.rt_required"
                 v-bind:href="
                   'https://twitter.com/intent/retweet?tweet_id=' +
-                    giveaway.tweet_id
+                  giveaway.tweet_id
                 "
                 target="_blank"
                 class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
@@ -408,7 +408,7 @@
                 v-if="giveaway.follow_required"
                 v-bind:href="
                   'https://twitter.com/intent/follow?user_id=' +
-                    giveaway.user_id
+                  giveaway.user_id
                 "
                 target="_blank"
                 class="flex items-center px-2 py-2 mb-2 mr-2 font-medium text-center text-white bg-indigo-500 rounded-lg shadow-md hover:bg-indigo-300 hover:text-gray-800 sm:mt-0 md:mb-0"
@@ -497,11 +497,11 @@
       -->
 
       <div v-if="giveaway.playr_url" class="flex">
-        <div class="relative w-full overflow-hidden" style="min-height:868px">
+        <div class="relative w-full overflow-hidden" style="min-height: 868px">
           <iframe
             id="playrFrame"
             class="responsive-iframe"
-            style="height:100%"
+            style="height: 100%"
             width="768px"
             height="100%"
             :src="giveaway.playr_url"
@@ -519,10 +519,10 @@
       -->
 
       <div v-if="giveaway.sdqk_url" class="flex">
-        <div class="relative w-full overflow-hidden" style="min-height:768px">
+        <div class="relative w-full overflow-hidden" style="min-height: 768px">
           <iframe
             class="responsive-iframe"
-            style="height:100%"
+            style="height: 100%"
             width="768px"
             height="100%"
             v-bind:src="giveaway.sdqk_url + '/embed'"
@@ -563,11 +563,23 @@
           </svg>
         </a>
       </div>
-      <div class="flex justify-end">
+
+      <div class="flex justify-between">
         <a
           id="go-back-button"
-          class="self-end w-full px-5 py-2 mt-4 tracking-widest text-center text-gray-600 border border-indigo-200 border-opacity-25 rounded-md cursor-pointer bg-lighter hover:bg-primary text-md header-font"
+          title="Something Not Working? Click Here To Open This Competition"
+          class="flex self-end justify-center flex-grow px-5 py-2 mt-4 tracking-widest text-center text-white bg-indigo-500 border border-indigo-200 border-opacity-25 rounded-md cursor-pointer hover:bg-indigo-300 hover:text-gray-800 text-md header-font"
+          target="_blank"
+          v-bind:href="
+            giveaway.gleam_url || giveaway.playr_url || giveaway.sdqk_url
+          "
+          >Open Competition</a
+        >
+        <a
+          id="go-back-button"
+          class="flex self-end justify-center flex-grow px-5 py-2 mt-4 ml-2 tracking-widest text-center text-gray-600 border border-indigo-200 border-opacity-25 rounded-md cursor-pointer bg-lighter hover:bg-primary text-md header-font"
           @click="handleBack"
+          title="Go Back"
           >Go Back</a
         >
         <a
@@ -666,7 +678,7 @@ export default {
       if (history.length <= 2) this.$router.push("/");
       else this.$router.back();
     },
-    markAsDone: function(gId) {
+    markAsDone: function (gId) {
       const markedAsDone =
         JSON.parse(window.localStorage.getItem("markedAsDone")) || {};
       if (markedAsDone[gId]) {
@@ -721,7 +733,7 @@ export default {
 };
 
 function gleamChecker() {
-  setTimeout(function() {
+  setTimeout(function () {
     let gleamButs = document.getElementsByClassName("w-entry-button");
     gleamButs.forEach((element) => {
       element.classList.add(
