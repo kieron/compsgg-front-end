@@ -1,7 +1,7 @@
 <template>
   <section id="homeList" class="sm:bg-primary md:py-1">
     <div
-      class="container p-2 py-5 mx-auto giveway-container md:my-8 bg-lighter md:p-7 lg:p-10 md:rounded-lg"
+      class="container p-2 py-5 mx-auto  giveway-container md:my-8 bg-lighter md:p-7 lg:p-10 md:rounded-lg"
     >
       <div class="items-center justify-center w-full px-2 md:p-0" id="app">
         <div v-if="loading" class="w-full mx-auto">
@@ -9,7 +9,7 @@
         </div>
         <div v-else class="slide-in-bottom">
           <div
-            class="flex px-5 py-1 mx-2 overflow-hidden transition duration-1000 transform border-indigo-200 rounded-t-lg shadow-sm cursor-pointer bg-middle md:flex"
+            class="flex px-5 py-1 mx-2 overflow-hidden transition duration-1000 transform border-indigo-200 rounded-t-lg shadow-sm cursor-pointer  bg-middle md:flex"
             id="filterToggle"
             v-on:click="animateFilter"
             @click="showToggle = !showToggle"
@@ -19,7 +19,7 @@
             }"
           >
             <span
-              class="flex-grow my-2 font-semibold tracking-widest text-gray-500 uppercase text-md"
+              class="flex-grow my-2 font-semibold tracking-widest text-gray-500 uppercase  text-md"
             >
               Filter
             </span>
@@ -41,21 +41,21 @@
           </div>
 
           <div
-            class="p-5 mx-2 mb-5 overflow-hidden transition duration-300 ease-in-out transform rounded-b-lg shadow-sm swing-in-top-fwd bg-middle hover:border-indigo-200"
+            class="p-5 mx-2 mb-5 overflow-hidden transition duration-300 ease-in-out transform rounded-b-lg shadow-sm  swing-in-top-fwd bg-middle hover:border-indigo-200"
             id="filter"
             v-if="showToggle"
           >
             <div class="flex">
               <div class="w-full px-3 mb-6 md:w-1/3 md:mb-0">
                 <label
-                  class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                  class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase "
                   for="grid-state"
                 >
                   Platform
                 </label>
                 <div class="relative">
                   <select
-                    class="block w-full px-4 py-3 pr-8 leading-tight text-indigo-200 border border-indigo-200 border-opacity-50 rounded opacity-50 appearance-none bg-middle focus:outline-none focus:bg-lighter focus:border-gray-500"
+                    class="block w-full px-4 py-3 pr-8 leading-tight text-indigo-200 border border-indigo-200 border-opacity-50 rounded opacity-50 appearance-none  bg-middle focus:outline-none focus:bg-lighter focus:border-gray-500"
                     id="grid-state"
                     v-model="filter.platform"
                   >
@@ -65,7 +65,7 @@
                     <option value="sdqk_url">Sideqik</option>
                   </select>
                   <div
-                    class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none"
+                    class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none "
                   >
                     <svg
                       class="w-4 h-4 fill-current"
@@ -81,14 +81,14 @@
               </div>
               <div class="w-full px-3 mb-6 md:w-1/3 md:mb-0">
                 <label
-                  class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase"
+                  class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase "
                   for="grid-state"
                 >
                   Verified
                 </label>
                 <div class="relative">
                   <select
-                    class="block w-full px-4 py-3 pr-8 leading-tight text-indigo-200 border border-indigo-200 border-opacity-50 rounded opacity-50 appearance-none bg-middle focus:outline-none focus:bg-lighter focus:border-gray-500"
+                    class="block w-full px-4 py-3 pr-8 leading-tight text-indigo-200 border border-indigo-200 border-opacity-50 rounded opacity-50 appearance-none  bg-middle focus:outline-none focus:bg-lighter focus:border-gray-500"
                     id="grid-state"
                     v-model="filter.verified_twitter"
                   >
@@ -97,7 +97,7 @@
                     <option value="no">No</option>
                   </select>
                   <div
-                    class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none"
+                    class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none "
                   >
                     <svg
                       class="w-4 h-4 fill-current"
@@ -124,10 +124,10 @@
           -->
 
           <div
-            class="w-full px-2 mt-5 mb-5 transition duration-100 ease-out transform hover:-translate-y-2"
+            class="w-full px-2 mt-5 mb-5 transition duration-100 ease-out transform  hover:-translate-y-2"
           >
             <div
-              class="overflow-hidden transition duration-300 transform bg-indigo-900 border-l-8 border-indigo-200 border-solid rounded-lg shadow-sm hover:shadow-md hover:bg-primary md:flex hover:border-indigo-200"
+              class="overflow-hidden transition duration-300 transform bg-indigo-900 border-l-8 border-indigo-200 border-solid rounded-lg shadow-sm  hover:shadow-md hover:bg-primary md:flex hover:border-indigo-200"
             >
               <a
                 href="mailto:hello@comps.gg?subject=A%20great%20new%20opportunity"
@@ -138,7 +138,7 @@
                     <div class="w-full">
                       <div class="flex flex-wrap items-center">
                         <p
-                          class="mr-2 text-lg font-medium tracking-widest text-indigo-100 lg:text-2xl header-font"
+                          class="mr-2 text-lg font-medium tracking-widest text-indigo-100  lg:text-2xl header-font"
                         >
                           Your Message Here!
                         </p>
@@ -146,7 +146,7 @@
 
                       <div class="flex flex-row-reverse justify-end">
                         <p
-                          class="text-xs tracking-widest text-gray-200 md:text-sm"
+                          class="text-xs tracking-widest text-gray-200  md:text-sm"
                         >
                           Want to advertise on Comps.gg? Let's Talk.
                         </p>
@@ -170,11 +170,11 @@
           <div
             v-for="giveaway in paginatedData"
             :key="giveaway.id"
-            class="w-full px-2 mt-5 mb-5 transition duration-100 ease-out transform hover:-translate-y-2"
+            class="w-full px-2 mt-5 mb-5 transition duration-100 ease-out transform  hover:-translate-y-2"
           >
             <div
               v-bind:class="{ 'opacity-25': giveaway.completed }"
-              class="overflow-hidden transition duration-300 transform border-l-8 border-indigo-500 border-solid rounded-lg shadow-sm bg-middle hover:shadow-md hover:bg-primary md:flex hover:border-indigo-200"
+              class="overflow-hidden transition duration-300 transform border-l-8 border-indigo-500 border-solid rounded-lg shadow-sm  bg-middle hover:shadow-md hover:bg-primary md:flex hover:border-indigo-200"
             >
               <router-link :to="'/giveaway/' + giveaway.id" class="w-full">
                 <div class="px-3 py-2 md:p-3 lg:p-4">
@@ -182,13 +182,13 @@
                     <div class="w-full">
                       <div class="flex flex-wrap items-center">
                         <p
-                          class="mr-2 text-lg font-medium tracking-widest text-indigo-200 lg:text-2xl header-font"
+                          class="mr-2 text-lg font-medium tracking-widest text-indigo-200  lg:text-2xl header-font"
                         >
                           {{ giveaway.name }}
                         </p>
                         <div class="flex items-center" v-if="giveaway.boost">
                           <svg
-                            class="inline-block w-4 h-4 mr-1 text-yellow-300 align-middle md:w-5 md:h-5"
+                            class="inline-block w-4 h-4 mr-1 text-yellow-300 align-middle  md:w-5 md:h-5"
                             fill="none"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -212,7 +212,7 @@
                         <div class="flex items-center justify-between">
                           <div class="flex flex-row-reverse justify-end">
                             <p
-                              class="text-xs tracking-widest text-gray-500 md:text-sm"
+                              class="text-xs tracking-widest text-gray-500  md:text-sm"
                             >
                               {{ giveaway.description }}
                             </p>
@@ -223,10 +223,10 @@
                       <div class="flex flex-wrap text-xs giveawayInfo">
                         <div
                           v-if="giveaway.verified_twitter"
-                          class="flex flex-no-wrap items-center mr-2 text-gray-600"
+                          class="flex flex-no-wrap items-center mr-2 text-gray-600 "
                         >
                           <svg
-                            class="inline w-4 h-4 mr-1 text-green-600 align-middle"
+                            class="inline w-4 h-4 mr-1 text-green-600 align-middle "
                             fill="none"
                             stroke-linecap="round"
                             stroke-linejoin="round"
@@ -246,7 +246,7 @@
                         </div>
                         <div
                           v-if="giveaway.created_at"
-                          class="flex flex-no-wrap items-center mr-2 text-gray-600"
+                          class="flex flex-no-wrap items-center mr-2 text-gray-600 "
                         >
                           <svg
                             class="inline w-4 h-4 mr-1 align-middle"
@@ -267,7 +267,7 @@
                         </div>
                         <div
                           v-if="giveaway.ends_at"
-                          class="flex flex-no-wrap items-center mr-2 text-gray-600"
+                          class="flex flex-no-wrap items-center mr-2 text-gray-600 "
                         >
                           <svg
                             fill="none"
@@ -290,10 +290,10 @@
                         <div
                           v-if="
                             giveaway.gleam_url ||
-                              giveaway.playr_url ||
-                              giveaway.sdqk_url
+                            giveaway.playr_url ||
+                            giveaway.sdqk_url
                           "
-                          class="flex flex-no-wrap items-center mr-2 text-gray-600"
+                          class="flex flex-no-wrap items-center mr-2 text-gray-600 "
                         >
                           <svg
                             class="inline w-4 h-4 mr-1 align-middle"
@@ -330,7 +330,7 @@
 
                         <div
                           v-if="giveaway.like_required"
-                          class="flex flex-no-wrap items-center mr-2 text-gray-600"
+                          class="flex flex-no-wrap items-center mr-2 text-gray-600 "
                         >
                           <svg
                             class="inline w-4 h-4 mr-1 align-middle"
@@ -405,10 +405,10 @@
                       </div>
                     </div>
                     <div
-                      class="px-1 mt-3 ml-5 font-bold text-indigo-300 transition duration-300 rounded-lg sm:mt-0 md:py-1 md:p-4 hover:text-indigo-100"
+                      class="px-1 mt-3 ml-5 font-bold text-indigo-300 transition duration-300 rounded-lg  sm:mt-0 md:py-1 md:p-4 hover:text-indigo-100"
                     >
                       <svg
-                        class="w-6 h-6 "
+                        class="w-6 h-6"
                         fill="none"
                         stroke-linecap="round"
                         stroke-linejoin="round"
@@ -504,7 +504,7 @@ export default {
     async getAllGiveAways() {
       try {
         await fetch(
-          "https://api.comps.gg/giveaways?published=true&_sort=created_at:desc&_limit=-1"
+          "https://api.comps.gg/giveaways?published=true&_sort=created_at:desc&_limit=-300"
         )
           .then((response) => response.json())
           .then((data) => {
@@ -518,7 +518,7 @@ export default {
             let markedAsDone = localStorage.getItem("markedAsDone");
 
             if (markedAsDone != null) {
-              this.giveaways.forEach(function(item) {
+              this.giveaways.forEach(function (item) {
                 item.completed = markedAsDone.includes(item.id);
               });
             }
@@ -531,9 +531,9 @@ export default {
         console.log(err);
       }
     },
-    animateFilter: function() {
+    animateFilter: function () {
       document.getElementById("filterIcon").classList.add("jello-horizontal");
-      setTimeout(function() {
+      setTimeout(function () {
         document
           .getElementById("filterIcon")
           .classList.remove("jello-horizontal");
