@@ -19,6 +19,7 @@
     "moment": "^2.29.1",
     "tailwindcss": "^1.8.12",
     "vue": "^2.6.12",
+    "vue-google-adsense": "^1.10.1",
     "vue-gtag": "^1.9.1",
     "vue-mailchimp-subscribe": "^1.1.0",
     "vue-meta": "^2.4.0",
