@@ -9,7 +9,7 @@ import "@/assets/css/tailwind.css";
 Vue.use(require("vue-script2"));
 Vue.use(Ads.AutoAdsense, {
   adClient: "pub-7677794196959549",
-  isNewAdsCode: true,
+  isNewAdsCode: false,
 });
 Vue.config.productionTip = false;
 
