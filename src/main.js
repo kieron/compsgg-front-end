@@ -7,7 +7,10 @@ import Ads from "vue-google-adsense";
 import "@/assets/css/tailwind.css";
 
 Vue.use(require("vue-script2"));
-Vue.use(Ads.AutoAdsense, { adClient: "7677794196959549", isNewAdsCode: false });
+Vue.use(Ads.AutoAdsense, {
+  adClient: "pub-7677794196959549",
+  isNewAdsCode: true,
+});
 Vue.config.productionTip = false;
 
 Vue.component("SvgIcon", SvgIcon);
