@@ -45,8 +45,8 @@
             id="filter"
             v-if="showToggle"
           >
-            <div class="flex">
-              <div class="w-full px-3 mb-6 md:w-1/3 md:mb-0">
+            <div class="flex flex-wrap">
+              <div class="w-1/2 px-3 mb-6 md:w-1/3 md:mb-0">
                 <label
                   class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase "
                   for="grid-state"
@@ -79,7 +79,7 @@
                   </div>
                 </div>
               </div>
-              <div class="w-full px-3 mb-6 md:w-1/3 md:mb-0">
+              <div class="w-1/2 px-3 mb-6 md:w-1/3 md:mb-0">
                 <label
                   class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase "
                   for="grid-state"
