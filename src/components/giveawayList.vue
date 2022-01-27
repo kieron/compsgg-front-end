@@ -111,6 +111,37 @@
                   </div>
                 </div>
               </div>
+              <div class="w-full px-3 mb-6 md:w-1/3 md:mb-0">
+                <label
+                  class="block mb-2 text-xs font-bold tracking-wide text-gray-700 uppercase "
+                  for="grid-state"
+                >
+                  Include Ended
+                </label>
+                <div class="relative">
+                  <select
+                    class="block w-full px-4 py-3 pr-8 leading-tight text-indigo-200 border border-indigo-200 border-opacity-50 rounded opacity-50 appearance-none  bg-middle focus:outline-none focus:bg-lighter focus:border-gray-500"
+                    id="grid-state"
+                    v-model="filter.include_ended"
+                  >
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                  </select>
+                  <div
+                    class="absolute inset-y-0 right-0 flex items-center px-2 text-gray-700 pointer-events-none "
+                  >
+                    <svg
+                      class="w-4 h-4 fill-current"
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -436,7 +467,10 @@
           ╚═╝     ╚═╝  ╚═╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝╚═╝  ╚═╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
           -->
 
-          <div class="flex pb-5 mx-auto pagination">
+          <div
+            class="flex pb-5 mx-auto pagination"
+            v-if="filteredGiveaways.length > 10"
+          >
             <paginator
               :data="filteredGiveaways"
               @loadedData="getPaginatedData"
@@ -463,6 +497,7 @@ export default {
       filter: {
         verified_twitter: "none",
         platform: "none",
+        include_ended: "yes",
       },
       giveaways: [],
       loading: true,
@@ -473,17 +508,24 @@ export default {
   },
   computed: {
     filteredGiveaways() {
-      let { platform, verified_twitter } = this.filter;
+      let fg = this.giveaways;
+      let { platform, verified_twitter, include_ended } = this.filter;
       let verified = this.deString(verified_twitter);
-
       let filters = [];
+      if (include_ended === "no") {
+        fg = fg.filter((item) => {
+          return (
+            item.end_date && new Date(item.end_date).getTime() > Date.now()
+          );
+        });
+      }
 
       if (verified !== "none")
         filters.push({ key: "verified_twitter", value: verified });
       if (platform !== "none")
         filters.push({ key: platform, value: null, op: "ne" });
 
-      return this.giveaways.filter((gw) => {
+      return fg.filter((gw) => {
         return filters.every(({ key, value, op }) => {
           return op && op === "ne" ? gw[key] !== value : gw[key] === value;
         });
@@ -504,7 +546,7 @@ export default {
     async getAllGiveAways() {
       try {
         await fetch(
-          "https://api.comps.gg/giveaways?published=true&_sort=created_at:desc&_limit=300"
+          "https://api.comps.gg/giveaways?published=true&_sort=created_at:desc&_limit=350"
         )
           .then((response) => response.json())
           .then((data) => {
