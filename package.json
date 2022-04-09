@@ -16,7 +16,7 @@
     "deploy-live": "vue-cli-service build && npm run transfer"
   },
   "dependencies": {
-    "moment": "^2.29.1",
+    "moment": "^2.29.2",
     "tailwindcss": "^1.8.12",
     "vue": "^2.6.12",
     "vue-google-adsense": "^1.10.1",
