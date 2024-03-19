@@ -548,6 +548,90 @@ export default {
       }[value];
     },
     async getAllGiveAways() {
+    try {
+      // Hardcoded data array
+      const data = [
+        {
+          id: 15943,
+          name: "Gaming Bundle Vast Campaign",
+          description: "We’ve teamed up with @KingGeorge for this HUGE Gaming Bundle giveaway!\n\nTo enter, perform these actions via the link below.\n\n-   Retweet and like this tweet\n-   Follow @KingGeorge \n\nEnter Here:  ",
+          tweet_url: "https://twitter.com/VastGG/status/1635741875419185203",
+          tweet_created_at: "Tue Mar 14 20:37:08 +0000 2023",
+          display_name: "VastGG",
+          verified_twitter: false,
+          user_followers_count: 831684,
+          published: true,
+          gleam_url: "https://gleam.io/JvAei/kinggeorge-huge-gaming-bundle-vast-campaign-mar-14th-apr-13th",
+          detected_urls: "https://vast.link/kinggeorge",
+          twitterProfileUrl: "https://twitter.com/VastGG",
+          twitterProfileImage: "https://pbs.twimg.com/profile_images/1610319099560615937/OIqiXqhX_normal.jpg",
+          entry_url: null,
+          like_required: true,
+          rt_required: true,
+          playr_url: null,
+          boost: false,
+          sdqk_url: null,
+          tweet_id: "1635741875419185203",
+          follow_required: true,
+          user_id: "851661253944766465",
+          end_date: "2023-04-14T06:59:59.000Z",
+          created_at: "2023-03-14T19:37:16.000Z",
+          updated_at: "2023-03-14T19:37:16.000Z"
+        },
+        {
+          id: 15942,
+          name: "Win a Raspberry Pi Case on Pi day!",
+          description: "It's Pi day! And instead of a giveaway with a few of our Pi Case 40s, we're giving away a total of 100! Yes, your eyes do not deceive you. 100 Pi cases on Pi day. Just be sure to share a slice with a friend 😎  #win #CoolerMaster #piDay2023 #raspberrypi",
+          tweet_url: "https://twitter.com/CoolerMaster_NA/status/1635699185596141568",
+          tweet_created_at: "Tue Mar 14 17:47:30 +0000 2023",
+          display_name: "CoolerMaster_NA",
+          verified_twitter: false,
+          user_followers_count: 160728,
+          published: true,
+          gleam_url: "https://gleam.io/GMVY1/win-a-raspberry-pi-case-on-pi-day",
+          detected_urls: null,
+          twitterProfileUrl: "https://twitter.com/CoolerMaster_NA",
+          twitterProfileImage: "https://pbs.twimg.com/profile_images/1556684135380369408/aX6cqJ4T_normal.jpg",
+          entry_url: null,
+          like_required: false,
+          rt_required: false,
+          playr_url: null,
+          boost: false,
+          sdqk_url: null,
+          tweet_id: "1635699185596141568",
+          follow_required: false,
+          user_id: "28228172",
+          end_date: "2023-03-22T06:59:59.000Z",
+          created_at: "2023-03-14T16:47:36.000Z",
+          updated_at: "2023-03-14T16:47:36.000Z"
+        }
+      ]
+  
+      // Process the hardcoded data
+      this.giveaways = data.map((item) => ({
+        ...item,
+        created_at: moment(item.created_at).format("DD/MM/YY"),
+        ends_at: item.end_date
+          ? moment(item.end_date).format("DD/MM/YY HH:MM")
+          : "",
+      }))
+  
+      let markedAsDone = localStorage.getItem("markedAsDone")
+  
+      if (markedAsDone != null) {
+        this.giveaways.forEach(function(item) {
+          item.completed = markedAsDone.includes(item.id)
+        })
+      }
+  
+      this.giveaways.sort((a, b) => Number(b.boost) - Number(a.boost))
+  
+      this.loading = false
+    } catch (err) {
+      console.log(err)
+    }
+  },
+    async getAllGiveAwaysOld() {
       try {
         await fetch(
           "https://api.comps.gg/giveaways?published=true&_sort=created_at:desc&_limit=250"
