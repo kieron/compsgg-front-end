@@ -13,10 +13,16 @@
             Find the best competitions & giveaways
           </h1>
           <p class="text-sm leading-normal text-indigo-100 md:text-2xl">
+            This site is now closed, and kept up for demo purposes.
+          </p>
+          <!--
+          <p class="text-sm leading-normal text-indigo-100 md:text-2xl">
+            This site is now closed, and kept up for demo purposes.
             Stop wasting time searching through spam websites & suspicious
             links, use comps.gg to find the best legitimate competitions &
             giveaways from all over the web.
           </p>
+          -->
         </div>
       </div>
     </div>
